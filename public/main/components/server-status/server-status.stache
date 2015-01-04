@@ -27,14 +27,14 @@
   {{#activeClients}}
   <dl>
     <dt>Clients</dt>
-    <dd>Active: {{total}} <br/>  Read Lock: {{readers}} <br/>  Write Lock: {{writers}}</dd>
+    <dd>Active: {{number total}} <br/>  Read Lock: {{number readers}} <br/>  Write Lock: {{number writers}}</dd>
   </dl>
   {{/activeClients}}
 
   {{#currentQueue}}
   <dl>
     <dt>Queues</dt>
-    <dd>Operations: {{total}} <br/>  Read Lock: {{readers}} <br/>  Write Lock: {{writers}}</dd>
+    <dd>Operations: {{number total}} <br/>  Read Lock: {{number readers}} <br/>  Write Lock: {{number writers}}</dd>
   </dl>
   {{/currentQueue}}
 {{/globalLock}}
@@ -42,14 +42,14 @@
 {{#opcounters}}
 <dl>
   <dt>Operation Counts</dt>
-  <dd>Inserts: {{insert}} <br/>  Queries: {{query}} <br/>  Updates: {{update}} <br/>  Deletes: {{delete}}</dd>
+  <dd>Inserts: {{number insert}} <br/>  Queries: {{number query}} <br/>  Updates: {{number update}} <br/>  Deletes: {{number delete}}</dd>
 </dl>
 {{/opcounters}}
 
 {{#backgroundFlushing}}
 <dl>
   <dt>Flush Count</dt>
-  <dd>{{flushes}}</dd>
+  <dd>{{number flushes}}</dd>
 
   <dt>Last Flush</dt>
   <dd>{{last_finished}}</dd>
@@ -58,7 +58,7 @@
   <dd>{{last_ms}} ms</dd>
 
   <dt>Average Time</dt>
-  <dd>{{average_ms}} ms</dd>
+  <dd>{{number average_ms 4}} ms</dd>
 </dl>
 {{/backgroundFlushing}}
 

@@ -46,10 +46,10 @@ var AppState = can.Map.extend({
 
 		collections: {
 			set(value){
-				console.log('collections');
-				console.log(value);
+				// console.log('collections');
+				// console.log(value);
 
-				console.log('resolving colDef')
+				// console.log('resolving colDef')
 				colDef.resolve(value);
 
 				return value;

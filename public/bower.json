@@ -20,6 +20,7 @@
     "jquery": "~2.1.1",
     "momentjs": "~2.8.4",
     "steal": "~0.4.0",
-    "codemirror": "~4.8.0"
+    "codemirror": "~4.8.0",
+    "accounting.js": "~0.3.2"
   }
 }

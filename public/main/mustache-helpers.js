@@ -8,7 +8,7 @@ can.stache.registerHelper('hrefTo', function(page){
 	return can.stache.safeString(can.route.url({page: page}));
 });
 
-can.stache.registerHelper('money$', function(amount){
+can.stache.registerHelper('money', function(amount){
 	if (typeof amount()) {
 		return accounting.formatMoney(amount()/100);
 	} else {
@@ -16,9 +16,10 @@ can.stache.registerHelper('money$', function(amount){
 	}
 });
 
-can.stache.registerHelper('money', function(amount){
+can.stache.registerHelper('number', function(amount, decimals){
+	var decimals = decimals || 0;
 	if (typeof amount()) {
-		return accounting.formatMoney(amount()/100, '');
+		return accounting.formatMoney(amount(), '', decimals);
 	} else {
 		return '';
 	}
