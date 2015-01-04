@@ -10,7 +10,7 @@
   <dd>{{version}}</dd>
 
   <dt>Uptime</dt>
-  <dd>{{uptime}} seconds</dd>
+  <dd>{{secondsHumanize uptime}}</dd>
 
   <dt>Server Time</dt>
   <dd>{{localTime}}</dd>

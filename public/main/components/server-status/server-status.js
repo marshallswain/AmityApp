@@ -13,7 +13,6 @@ can.Component.extend({
 				url: 'api/status',
 			})
 			.done(function(data) {
-				console.log("success");
 				self.attr('stats', data);
 			});
 		},
@@ -23,6 +22,14 @@ can.Component.extend({
 		}
 
 	},
-	events: {},
-	helpers:{}
+	helpers:{
+		milliHumanize:function(value){
+			return moment.duration(value()).humanize();
+		},
+
+		secondsHumanize:function(value){
+			return moment.duration(value(), 'seconds').humanize();
+		},
+
+	}
 });

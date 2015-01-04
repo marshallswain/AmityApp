@@ -10,7 +10,6 @@ exports.status = function(req, res, next){
   var db = mongoServer.attr('admin');
 
   db.serverStatus(function(err, info) {
-    console.log(info.host);
     return res.json(info);
   });
 }
