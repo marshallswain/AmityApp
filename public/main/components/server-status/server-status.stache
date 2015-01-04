@@ -1,6 +1,6 @@
 {{loading}}
 
-<h4>Server Status <i class="mdi-action-autorenew pull-right" can-click="refresh"></i></h4>
+<h4>Server Status <i class="mdi-action-autorenew pull-right {{#if spin}}spinner{{/if}}" can-click="refresh"></i></h4>
 {{#stats}}
 <dl>
   <dt>Hostname</dt>

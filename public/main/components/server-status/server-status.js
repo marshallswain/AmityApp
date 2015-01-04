@@ -7,6 +7,9 @@ can.Component.extend({
 		stats:{},
 
 		loading:function(){
+			// Make the arrows spin
+			this.attr('spin', true);
+
 			var self = this;
 
 			can.$.ajax({
@@ -14,13 +17,18 @@ can.Component.extend({
 			})
 			.done(function(data) {
 				self.attr('stats', data);
+				// Stop the spinning arrows
+				setTimeout(function() {
+					self.attr('spin', false);
+				}, 1000);
 			});
 		},
 
 		refresh:function(scope, el, ev){
 			this.loading();
-		}
+		},
 
+		spin:false
 	},
 	helpers:{
 		milliHumanize:function(value){

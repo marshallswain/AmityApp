@@ -137,6 +137,15 @@ body {
   }
 }
 
+.spinner{
+  -webkit-animation: rotation 2s infinite linear;
+}
+@-webkit-keyframes rotation {
+  from {-webkit-transform: rotate(0deg);}
+  to   {-webkit-transform: rotate(359deg);}
+}
+
+
 /* TILE TOOLS */
 .tile .tile-tools{
   opacity:0;
@@ -361,9 +370,14 @@ table tr td:nth-child(2) > a{
   top:-7px;
   cursor: pointer;
   padding:8px;
+
+}
+.sidebar h4 i.spinner:hover{
+  background:none;
 }
 .sidebar h4 i:hover{
   background:rgba(0, 0, 0, 0.11);
+
 }
 .sidebar dl{
   margin-bottom:16px;
