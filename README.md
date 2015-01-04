@@ -1,7 +1,7 @@
 Amity Database Manager
 =========================
 
-[![NPM](https://nodei.co/npm/amity.png?downloads=true&stars=true)](https://nodei.co/npm/feathers-mongoose-advanced/)
+[![NPM](https://nodei.co/npm/amity.png?downloads=true&stars=true)](https://nodei.co/npm/amity/)
 
 ## Amity - a web-based database admin interface 
 
