@@ -4,10 +4,24 @@ var bson = require('../utils/bson');
 var mongoServer = require('../mongoServer');
 
 
-//Update database list
-exports.databases = function() {
+// Retrive the server Info
+exports.status = function(req, res, next){
+  // Get the admin db.
+  var db = mongoServer.attr('admin');
 
-  // Get the mongoClient
+  db.serverStatus(function(err, info) {
+    console.log(info.host);
+    return res.json(info);
+  });
+}
+
+
+//Update database list
+exports.databases = function(req, res) {
+
+  console.log(arguments)
+
+  // Get the admin db.
   var db = mongoServer.attr('admin');
 
   db.listDatabases(function(err, dbs) {

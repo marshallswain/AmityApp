@@ -79,7 +79,6 @@ var AppState = can.Map.extend({
 		collection:{
 			value:{},
 			set(value){
-				console.log('collection: ' + value);
 				// this.attr('docs', new Doc.List({'database':this.attr('database'), 'collection':value}));
 				return value;
 			},
