@@ -4,7 +4,7 @@ var express = require('express'),
   http = require('http'),
   _ = require('underscore'),
   async = require('async'),
-  utils = require('./utils');
+  utils = require('./utils/utils');
 
 var app = express(),
 config = require('./config');
@@ -259,21 +259,21 @@ var api = require('./routes/api');
 
 
 //Routes
-app.get(config.site.baseUrl, middleware,  routes.index);
+// app.get(config.site.baseUrl, middleware,  routes.index);
 
-app.get(config.site.baseUrl+'db/:database/export/:collection', middleware, routes.exportCollection);
+// app.get(config.site.baseUrl+'db/:database/export/:collection', middleware, routes.exportCollection);
 
-app.get(config.site.baseUrl+'db/:database/:collection/:document', middleware, routes.viewDocument);
-app.put(config.site.baseUrl+'db/:database/:collection/:document', middleware, routes.updateDocument);
-app.del(config.site.baseUrl+'db/:database/:collection/:document', middleware, routes.deleteDocument);
-app.post(config.site.baseUrl+'db/:database/:collection', middleware, routes.addDocument);
+// app.get(config.site.baseUrl+'db/:database/:collection/:document', middleware, routes.viewDocument);
+// app.put(config.site.baseUrl+'db/:database/:collection/:document', middleware, routes.updateDocument);
+// app.del(config.site.baseUrl+'db/:database/:collection/:document', middleware, routes.deleteDocument);
+// app.post(config.site.baseUrl+'db/:database/:collection', middleware, routes.addDocument);
 
-app.get(config.site.baseUrl+'db/:database/:collection', middleware, routes.viewCollection);
-app.put(config.site.baseUrl+'db/:database/:collection', middleware, routes.renameCollection);
-app.del(config.site.baseUrl+'db/:database/:collection', middleware, routes.deleteCollection);
-app.post(config.site.baseUrl+'db/:database', middleware, routes.addCollection);
+// app.get(config.site.baseUrl+'db/:database/:collection', middleware, routes.viewCollection);
+// app.put(config.site.baseUrl+'db/:database/:collection', middleware, routes.renameCollection);
+// app.del(config.site.baseUrl+'db/:database/:collection', middleware, routes.deleteCollection);
+// app.post(config.site.baseUrl+'db/:database', middleware, routes.addCollection);
 
-app.get(config.site.baseUrl+'db/:database', middleware, routes.viewDatabase);
+// app.get(config.site.baseUrl+'db/:database', middleware, routes.viewDatabase);
 
 app.get(config.site.baseUrl+'api/databases', api.databases);
 // app.get(config.site.baseUrl+'api/:database', middleware, api.collectionsFromDB);

@@ -1,0 +1,83 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ document._id|to_string }}{% endblock %}
+
+
+{% block head %}
+  <link href="stylesheets/codemirror.css" rel="stylesheet">
+  <script type="text/javascript" src="javascripts/codemirror-compressed.js"></script>
+
+  {% if editorTheme != "default" %}
+  <link href="stylesheets/theme/{{ editorTheme }}.css" rel="stylesheet">
+  {% endif %}
+
+  <style type="text/css">
+    .CodeMirror-scroll {
+      height: auto;
+      overflow-y: hidden;
+      overflow-x: auto;
+      width: 100%;
+    }
+  </style>
+{% endblock %}
+
+
+{% block breadcrumb %}
+  <li>
+    <a href="">Home</a>
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="db/{{ dbName }}">{{ dbName }}</a>
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="db/{{ dbName }}/{{ collectionName }}">{{ collectionName }}</a>
+    <span class="divider">/</span>
+  </li>
+  <li class="active">
+    {{ document._id|to_string }}
+  </li>
+{% endblock %}
+
+
+{% block content %}
+
+<form method="POST" action="db/{{ dbName }}/{{ collectionName }}/{{ document._id|to_string }}">
+  <input type="hidden" name="_method" value="put">
+  <button type="submit" class="btn btn-success btn-large"{# onclick="return checkJSON()"#}>
+    <i class="icon-pencil icon-white"></i>
+    Save
+  </button>
+  <br /><br />
+
+  <textarea class="span9" id="document" name="document">{{ docString }}</textarea>
+</form>
+
+<script>
+  var doc = CodeMirror.fromTextArea(document.getElementById('document'), {
+    mode: { name: "javascript", json: true },
+    indentUnit: 4,
+    lineNumbers: true,
+    autoClearEmptyLines: true,
+    matchBrackets: true,
+    theme: "{{ editorTheme }}"
+  });
+
+{# This can check for valid JSON on the client side
+ # Not used at the moment, since it doesn't allow BSON types
+  function checkJSON() {
+    var d = doc.getValue();
+
+    try {
+      docJSON = JSON.parse(d);
+      return true;
+    } catch (err) {
+      alert('This is not a valid document!');
+      return false;
+    }
+  }
+#}
+</script>
+
+{% endblock %}

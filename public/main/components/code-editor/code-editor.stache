@@ -1,0 +1,6 @@
+<div class="record">
+  <div id="editor{{count}}" class="editor">
+    <i class="delete mdi-content-clear pull-right"></i>
+    <p class="_id">{{id}}</p>
+  </div>
+</div>

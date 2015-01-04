@@ -19,8 +19,3 @@ npm-debug.log
 config.js
 admins.json
 public/bower_components
-routes
-public
-views
-test
-utils

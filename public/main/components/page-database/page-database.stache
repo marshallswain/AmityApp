@@ -1,0 +1,119 @@
+<div class="row">
+
+  <div class="col-sm-9 main">
+    <div class="page-header">
+
+      <div class="breadcrumbs">
+        <a href="javascript:void(0)" can-click="home"><i class="mdi-action-dns"></i></a>
+        <span> / </span>
+      </div>
+
+      {{#database}}
+      <h1>{{name}}</h1>
+
+      <div class="view-tools">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="javascript:void(0)"><i class="mdi-content-remove-circle-outline"></i></a></li>
+        </ul>
+
+        <ul class="nav nav-pills pull-right search">
+          <li><a href="javascript:void(0)"><i class="mdi-action-search"></i></a></li>
+        </ul>
+
+        <ul class="nav nav-pills pull-right search">
+          <li><a id="add-col-btn"  href="javascript:void(0)"><i class="mdi-content-add"></i></a></li>
+        </ul>
+
+        <div id="add-col-form" class="form-container well bs-component">
+          <form class="form-inline" role="form">
+            <div class="col-md-12">
+              <h3>New Collection</h3>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail" class="col-md-12 control-label">Name</label>
+              <div class="col-md-12">
+                <div class="form-control-wrapper"><input type="text" class="form-control empty"></div>
+              </div>
+            </div>
+
+            <div class="col-md-offset-">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button class="btn btn-default pull-left">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+    <p>{{collections}} collections</p>
+      {{/database}}
+
+
+
+  </div>
+
+  <div class="table-responsive collection-table">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th># Documents</th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+      {{#appState}}
+      {{#each collections}}
+        <tr>
+          <td>{{index @index}}</td>
+          <td>
+            <a href="" can-click="openCollection">{{name}}</a>
+          </td>
+          <td>
+            {{number documents}}
+            <span class="table-tools pull-right">
+              <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+              <a href="" class="btn-download">Export</a>
+              <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+            </span>
+          </td>
+        </tr>
+      {{/each collections}}
+      {{/appState}}
+
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-sm-3 col-sm-offset-9 sidebar">
+    <h4>Users <i class="mdi-action-autorenew pull-right"></i><i class="mdi-content-add pull-right"></i></h4>
+    <ul class="nav nav-sidebar user-list">
+      <li>
+        <a href="">marshall  <i class="mdi-editor-mode-edit pull-right"></i></a>
+      </li>
+    </ul>
+
+    <h4>Data Usage <i class="mdi-action-autorenew pull-right"></i></h4>
+    <table class="sidebar-table">
+      <tr>
+        <td>dataSize</td>
+        <td>1.16 KB</td>
+      </tr>
+      <tr>
+        <td>indexSize</td>
+        <td>47.9 KB</td>
+      </tr>
+      <tr>
+        <td>fileSize</td>
+        <td>16 MB</td>
+      </tr>
+    </table>
+  </div>
+
+</div>

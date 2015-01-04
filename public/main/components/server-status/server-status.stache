@@ -1,0 +1,48 @@
+<h4>Server Status <i class="mdi-action-autorenew pull-right"></i></h4>
+<dl>
+  <dt>Hostname</dt>
+  <dd>localhost</dd>
+
+  <dt>MongoDB Version</dt>
+  <dd>2.4.7</dd>
+
+  <dt>Uptime</dt>
+  <dd>92455 seconds (1 days)</dd>
+
+  <dt>Server Time</dt>
+  <dd>Sun, 23 Nov 2014 19:13:01 GMT</dd>
+</dl>
+
+<dl>
+  <dt>Connections</dt>
+  <dd>Current: 5<br/>Available: 199</dd>
+</dl>
+
+<dl>
+  <dt>Clients</dt>
+  <dd>Active: 0<br/>  Reading: 0<br/>  Writing: 0</dd>
+</dl>
+
+<dl>
+  <dt>Queues</dt>
+  <dd>Operations:0 <br/>  Read Lock: 0 <br/>  Write Lock: 0</dd>
+</dl>
+
+<dl>
+  <dt>Operation Counts</dt>
+  <dd>Inserts: 14 <br/>  Queries: 6901 <br/>  Updates: 0 <br/>  Deletes: 2</dd>
+</dl>
+
+<dl>
+  <dt>Flush Count</dt>
+  <dd>1047</dd>
+
+  <dt>Last Flush</dt>
+  <dd>Sun, 23 Nov 2014 19:29:46 GMT</dd>
+
+  <dt>Time Spent</dt>
+  <dd>5154 ms</dd>
+
+  <dt>Average Time</dt>
+  <dd>4.922636103151863 ms</dd>
+</dl>

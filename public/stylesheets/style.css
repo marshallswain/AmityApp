@@ -1,0 +1,9 @@
+.documentlist {
+  height: 100px;
+  overflow: auto;
+}
+
+.documentlist:hover {
+  cursor: pointer;
+  background: #EEE;
+}

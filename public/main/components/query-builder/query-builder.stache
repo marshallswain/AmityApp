@@ -1,0 +1,27 @@
+<div class="query-wrapper">
+  <form class="form" role="form">
+
+    <div class="query">
+      <!-- Find --><span class="find"><span>find({</span><span contenteditable class="editable params"></span><span>}<span class="fields">,{<span contenteditable class="editable"></span>}</span>)</span></span>
+      <!-- Skip <--><span class="skip query-block"></--><span>.skip(</span><span contenteditable class="editable">10</span><span>)</span></span>
+      <!-- Limit <--><span class="limit query-block"></--><span>.limit(</span><span contenteditable class="editable">10</span><span>)</span></span>
+      <!-- Explain --><span class="explain query-block">.explain()</span>
+    </div>
+
+    <div class="row query-bottom">
+      <div class="col-md-10">
+        <ul class="query-options">
+          <li>fields</li>
+          <li>skip</li>
+          <li>limit</li>
+          <li>explain</li>
+        </ul>
+      </div>
+
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-primary btn-block">Run</button>
+      </div>
+    </div>
+
+  </form>
+</div>

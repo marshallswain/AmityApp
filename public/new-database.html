@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Mongo Express</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bower_components/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
+    <link href="/bower_components/bootstrap-material-design/dist/css/material-wfont.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/dashboard.css" />
+  	<link rel="stylesheet" href="/material-colors.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <!-- <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
+
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <script src="/bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
+    <script src="/bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.material.init();
+        });
+    </script>
+
+
+  </head>
+
+  <body class="material-page indigo">
+
+    <nav class="navbar navbar-default navbar-fixed-top bg-700" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <a class="navbar-brand" href="#">localhost</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="navbar-select dropdown">
+              <a href="javascript:void(0)" class="dropdown-toggle withripple" data-toggle="dropdown">mma-db <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                  <li><a href="javascript:void(0)" class=" withripple">bchm</a></li>
+                  <li><a href="javascript:void(0)" class=" withripple">bchm-old</a></li>
+                  <li><a href="javascript:void(0)" class=" withripple">e-store</a></li>
+                  <li><a href="javascript:void(0)" class=" withripple">feathers</a></li>
+                  <li><a href="javascript:void(0)" class=" withripple">kardon-db</a></li>
+                  <li><a href="javascript:void(0)" class=" withripple">mma-db</a></li>
+                  <li><a href="javascript:void(0)" class=" withripple">tv-guide</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="icon-only"><a href="#"><i class="mdi-action-help"></i> </a></li>
+            <li class="icon-only">
+              <a href="javascript:void(0)" class="dropdown-toggle withripple" data-toggle="dropdown"><i class="mdi-action-account-box"></i></a>
+              <ul class="dropdown-menu">
+                  <li><a href="javascript:void(0)">Users</a></li>
+                  <li><a href="javascript:void(0)">Logout</a></li>
+              </ul>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- BEGIN CONTENT -->
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-sm-9 main">
+          <div class="page-header">
+
+            <div class="breadcrumbs">
+              <a href="/new-index.html"><i class="mdi-action-dns"></i></a>
+              <span> / </span>
+            </div>
+
+            <h1>mma-db</h1>
+
+            <div class="view-tools">
+              <ul class="nav nav-pills pull-right">
+                <li><a href="javascript:void(0)"><i class="mdi-content-remove-circle-outline"></i></a></li>
+              </ul>
+
+              <ul class="nav nav-pills pull-right search">
+                <li><a href="javascript:void(0)"><i class="mdi-action-search"></i></a></li>
+              </ul>
+
+              <ul class="nav nav-pills pull-right search">
+                <li><a id="add-col-btn"  href="javascript:void(0)"><i class="mdi-content-add"></i></a></li>
+              </ul>
+
+              <div id="add-col-form" class="form-container well bs-component">
+                <form class="form-inline" role="form">
+                  <div class="col-md-12">
+                    <h3>New Collection</h3>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-md-12 control-label">Name</label>
+                    <div class="col-md-12">
+                      <div class="form-control-wrapper"><input type="text" class="form-control empty"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-offset-">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button class="btn btn-default pull-left">Cancel</button>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+
+          </div>
+
+          <p>16 collections</p>
+
+
+          <div class="table-responsive collection-table">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th># Documents</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    <a href="/new-collection.html#">account_shared_names</a>
+                  </td>
+                  <td>
+                    2
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    <a href="/new-collection.html#">accounts</a>
+                  </td>
+                  <td>
+                    19
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    <a href="/new-collection.html#">assets</a>
+                  </td>
+                  <td>
+                    1,242
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>
+                    <a href="/new-collection.html#">budget</a>
+                  </td>
+                  <td>
+                    855
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>
+                    <a href="/new-collection.html#">calendar</a>
+                  </td>
+                  <td>
+                    57
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>
+                    <a href="/new-collection.html#">categories</a>
+                  </td>
+                  <td>
+                    411
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>
+                    <a href="/new-collection.html#">contacts</a>
+                  </td>
+                  <td>
+                    1,001
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>
+                    <a href="/new-collection.html#">credit_scores</a>
+                  </td>
+                  <td>
+                    141
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>
+                    <a href="/new-collection.html#">debt</a>
+                  </td>
+                  <td>
+                    144
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>
+                    <a href="/new-collection.html#">labels</a>
+                  </td>
+                  <td>
+                    1
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td>
+                    <a href="/new-collection.html#">planning</a>
+                  </td>
+                  <td>
+                    55
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>12</td>
+                  <td>
+                    <a href="/new-collection.html#">preferences</a>
+                  </td>
+                  <td>
+                    991
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>13</td>
+                  <td>
+                    <a href="/new-collection.html#">reports</a>
+                  </td>
+                  <td>
+                    1,444
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>14</td>
+                  <td>
+                    <a href="/new-collection.html#">sessions</a>
+                  </td>
+                  <td>
+                    144,242
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>15</td>
+                  <td>
+                    <a href="/new-collection.html#">system.indexes</a>
+                  </td>
+                  <td>
+                    555
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>16</td>
+                  <td>
+                    <a href="/new-collection.html#">system.users</a>
+                  </td>
+                  <td>
+                    155
+                    <span class="table-tools pull-right">
+                      <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
+                      <a href="" class="btn-download">Export</a>
+                      <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="col-sm-3 col-sm-offset-9 sidebar">
+          <h4>Users <i class="mdi-action-autorenew pull-right"></i><i class="mdi-content-add pull-right"></i></h4>
+          <ul class="nav nav-sidebar user-list">
+            <li>
+              <a href="">marshall  <i class="mdi-editor-mode-edit pull-right"></i></a>
+            </li>
+          </ul>
+
+          <h4>Data Usage <i class="mdi-action-autorenew pull-right"></i></h4>
+          <table class="sidebar-table">
+            <tr>
+              <td>dataSize</td>
+              <td>1.16 KB</td>
+            </tr>
+            <tr>
+              <td>indexSize</td>
+              <td>47.9 KB</td>
+            </tr>
+            <tr>
+              <td>fileSize</td>
+              <td>16 MB</td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- END CONTENT -->
+
+  </body>
+</html>
+
