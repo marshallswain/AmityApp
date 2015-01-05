@@ -52,43 +52,6 @@ var updateCollections = function(db, dbName, callback) {
   });
 };
 
-//Update database list
-var updateDatabases = function(admin) {
-  admin.listDatabases(function(err, dbs) {
-    if (err) {
-      //TODO: handle error
-      console.error(err);
-    }
-
-    for (var key in dbs.databases) {
-      var dbName = dbs.databases[key]['name'];
-
-      //'local' is special database, ignore it
-      if (dbName == 'local') {
-        continue;
-      }
-
-      if (config.mongodb.whitelist.length != 0) {
-        if (!_.include(config.mongodb.whitelist, dbName)) {
-          continue;
-        }
-      }
-      if (config.mongodb.blacklist.length != 0) {
-        if (_.include(config.mongodb.blacklist, dbName)) {
-          continue;
-        }
-      }
-
-      connections[dbName] = mainConn.db(dbName);
-      databases.push(dbName);
-
-      updateCollections(connections[dbName], dbName);
-    }
-
-    //Sort database names
-    databases = databases.sort();
-  });
-};
 
 
 //Connect to mongodb database
@@ -117,7 +80,6 @@ dbServer.open(function(err, db) {
 
       if (config.mongodb.adminUsername.length == 0) {
         console.log('Admin Database connected');
-        updateDatabases(adminDb);
       } else {
         //auth details were supplied, authenticate admin account with them
         adminDb.authenticate(config.mongodb.adminUsername, config.mongodb.adminPassword, function(err, result) {
@@ -127,7 +89,6 @@ dbServer.open(function(err, db) {
           }
 
           console.log('Admin Database connected');
-          updateDatabases(adminDb);
         });
       }
     });
@@ -153,12 +114,10 @@ dbServer.open(function(err, db) {
             console.error('Could not authenticate to database "' + auth.database + '"');
           }
 
-          updateCollections(connections[auth.database], auth.database);
           console.log('Connected!');
           callback();
         });
       } else {
-        updateCollections(connections[auth.database], auth.database);
         console.log('Connected!');
         callback();
       }
@@ -247,7 +206,7 @@ var middleware = function(req, res, next) {
   next();
 };
 
-var api = require('./routes/api');
+var api = require('./api');
 
 
 //Routes

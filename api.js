@@ -1,7 +1,7 @@
-var config = require('../config');
-var bson = require('../utils/bson');
+var config = require('./config');
+var bson = require('./utils/bson');
 
-var mongoServer = require('../mongoServer');
+var mongoServer = require('./mongoServer');
 
 
 // Retrive the server Info
@@ -54,9 +54,7 @@ exports.databases = function(req, res) {
       }
     }
 
-    console.log(databases);
-
-
+    return res.json(databases);
   });
 };
 
