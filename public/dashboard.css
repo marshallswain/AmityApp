@@ -365,6 +365,8 @@ table tr td:nth-child(2) > a{
   padding-bottom:3px;
   margin-top:-2px;
 }
+
+/* Sidebar Spinner */
 .sidebar h4 i{
   position: relative;
   top:-7px;
