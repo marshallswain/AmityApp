@@ -1,27 +1,19 @@
-var express = require('express'),
-  mongodb = require('mongodb'),
+var feathers = require('feathers'),
+  bodyParser = require('body-parser'),
   routes = require('./routes'),
-  http = require('http'),
   _ = require('underscore'),
   async = require('async'),
   utils = require('./utils/utils');
 
-var app = express(),
-config = require('./config');
+var app = feathers(),
+  config = require('./config');
+
+var mongodb = require('mongodb');
 
 
-//App configuration
-app.configure(function(){
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
-  app.use(config.site.baseUrl,express.static(__dirname + '/public'));
-  app.use(express.bodyParser());
-  app.use(app.router);
-});
+app.use(bodyParser.json());
+app.use(feathers.static(__dirname + '/public'));
 
-app.configure('development', function(){
-  app.use(express.errorHandler());
-});
 
 
 //Set up database
@@ -265,17 +257,7 @@ app.get(config.site.baseUrl+'api/status', api.status);
 // app.get(config.site.baseUrl+'api/:database/:collection', middleware, api.docsFromCollection);
 // app.get(config.site.baseUrl+'api/:database/:collection/:document', middleware, api.document);
 
-//run as standalone App?
-if (require.main === module){
-  app.listen(config.site.port);
-  console.log("Mongo Express server listening on port " + (config.site.port || 80));
-}else{
-  //as a module
-  console.log('Mongo Express module ready to use on route "'+config.site.baseUrl+'*"');
-  server=http.createServer(app);
-  module.exports=function(req,res,next){
-    server.emit('request', req, res);
-  };
-}
-
-
+// Start the server.
+app.listen(config.site.port, function() {
+  console.log('Feathers server listening on port ' + config.site.port);
+});
