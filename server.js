@@ -8,23 +8,18 @@ var feathers = require('feathers'),
 app.use(bodyParser.json());
 app.use(feathers.static(__dirname + '/public'));
 
-var AmityMongoDB = require('amity-mongodb'),
-  config = require('./config');
+// Set up Amity Config Storage Services
+var db = mongo.db('mongodb://localhost:27017/amity'),
+  serverStore = feathersMongo({db:db, collection:'servers'}),
+  userStore = feathersMongo({db:db, collection:'users'});
 
-var connectionString = 'mongodb://localhost:27017/amity',
-  ackOptions = {w: 1, journal: false, fsync: false, safe: false };
-var db = mongo.db(connectionString, ackOptions);
-
-var amityConfig = {
-	'store':{
-		'servers':feathersMongo({db:db, collection:'servers'}),
-		'users':feathersMongo({db:db, collection:'users'})
-	}
-};
-var amity = require('amity')(amityConfig, app);
-// amity.register(new AmityMongoDB('host', config, app));
+// Start Amity, setup stores.
+var amity = require('amity')(app);
+amity.setServerStore(serverStore);
+amity.setUserStore(userStore);
 
 // Start the server.
-app.listen(config.site.port, function() {
-  console.log('Feathers server listening on port ' + config.site.port);
+var port = 8081;
+app.listen(port, function() {
+  console.log('Feathers server listening on port ' + port);
 });
