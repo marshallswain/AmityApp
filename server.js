@@ -21,7 +21,6 @@ var amity = require('amity')(app);
 amity.setServerStore(serverStore);
 amity.setUserStore(userStore);
 
-// mongoose.connect('mongodb://tuts:smarty!!!@candidate.32.mongolayer.com:10295,mongodb://tuts:smarty!!!candidate.33.mongolayer.com:10295/feathers-tuts');
 app.get('/addService', function(req, res, next){
   app.use('/api/tests', feathersMongo({db:db, collection:'tests'}));
   res.json({
