@@ -15,6 +15,7 @@ import 'components/page-collection/page-collection';
 import 'components/server-status/server-status';
 import 'components/query-builder/query-builder';
 import 'components/code-editor/code-editor';
+import 'components/test-data/test-data';
 
 import {Database} from 'models/models';
 
@@ -25,6 +26,9 @@ $(document.body).append( can.view('main/site.stache', appState) );
 
 Database.findAll({}, function(dbs){
 	appState.attr('databases').replace(dbs);
+
+	var socket = io('', {transports: ['websocket']});
+	can.Feathers.connect(socket);
 
 	// When the page changes, change the main content.
 	appState.bind('page', function(ev, newVal){

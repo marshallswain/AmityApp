@@ -11,3 +11,8 @@ export var Collection = can.Model.extend('Collection', {
 export var Doc = can.Model.extend('Doc', {
 	resource: '/api/documents'
 }, {});
+
+
+export var Test = can.Feathers.Model.extend('Test', {
+	resource: '/api/tests'
+}, {});
