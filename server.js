@@ -3,28 +3,34 @@
 var feathers = require('feathers'),
   mongo = require('mongoskin'),
 	feathersMongo = require('feathers-mongodb'),
-  bodyParser = require('body-parser'),
-  app = feathers();
-app.use(bodyParser.json());
-app.use(feathers.static(__dirname + '/public'));
+  bodyParser = require('body-parser');
 
-var AmityMongoDB = require('amity-mongodb'),
-  config = require('./config');
+var app = feathers()
+  .use(feathers.static(__dirname + '/public'))
+  .use(bodyParser.json())
+  .configure(feathers.socketio())
+  .configure(feathers.rest());
 
-var connectionString = 'mongodb://localhost:27017/amity',
-  ackOptions = {w: 1, journal: false, fsync: false, safe: false };
-var db = mongo.db(connectionString, ackOptions);
+// Set up Amity Config Storage Services
+var db = mongo.db('mongodb://localhost:27017/amity'),
+  serverStore = feathersMongo({db:db, collection:'servers'}),
+  userStore = feathersMongo({db:db, collection:'users'});
 
-var amityConfig = {
-	'store':{
-		'servers':feathersMongo({db:db, collection:'servers'}),
-		'users':feathersMongo({db:db, collection:'users'})
-	}
-};
-var amity = require('amity')(amityConfig, app);
-// amity.register(new AmityMongoDB('host', config, app));
+// Start Amity, setup stores.
+var amity = require('amity')(app);
+amity.setServerStore(serverStore);
+amity.setUserStore(userStore);
+
+// mongoose.connect('mongodb://tuts:smarty!!!@candidate.32.mongolayer.com:10295,mongodb://tuts:smarty!!!candidate.33.mongolayer.com:10295/feathers-tuts');
+app.get('/addService', function(req, res, next){
+  app.use('/api/tests', feathersMongo({db:db, collection:'tests'}));
+  res.json({
+    result:'Tests service added'
+  });
+});
 
 // Start the server.
-app.listen(config.site.port, function() {
-  console.log('Feathers server listening on port ' + config.site.port);
+var port = 8081;
+app.listen(port, function() {
+  console.log('Feathers server listening on port ' + port);
 });
