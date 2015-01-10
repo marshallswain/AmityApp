@@ -1,0 +1,65 @@
+{{loading}}
+
+<h4>Server Status <i class="mdi-action-autorenew pull-right {{#if spin}}spinner{{/if}}" can-click="refresh"></i></h4>
+{{#stats}}
+<dl>
+  <dt>Hostname</dt>
+  <dd>{{host}}</dd>
+
+  <dt>MongoDB Version</dt>
+  <dd>{{version}}</dd>
+
+  <dt>Uptime</dt>
+  <dd>{{secondsHumanize uptime}}</dd>
+
+  <dt>Server Time</dt>
+  <dd>{{localTime}}</dd>
+</dl>
+
+{{#connections}}
+<dl>
+  <dt>Connections</dt>
+  <dd>Current: {{current}}<br/>Available: {{available}}</dd>
+</dl>
+{{/connections}}
+
+{{#globalLock}}
+  {{#activeClients}}
+  <dl>
+    <dt>Clients</dt>
+    <dd>Active: {{number total}} <br/>  Read Lock: {{number readers}} <br/>  Write Lock: {{number writers}}</dd>
+  </dl>
+  {{/activeClients}}
+
+  {{#currentQueue}}
+  <dl>
+    <dt>Queues</dt>
+    <dd>Operations: {{number total}} <br/>  Read Lock: {{number readers}} <br/>  Write Lock: {{number writers}}</dd>
+  </dl>
+  {{/currentQueue}}
+{{/globalLock}}
+
+{{#opcounters}}
+<dl>
+  <dt>Operation Counts</dt>
+  <dd>Inserts: {{number insert}} <br/>  Queries: {{number query}} <br/>  Updates: {{number update}} <br/>  Deletes: {{number delete}}</dd>
+</dl>
+{{/opcounters}}
+
+{{#backgroundFlushing}}
+<dl>
+  <dt>Flush Count</dt>
+  <dd>{{number flushes}}</dd>
+
+  <dt>Last Flush</dt>
+  <dd>{{last_finished}}</dd>
+
+  <dt>Time Spent</dt>
+  <dd>{{last_ms}} ms</dd>
+
+  <dt>Average Time</dt>
+  <dd>{{number average_ms 4}} ms</dd>
+</dl>
+{{/backgroundFlushing}}
+
+{{/stats}}

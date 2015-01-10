@@ -15,7 +15,7 @@ import 'components/page-collection/page-collection';
 import 'components/server-status/server-status';
 import 'components/query-builder/query-builder';
 import 'components/code-editor/code-editor';
-import 'components/test-data/test-data';
+import 'components/task-module/task-module';
 
 import {Database} from 'models/models';
 

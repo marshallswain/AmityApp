@@ -2,29 +2,35 @@
 
 var feathers = require('feathers'),
   mongo = require('mongoskin'),
-	feathersMongo = require('feathers-mongodb'),
+  mongoose = require('mongoose'),
+  feathersMongo = require('feathers-mongodb'),
   bodyParser = require('body-parser');
+
+mongoose.connect('mongodb://localhost/feathers-example');
 
 var app = feathers()
   .use(feathers.static(__dirname + '/public'))
   .use(bodyParser.json())
+  .use(bodyParser.urlencoded({extended: true}))
   .configure(feathers.socketio())
   .configure(feathers.rest());
 
 // Set up Amity Config Storage Services
-var db = mongo.db('mongodb://localhost:27017/amity'),
-  serverStore = feathersMongo({db:db, collection:'servers'}),
-  userStore = feathersMongo({db:db, collection:'users'});
+// var db = mongo.db('mongodb://localhost:27017/amity'),
+//   serverStore = feathersMongo({db:db, collection:'servers'}),
+//   userStore = feathersMongo({db:db, collection:'users'});
 
 // Start Amity, setup stores.
-var amity = require('amity')(app);
-amity.setServerStore(serverStore);
-amity.setUserStore(userStore);
+// var amity = require('amity')(app);
+// amity.setServerStore(serverStore);
+// amity.setUserStore(userStore);
+
+
 
 app.get('/addService', function(req, res, next){
-  app.use('/api/tests', feathersMongo({db:db, collection:'tests'}));
+  app.use('/api/tasks', require('./services/tasks'));
   res.json({
-    result:'Tests service added'
+    result:'Tasks service added'
   });
 });
 

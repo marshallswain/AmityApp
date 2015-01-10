@@ -8,7 +8,7 @@ can.Component.extend({
 
 		loading:function(){
 			// Make the arrows spin
-			// this.attr('spin', true);
+			this.attr('spin', true);
 
 			var self = this;
 

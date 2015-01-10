@@ -13,6 +13,6 @@ export var Doc = can.Model.extend('Doc', {
 }, {});
 
 
-export var Test = can.Feathers.Model.extend('Test', {
-	resource: '/api/tests'
+export var Task = can.Feathers.Model.extend('tasks', {
+	resource: '/api/tasks'
 }, {});

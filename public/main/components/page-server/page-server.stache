@@ -4,6 +4,8 @@
 
   <div class="col-sm-9 col-md-10">
 
+  <task-module></task-module>
+
     <div class="page-header">
       <h1>Favorites</h1>
 
@@ -130,7 +132,7 @@
   </div>
 
   <div class="col-sm-3 col-sm-offset-9 col-md-2 col-md-offset-10 sidebar">
-    <server-status></server-status>
+    {{! <server-status></server-status> }}
   </div>
 </div>
 {{/appState}}
