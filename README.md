@@ -5,7 +5,8 @@ Amity Database Manager
 
 ## Amity - a web-based database admin interface 
 
-**THIS IS A PLACEHOLDER FOR A SOON-TO-BE-WORKING PROJECT.  PLEASE ENJOY THIS CLASSY UNDER CONSTRUCTION PAGE FOR A WHILE.**
+# NOT YET FUNCTIONAL
+This project started out as a fork of the mongo-express project.  For the next couple of weeks, while it is being rebuilt, please use mongo-express for now.
 
 Amity uses Node.js and Express on the server, CanJS and Steal on the client.  
 
@@ -14,12 +15,14 @@ It currently only supports MongoDB.
 Features
 --------
 
-Current features:
+The very near future:
 
-* Connect to multiple databases on a single server
+* Connect to multiple servers.
+* Add/Remove databases from the browser.  No server restart necessary.
 * Connect and authenticate to individual databases
 * Authenticate as admin to view all databases
 * Database blacklist/whitelist
+* MongoDB support for...
 * View/add/rename/delete collections
 * View/add/update/delete documents
 * Use BSON data types in documents
@@ -32,7 +35,7 @@ Planned features:
 * SQL Support - using [FeathersJS](http://feathersjs.com)
 * Support for replica set connections
 * Web-based command-line interface (maybe)
-* User authentication
+* User authentication for app linked to DB credentials.
 
 
 Limitations
@@ -92,11 +95,13 @@ Once you have the server up and running, open another terminal tab and run `gulp
 
 Development Plan
 -----------
+**0.1** 
+- [x] Upgrade to FeathersJS
 
 **1.0** - Security upgrades in place, ready for public server.
   * **1.1** Add tests for test-assisted development
 
-**2.0** - Upgrade to FeathersJS - This will happen once FeathersJS supports adding and removing services at runtime.
+**2.0** ~~Upgrade to FeathersJS - This will happen once FeathersJS supports adding and removing services at runtime.~~  Completed early.
   * **2.1** - Custom Adapter support (server side)
   * **2.2** - Realtime Websocket support (client side)
 
