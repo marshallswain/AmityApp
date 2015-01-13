@@ -1,6 +1,6 @@
 {
   "name": "amity",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Web-based admin interface for MongoDB",
   "repository": {
     "type": "git",
