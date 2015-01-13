@@ -6,7 +6,15 @@ Amity Database Manager
 ## Amity - a web-based database admin interface 
 
 # NOT YET FUNCTIONAL
-This project started out as a fork of the mongo-express project.  For the next couple of weeks, while it is being rebuilt, please use mongo-express for now.
+After making a JavaScript app duplicating functionality of the mongo-express project, I realized the potential for this app is far greater than just a MongoDB manager.  I started the year off with a grandslam feature creep: Amity will soon manage multiple servers of different types (SQL, MongoDB).  If you need a MongoDB manager right away, please use mongo-express.
+
+Screenshots
+-----------
+
+<img src="http://i.imgur.com/P7q8eA3.png" title="Main Server Page - Tile Mode" />
+
+<img src="http://i.imgur.com/1e7v2tb.png" title="Main Server Page - List Mode" />
+
 
 Amity uses Node.js and Express on the server, CanJS and Steal on the client.  
 
@@ -51,12 +59,6 @@ Limitations
 **You can still access remote database servers, but it is highly recommended that your local machine is not available for remote web access while Amity is running.**
 
 
-Screenshots
------------
-
-<img src="http://i.imgur.com/P7q8eA3.png" title="Main Server Page - Tile Mode" />
-
-<img src="http://i.imgur.com/1e7v2tb.png" title="Main Server Page - List Mode" />
 
 Installation
 -----------
