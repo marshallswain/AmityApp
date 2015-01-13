@@ -1,15 +1,15 @@
-{{#task}}
-<form can-submit="saveTask">
+{{#todo}}
+<form can-submit="saveTodo">
 <input type="text" placeholder="description" can-value="description"><button>Save</button>
 </form>
-{{/task}}
+{{/todo}}
 
 <div>
-{{#each tasks}}
+{{#each todos}}
   <span contenteditable
   	can-value="description"
-  	can-blur="updateTask"
+  	can-blur="updateTodo"
   	can-keypress="noNewline">
-  	</span> <a class="pull-right" can-click="deleteTask">x</a><br/>
+  	</span> <a class="pull-right" can-click="deleteTodo">x</a><br/>
 {{/each}}
 </div>

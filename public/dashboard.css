@@ -306,6 +306,43 @@ table tr td:nth-child(2) > a{
   }
 }
 
+servers-sidebar li{
+  border-top:solid 1px #DDD;
+  padding:5px 0px 7px;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+servers-sidebar li:last-child{
+  border-bottom:solid 1px #DDD;
+}
+servers-sidebar li:hover{
+  background:rgba(0,0,0,.05);
+  cursor:pointer;
+}
+servers-sidebar p.hostname{
+  font-weight: 500;
+  margin: 0;
+  font-size: 16px;
+}
+servers-sidebar p.type{
+  font-size: 13px;
+  margin: 0;
+
+}
+
+add-server h4{
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top: -13px;
+}
+add-server ul.nav{
+  display: inline-block;
+}
+
 .sidebar-table{
   width:100%;
 }
@@ -391,7 +428,6 @@ table tr td:nth-child(2) > a{
  */
 
 .main {
-  padding: 16px 24px;
 }
 @media (max-width: 768px) {
   .main {

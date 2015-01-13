@@ -1,5 +1,9 @@
 'use strict';
 
+export var Server = can.Model.extend('Server', {
+	resource: '/api/amity/servers'
+}, {});
+
 export var Database = can.Model.extend('Database', {
 	resource: '/api/databases'
 }, {});
@@ -15,4 +19,8 @@ export var Doc = can.Model.extend('Doc', {
 
 export var Task = can.Feathers.Model.extend('tasks', {
 	resource: '/api/tasks'
+}, {});
+
+export var Todo = can.Feathers.Model.extend('todos', {
+	resource: '/api/todos'
 }, {});

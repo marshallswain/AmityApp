@@ -14,9 +14,6 @@ can.Component.extend({
 			ev.preventDefault();
 			scope.save();
 			this.attr('task', new Task({}));
-			console.log($(el));
-			el.hide();
-			$(el).children('input').first().focus();
 		},
 		updateTask:function(scope, el, ev){
 			scope.save();

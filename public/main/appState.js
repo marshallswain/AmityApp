@@ -8,6 +8,22 @@ var colDef = new can.Deferred();
 // Defines the state of the application
 var AppState = can.Map.extend({
 	define : {
+		servers:{
+			value: new Server.List(),
+			serialize:false
+		},
+
+		server:{
+			set(value){
+				this.attr('hostname', value.hostname);
+				return value;
+			},
+			serialize:false
+		},
+
+		hostname:{
+			serialize:true
+		},
 
 		databases: {
 			value: new Database.List(),

@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
       </button>
 
-      <a class="navbar-brand" href="/">localhost</a>
+      <a class="navbar-brand" href="/#!">Amity</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -43,3 +43,4 @@
 <!-- CONTENT -->
 <div id="content" class="container-fluid main"> </div>
 
+<add-server></add-server>
