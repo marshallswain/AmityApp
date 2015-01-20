@@ -5,7 +5,11 @@
   <div class="col-sm-9 col-md-10">
 
     <div class="page-header">
+      {{#if hasFavorites}}
       <h1>Favorites</h1>
+      {{/else}}
+      <h1>Databases</h1>
+      {{/if}}
 
       <div class="view-tools">
         <ul class="nav nav-pills pull-right view-toggle text-300">
@@ -23,7 +27,7 @@
       </div>
     </div>
 
-
+    {{#if hasFavorites}}
     <!-- BEGIN FAVORITES -->
     <div class="row">
       <div class="tiles col-md-12">
@@ -62,12 +66,15 @@
 
       </div>
     </div><!-- END OF FAVORITES -->
+    {{/if}}
 
 
     <!-- BEGIN TILES -->
     <div class="row">
       <div class="tiles col-md-12">
+        {{#if hasFavorites}}
         <h1>Databases</h1>
+        {{/if}}
 
         {{#each databases}}
           {{#unless favorite}}

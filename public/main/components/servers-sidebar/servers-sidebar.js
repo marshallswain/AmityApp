@@ -1,6 +1,7 @@
 'use strict';
 
 import appState from '../../appState';
+import './servers-sidebar.css!';
 
 can.Component.extend({
 	tag: 'servers-sidebar',

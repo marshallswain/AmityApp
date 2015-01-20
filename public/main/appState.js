@@ -15,18 +15,43 @@ var AppState = can.Map.extend({
 
 		server:{
 			set(value){
-				this.attr('hostname', value.hostname);
+				var self = this;
+
+				var resource = '/api/' + value.name + '/_databases';
+
+				var DBModel = can.Model.extend('Database', {
+					resource: resource
+				}, {});
+
+				DBModel.findAll({}, function(dbs){
+					self.attr('databases').replace(dbs);
+				});
+
+				// Set the databases.
 				return value;
 			},
 			serialize:false
 		},
 
+		// The visible part of the server in the route.
 		hostname:{
+			set(value){
+				var self = this;
+				// Loop through the servers
+				this.attr('servers').forEach(function(el, index) {
+					// If one matches the current value...
+					if (el.name === value) {
+						// Set it up as this.server
+						self.attr('server', el);
+					};
+				});
+				return value;
+			},
 			serialize:true
 		},
 
 		databases: {
-			value: new Database.List(),
+			value: new can.List(),
 			serialize:false
 		},
 

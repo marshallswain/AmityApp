@@ -28,6 +28,16 @@ can.Component.extend({
 
 		index:function(i){
 			return i()+1;
+		},
+
+		hasFavorites:function(){
+			var faves = false;
+			appState.attr('databases').forEach(function(el){
+				if (el.favorite) {
+					faves = true;
+				};
+			});
+			return faves;
 		}
 	}
 });

@@ -11,8 +11,20 @@ can.Component.extend({
 		selectDB: function(scope, el, ev){
 			can.route.attr('db_name', scope.name);
 			can.route.attr('page', 'database');
+		},
+
+		hasFavorites:function(){
+			var faves = false;
+			appState.attr('databases').forEach(function(el){
+				if (el.favorite) {
+					faves = true;
+				};
+			});
+			return faves;
 		}
 	},
 	events: {},
-	helpers:{}
+	helpers:{
+
+	}
 });

@@ -1,12 +1,12 @@
 'use strict';
 
 export var Server = can.Model.extend('Server', {
-	resource: '/api/amity/servers'
+	resource: 'servers'
 }, {});
 
-export var Database = can.Model.extend('Database', {
-	resource: '/api/databases'
-}, {});
+// export var Database = can.Model.extend('Database', {
+// 	resource: '/api/databases'
+// }, {});
 
 export var Collection = can.Model.extend('Collection', {
 	resource: '/api/collections'
