@@ -23,11 +23,11 @@ var config = {
 amity.start(app, config, amity.mongodb('mongodb://localhost:27017/amity'));
 
 // app.use('/api/todos', require('./services/todos'));
-// app.use('/api/tasks', require('./services/tasks'));
 
 
 // Start the server.
 var port = 8081;
 app.listen(port, function() {
+  // app.use('/api/tasks', require('./services/tasks'));
   console.log('Feathers server listening on port ' + port);
 });
