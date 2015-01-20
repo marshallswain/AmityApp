@@ -1,8 +1,8 @@
 'use strict';
 
 var feathers = require('feathers'),
-  mongo = require('mongoskin'),
   amity = require('amity'),
+  mongoose = require('mongoose'),
   feathersMongo = require('feathers-mongodb'),
   bodyParser = require('body-parser');
 
@@ -14,13 +14,16 @@ var app = feathers()
   .configure(feathers.socketio())
   .configure(feathers.rest());
 
+mongoose.connect('mongodb://localhost:27017/amity');
+
 var config = {
-  prefix:'api'
+  apiPrefix:'/api'
 };
 // Start Amity with an adapter as a configuration store.
 amity.start(app, config, amity.mongodb('mongodb://localhost:27017/amity'));
 
-app.use('/api/todos', require('./services/todos'));
+// app.use('/api/todos', require('./services/todos'));
+// app.use('/api/tasks', require('./services/tasks'));
 
 
 // Start the server.

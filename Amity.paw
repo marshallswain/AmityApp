@@ -218,7 +218,7 @@
     <object type="LMREQUEST" id="z116">
         <attribute name="body" type="string">["{\\n  \\"Word\\": \\"Hello\\"\\n}"]</attribute>
         <attribute name="uuid" type="string">FB815A24-4D01-4122-8045-D0557CE5956C</attribute>
-        <attribute name="url" type="string">http://localhost:8081/api/tests</attribute>
+        <attribute name="url" type="string">http://localhost:8081/api/todos</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -226,7 +226,7 @@
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
         <attribute name="order" type="int64">0</attribute>
-        <attribute name="name" type="string">Create Test</attribute>
+        <attribute name="name" type="string">Create Todo</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z119"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z117"></relationship>
@@ -243,7 +243,7 @@
     </object>
     <object type="LMREQUEST" id="z118">
         <attribute name="uuid" type="string">41A851E7-326C-42AB-8C9D-858AC8F0E43C</attribute>
-        <attribute name="url" type="string">http://localhost:8081/api/tests</attribute>
+        <attribute name="url" type="string">http://localhost:8081/api/todos</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -251,7 +251,7 @@
         <attribute name="method" type="string">GET</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
         <attribute name="order" type="int64">1</attribute>
-        <attribute name="name" type="string">List Tests</attribute>
+        <attribute name="name" type="string">List Todos</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z119"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z120"></relationship>
