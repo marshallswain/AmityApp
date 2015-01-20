@@ -2,10 +2,11 @@
 
 var feathers = require('feathers'),
   mongo = require('mongoskin'),
-  mongoose = require('mongoose'),
+  amity = require('amity'),
   feathersMongo = require('feathers-mongodb'),
   bodyParser = require('body-parser');
 
+// Prep the Feathers server.
 var app = feathers()
   .use(feathers.static(__dirname + '/public'))
   .use(bodyParser.json())
@@ -13,17 +14,14 @@ var app = feathers()
   .configure(feathers.socketio())
   .configure(feathers.rest());
 
-// Set up Amity Config Storage Services
-var db = mongo.db('mongodb://localhost:27017/amity'),
-  serverStore = feathersMongo({collection:'servers'}),
-  userStore = feathersMongo({collection:'users'});
-
-// Start Amity, setup stores.
-var amity = require('amity')(app);
-amity.setServerStore(serverStore);
-amity.setUserStore(userStore);
+var config = {
+  prefix:'api'
+};
+// Start Amity with an adapter as a configuration store.
+amity.start(app, config, amity.mongodb('mongodb://localhost:27017/amity'));
 
 app.use('/api/todos', require('./services/todos'));
+
 
 // Start the server.
 var port = 8081;

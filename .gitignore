@@ -13,7 +13,8 @@ pids
 logs
 results
 
-node_modules
+node_modules/*
+!node_modules/amity
 npm-debug.log
 
 config.js
