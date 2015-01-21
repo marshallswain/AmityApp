@@ -36,7 +36,8 @@ The very near future:
 * Use BSON data types in documents
  
 
-http://i.imgur.com/A6b2cdY.png
+![Mind Map of Current Plans](http://i.imgur.com/A6b2cdY.png)
+
 
 
 Planned features:
