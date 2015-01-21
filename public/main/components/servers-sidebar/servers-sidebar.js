@@ -9,7 +9,7 @@ can.Component.extend({
 	scope: {
 		appState:appState,
 		selectServer:function(scope, el, ev){
-			appState.attr('server', scope);
+			appState.attr('hostname', scope.name);
 			appState.attr('page', 'server');
 		}
 	},

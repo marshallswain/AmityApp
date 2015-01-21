@@ -23,7 +23,9 @@ can.Component.extend({
 	events: {},
 	helpers:{
 		number:function(x){
-			return x().toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			if (x()) {
+				return x().toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			}
 		},
 
 		index:function(i){

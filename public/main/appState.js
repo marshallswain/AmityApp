@@ -1,40 +1,23 @@
 'use strict';
 
 import '../../models/models';
+import {getModel} from '../../models/models';
 
 // Resolve this with the collections when the database changes.
 var colDef = new can.Deferred();
+var dbDef = new can.Deferred();
+
 
 // Defines the state of the application
 var AppState = can.Map.extend({
 	define : {
 		servers:{
+			serialize:false,
 			value: new Server.List(),
-			serialize:false
 		},
 
-		server:{
-			set(value){
-				var self = this;
-
-				var resource = '/api/' + value.name + '/_databases';
-
-				var DBModel = can.Model.extend('Database', {
-					resource: resource
-				}, {});
-
-				DBModel.findAll({}, function(dbs){
-					self.attr('databases').replace(dbs);
-				});
-
-				// Set the databases.
-				return value;
-			},
-			serialize:false
-		},
-
-		// The visible part of the server in the route.
 		hostname:{
+			serialize:true,
 			set(value){
 				var self = this;
 				// Loop through the servers
@@ -46,22 +29,50 @@ var AppState = can.Map.extend({
 					};
 				});
 				return value;
-			},
-			serialize:true
+			}
 		},
 
+		server:{
+			serialize:false,
+			set(value){
+				var self = this;
+
+				var resource = '/api/' + value.name + '/_databases';
+				var model = getModel(resource);
+
+				model.findAll({}).then(function(dbs){
+					self.attr('databases').replace(dbs);
+					dbDef.resolve(dbs);
+				});
+
+				// var list = new model.List({});
+				// this.attr('databases', list);
+
+				// Set the databases.
+				return value;
+			}
+		},
+
+
 		databases: {
-			value: new can.List(),
-			serialize:false
+			serialize:false,
+			set(value){
+				return value;
+			},
+			value: new can.List()
 		},
 
 		db_name:{
 			set(value){
-				for (var i = this.attr('databases').length - 1; i >= 0; i--) {
-					if (value == this.attr('databases')[i].name) {
-						this.attr('database', this.attr('databases')[i]);
+				var self = this;
+				dbDef.done(function(dbs){
+					for (var i = dbs.length - 1; i >= 0; i--) {
+						if (value == dbs[i].name) {
+							self.attr('database', dbs[i]);
+						};
 					};
-				};
+
+				});
 				return value;
 			},
 			remove(){
@@ -73,29 +84,31 @@ var AppState = can.Map.extend({
 			// When a db is set, get its collections.
 			set(value){
 				var self = this;
-				console.log('database: ');
-				console.log(value);
-				Collection.findAll({database:value.name}, function(cols){
-					self.attr('collections', cols);
 
-
+				var resource = '/api/' + this.attr('hostname') + '/' + value.name + '/' + '_collections';
+				console.log(resource);
+				getModel(resource).findAll({}).then(function(colls){
+					console.log(colls);
+					self.attr('collections').replace(colls);
 				});
+
 				return value;
 			},
 			serialize:false
 		},
 
 		collections: {
+			serialize:false,
+			value: new can.List(),
 			set(value){
-				// console.log('collections');
-				// console.log(value);
+				console.log('collections');
+				console.log(value);
 
 				// console.log('resolving colDef')
 				colDef.resolve(value);
 
 				return value;
 			},
-			serialize:false
 		},
 
 		col_name:{
@@ -118,11 +131,15 @@ var AppState = can.Map.extend({
 		},
 
 		collection:{
+			serialize:false,
 			value:{},
 			set(value){
 				// this.attr('docs', new Doc.List({'database':this.attr('database'), 'collection':value}));
 				return value;
 			},
+		},
+
+		page:{
 			serialize:false
 		},
 

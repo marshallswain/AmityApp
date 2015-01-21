@@ -9,6 +9,7 @@ can.Component.extend({
 		appState: appState,
 
 		selectDB: function(scope, el, ev){
+			console.log(scope);
 			can.route.attr('db_name', scope.name);
 			can.route.attr('page', 'database');
 		}

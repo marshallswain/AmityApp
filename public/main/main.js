@@ -4,7 +4,7 @@ import 'mustache-helpers';
 import 'routes';
 
 /* * * Fixtures * * */
-import 'fixtures/databases';
+// import 'fixtures/databases';
 import 'fixtures/collections';
 import 'fixtures/documents';
 
@@ -19,10 +19,14 @@ import 'components/query-builder/query-builder';
 import 'components/code-editor/code-editor';
 import 'components/add-server/add-server';
 
-import 'components/task-module/task-module';
-import 'components/todo-module/todo-module';
+// import 'components/task-module/task-module';
+// import 'components/todo-module/todo-module';
 
 import {Server} from 'models/models';
+
+var socket = io('', {transports: ['websocket']});
+can.Feathers.connect(socket);
+
 
 /* * * Main Application State * * */
 import appState from 'appState';
@@ -30,11 +34,9 @@ import appState from 'appState';
 $(document.body).append( can.view('main/site.stache', appState) );
 
 
-Server.findAll({}, function(servers){
-	appState.attr('servers').replace(servers);
 
-	var socket = io('', {transports: ['websocket']});
-	can.Feathers.connect(socket);
+Server.findAll({}).done( function(servers){
+	appState.attr('servers').replace(servers);
 
 	// When the page changes, change the main content.
 	appState.bind('page', function(ev, newVal){
