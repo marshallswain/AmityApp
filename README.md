@@ -34,6 +34,10 @@ The very near future:
 * View/add/rename/delete collections
 * View/add/update/delete documents
 * Use BSON data types in documents
+ 
+
+http://i.imgur.com/A6b2cdY.png
+
 
 Planned features:
 
