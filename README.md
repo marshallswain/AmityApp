@@ -122,4 +122,4 @@ Development Plan
 
 [Marshall Thompson](https://github.com/Glavin001)
 
-Based on [mongo-express](https://github.com/andzdroid/mongo-express) by [Chun-hao Hu](https://github.com/andzdroid)
+Inspired by [mongo-express](https://github.com/andzdroid/mongo-express) by [Chun-hao Hu](https://github.com/andzdroid)
