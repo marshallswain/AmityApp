@@ -19,4 +19,4 @@ npm-debug.log
 
 config.js
 admins.json
-public/bower_components
+bower_components
