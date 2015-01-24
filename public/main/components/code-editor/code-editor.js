@@ -1,5 +1,7 @@
 'use strict';
 
+import './code-editor.css!';
+
 var count = 0;
 
 can.Component.extend({

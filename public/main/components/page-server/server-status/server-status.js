@@ -2,7 +2,7 @@
 
 can.Component.extend({
 	tag: 'server-status',
-	template: can.view('/main/components/server-status/server-status.stache'),
+	template: can.view('/main/components/page-server/server-status/server-status.stache'),
 	scope: {
 		stats:{},
 

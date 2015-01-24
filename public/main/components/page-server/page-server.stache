@@ -27,33 +27,13 @@
       </div>
     </div>
 
-    {{#if hasFavorites}}
     <!-- BEGIN FAVORITES -->
+    {{#if hasFavorites}}
     <div class="row">
       <div class="tiles col-md-12">
         {{#each databases}}
           {{#if favorite}}
-            <div class="tile col-xs-6 col-sm-4 col-md-3 col-lg-2" can-click="selectDB">
-              <div class="tile-inner">
-
-                <header class="tile-tools">
-                  <span class="tile-group-tool col-xs-4">
-                    <i class="mdi-action-label-outline"></i>
-                  </span>
-                  <span class="tile-favorite-tool col-xs-4">
-                    <i class="mdi-action-favorite"></i>
-                  </span>
-                  <span class="tile-color-tool col-xs-4">
-                    <i class="mdi-image-brightness-1"></i>
-                  </span>
-                </header>
-
-                <footer class="tile-info">
-                  <p>{{name}}</p>
-                  <p>{{collections}} collections</p>
-                </footer>
-              </div>
-            </div>
+            <db-tile database="{.}"></db-tile>
           {{/if}}
         {{/each}}
 
@@ -63,10 +43,10 @@
           </a>
         </div>
 
-
       </div>
-    </div><!-- END OF FAVORITES -->
+    </div>
     {{/if}}
+    <!-- END OF FAVORITES -->
 
 
     <!-- BEGIN TILES -->
@@ -78,27 +58,7 @@
 
         {{#each databases}}
           {{#unless favorite}}
-            <div class="tile col-xs-6 col-sm-4 col-md-3 col-lg-2" can-click="selectDB">
-              <div class="tile-inner">
-
-                <header class="tile-tools">
-                  <span class="tile-group-tool col-xs-4">
-                    <i class="mdi-action-label-outline"></i>
-                  </span>
-                  <span class="tile-favorite-tool col-xs-4">
-                    <i class="mdi-action-favorite"></i>
-                  </span>
-                  <span class="tile-color-tool col-xs-4">
-                    <i class="mdi-image-brightness-1"></i>
-                  </span>
-                </header>
-
-                <footer class="tile-info">
-                  <p>{{name}}</p>
-                  <p>{{collections.length}} collections</p>
-                </footer>
-              </div>
-            </div>
+            <db-tile database="{.}"></db-tile>
           {{/if}}
         {{/each}}
 
@@ -112,28 +72,8 @@
       </div>
     </div><!-- END OF TILES -->
 
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Collections</th>
-            <th>Group</th>
-            <th>Size</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each databases}}
-            <tr>
-              <td><i class="mdi-image-brightness-1"></i> {{name}} {{#if favorite}}<i class="pull-right mdi-action-favorite"></i>{{/if}}</td>
-              <td>{{collections.length}} collections</td>
-              <td>{{group}}</td>
-              <td>{{size}} mb</td>
-            </tr>
-          {{/each}}
-        </tbody>
-      </table>
-    </div>
+    <db-table databases="{databases}"></db-table>
+
   </div>
 
   <div class="col-sm-3 col-sm-offset-9 col-md-2 col-md-offset-10 sidebar">

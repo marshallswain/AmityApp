@@ -1,5 +1,7 @@
 'use strict';
 
+import './query-builder/query-builder';
+
 can.Component.extend({
 	tag: 'page-collection',
 	template: can.view('/main/components/page-collection/page-collection.stache'),

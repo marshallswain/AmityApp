@@ -1,6 +1,9 @@
 'use strict';
 
 import appState from '../../appState';
+import './server-status/server-status';
+import './db-tile/db-tile';
+import './db-table/db-table';
 
 can.Component.extend({
 	tag: 'page-server',
