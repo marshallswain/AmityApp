@@ -68,47 +68,6 @@
     </div><!-- END OF FAVORITES -->
 
 
-    <!-- BEGIN TILES -->
-    <div class="row">
-      <div class="tiles col-md-12">
-        <h1>Databases</h1>
-
-        {{#each databases}}
-          {{#unless favorite}}
-            <div class="tile col-xs-6 col-sm-4 col-md-3 col-lg-2" can-click="selectDB">
-              <div class="tile-inner">
-
-                <header class="tile-tools">
-                  <span class="tile-group-tool col-xs-4">
-                    <i class="mdi-action-label-outline"></i>
-                  </span>
-                  <span class="tile-favorite-tool col-xs-4">
-                    <i class="mdi-action-favorite"></i>
-                  </span>
-                  <span class="tile-color-tool col-xs-4">
-                    <i class="mdi-image-brightness-1"></i>
-                  </span>
-                </header>
-
-                <footer class="tile-info">
-                  <p>{{name}}</p>
-                  <p>{{collections}} collections</p>
-                </footer>
-              </div>
-            </div>
-          {{/if}}
-        {{/each}}
-
-
-        <div class="tile col-xs-6 col-sm-4 col-md-3 col-lg-2">
-          <a href="/new-database.html" class="tile-inner plain add">
-            <i class="mdi-content-add"></i>
-          </a>
-        </div>
-
-      </div>
-    </div><!-- END OF TILES -->
-
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>

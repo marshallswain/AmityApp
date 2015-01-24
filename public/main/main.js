@@ -28,6 +28,10 @@ var socket = io('', {transports: ['websocket']});
 can.Feathers.connect(socket);
 
 
+Server.findAll({}, function(servers){
+	console.log(servers);
+});
+
 /* * * Main Application State * * */
 import appState from 'appState';
 
@@ -36,6 +40,9 @@ $(document.body).append( can.view('main/site.stache', appState) );
 
 
 Server.findAll({}).done( function(servers){
+
+	console.log(servers);
+
 	appState.attr('servers').replace(servers);
 
 	// When the page changes, change the main content.

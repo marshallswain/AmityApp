@@ -49,10 +49,7 @@
     </div>
 
     <p>{{collections}} collections</p>
-      {{/database}}
-
-
-
+    {{/database}}
   </div>
 
   <div class="table-responsive collection-table">
@@ -65,8 +62,6 @@
         </tr>
       </thead>
       <tbody>
-
-
       {{#appState}}
       {{#each collections}}
         <tr>
@@ -85,8 +80,6 @@
         </tr>
       {{/each collections}}
       {{/appState}}
-
-
       </tbody>
     </table>
   </div>

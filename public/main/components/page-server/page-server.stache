@@ -95,7 +95,7 @@
 
                 <footer class="tile-info">
                   <p>{{name}}</p>
-                  <p>{{collections}} collections</p>
+                  <p>{{collections.length}} collections</p>
                 </footer>
               </div>
             </div>
@@ -126,7 +126,7 @@
           {{#each databases}}
             <tr>
               <td><i class="mdi-image-brightness-1"></i> {{name}} {{#if favorite}}<i class="pull-right mdi-action-favorite"></i>{{/if}}</td>
-              <td>{{collections}} collections</td>
+              <td>{{collections.length}} collections</td>
               <td>{{group}}</td>
               <td>{{size}} mb</td>
             </tr>
