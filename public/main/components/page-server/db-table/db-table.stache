@@ -1,0 +1,22 @@
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Collections</th>
+        <th>Group</th>
+        <th>Size</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each databases}}
+        <tr>
+          <td><i class="mdi-image-brightness-1"></i> {{name}} {{#if favorite}}<i class="pull-right mdi-action-favorite"></i>{{/if}}</td>
+          <td>{{#stats}}{{collections}}{{/stats}} collections</td>
+          <td>{{group}}</td>
+          <td>{{dbSize}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

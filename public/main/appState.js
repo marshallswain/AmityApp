@@ -1,6 +1,7 @@
 'use strict';
 
 import '../../models/models';
+import {getDbModel} from '../../models/models';
 import {getModel} from '../../models/models';
 
 // Resolve this with the collections when the database changes.
@@ -38,9 +39,8 @@ var AppState = can.Map.extend({
 				var self = this;
 
 				var resource = '/api/' + value.name + '/_databases';
-				var model = getModel(resource);
 
-				model.findAll({}).then(function(dbs){
+				getDbModel(resource).findAll({}, function(dbs){
 					self.attr('databases').replace(dbs);
 					dbDef.resolve(dbs);
 				});
@@ -101,8 +101,6 @@ var AppState = can.Map.extend({
 			serialize:false,
 			value: new can.List(),
 			set(value){
-				console.log('collections');
-				console.log(value);
 
 				// console.log('resolving colDef')
 				colDef.resolve(value);
