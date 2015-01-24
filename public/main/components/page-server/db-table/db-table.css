@@ -1,0 +1,27 @@
+table tr td.collapse{
+  width:1%;
+  white-space:nowrap;
+}
+
+@media (max-width: 768px) {
+  table tr td:first-child, table tr th:first-child{
+    display: none;
+  }
+}
+
+table tr td:nth-child(2) > a{
+  display: block;
+  font-weight:bold;
+}
+.table-tools a{
+  margin-left:8px;
+}
+.table-tools .delete-button{
+  width:0;
+  display:inline-block;
+  overflow:hidden;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s;
+}

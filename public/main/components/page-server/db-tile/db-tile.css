@@ -1,0 +1,120 @@
+.tiles{
+  margin:0;
+  padding:8px;
+}
+.tiles h1{
+  padding-left:8px;
+}
+.tile{
+  padding:8px;
+}
+.tile-inner{
+  height: 180px;
+  background:#7986CB;
+  position: relative;
+  cursor: pointer;
+  display: block;
+  color:white;
+}
+.tile-inner.plain{
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  line-height: 180px;
+  background:#DDD !important;
+  cursor: pointer;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.tile-inner.plain.add i{
+  font-size:50px;
+  line-height: 180px;
+}
+.tile-inner.plain:hover{
+  background: #AAA !important;
+  color:white !important;
+  text-decoration: none;
+}
+db-tile .tile footer{
+  padding: 16px;
+  font-size:16px;
+  position: absolute;
+  display: block;
+  left:0;
+  right:0;
+  bottom:0;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+db-tile .tile:hover footer{
+  background:rgba(0, 0, 0, 0.21);
+}
+db-tile .tile footer p{
+  margin: 0 0 2px 0;
+  line-height: 12px;
+  font-weight: 200;
+  font-size: 12px;
+}
+db-tile .tile footer p:first-child{
+  line-height: 16px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* TILE TOOLS */
+.tile .tile-tools{
+  opacity:0;
+  display:block;
+  line-height: 40px;
+  text-align: center;
+  line-height:52px;
+  height:48px;
+  color:white;
+  font-size:28px;
+
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-transition: all .4s;
+  -moz-transition: all .4s;
+  -o-transition: all .4s;
+  transition: all .4s;
+}
+.tile:hover .tile-tools{
+  opacity:1;
+}
+.tile .tile-tools span{
+  opacity:.7;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s;
+}
+.tile .tile-tools span:hover{
+  opacity:1;
+}
+.tile .color-tool{
+  position: absolute;
+  opacity: 0;
+  top:0;
+  right:0;
+  text-align: center;
+  font-size:24px;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+.tile:hover .color-tool{
+  opacity:.7;
+}
+.tile:hover .color-tool:hover{
+  background: rgba(255,255,255,.4);
+  opacity: 1;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
