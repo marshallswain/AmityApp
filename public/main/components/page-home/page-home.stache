@@ -68,29 +68,6 @@
     </div><!-- END OF FAVORITES -->
 
 
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Collections</th>
-            <th>Group</th>
-            <th>Size</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each databases}}
-            <tr>
-              <td><i class="mdi-image-brightness-1"></i> {{name}} {{#if favorite}}<i class="pull-right mdi-action-favorite"></i>{{/if}}</td>
-              <td>{{collections}} collections</td>
-              <td>{{group}}</td>
-              <td>{{size}} mb</td>
-            </tr>
-          {{/each}}
-        </tbody>
-      </table>
-    </div>
-  </div>
 
 
 </div>
