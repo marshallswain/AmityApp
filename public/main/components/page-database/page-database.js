@@ -8,7 +8,12 @@ can.Component.extend({
 	scope: {
 		appState:appState,
 
-		home: function(scope, el, ev){
+		goHome: function(scope, el, ev){
+			can.route.removeAttr('db_name');
+			can.route.attr('page', 'home');
+		},
+
+		gotoServer: function(scope, el, ev){
 			can.route.removeAttr('db_name');
 			can.route.attr('page', 'server');
 		},

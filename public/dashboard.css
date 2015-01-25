@@ -198,25 +198,25 @@ add-server ul.nav{
   }
 }
 .page-header {
-  /*padding-left:16px;*/
   position: relative;
+  /*padding-left:16px;*/
 }
 .page-header h1{
   margin-bottom:0;
-  margin-top:16px;
+  margin-top:4px;
 }
 
 
 /* * * Breadcrumbs * * */
 .breadcrumbs{
-  position: absolute;
-  top:-18px;
   /*position: relative;*/
   /*top: 18px;*/
   font-size: 18px;
+  position: relative;
+  top: 8px;
 }
 .breadcrumbs a, .breadcrumbs span{
-  color: #BBB;
+  color: #CCC;
 }
 .breadcrumbs a{
   letter-spacing: -1px;

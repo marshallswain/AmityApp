@@ -1,7 +1,7 @@
 'use strict';
 
 // Stores a list of databases, keyed by server name.
-var databaseStore = {};
+var store = {};
 
 // Pass in a location consisting of 'hostName/dbName'
 export function dbStore(location, data){
@@ -22,15 +22,15 @@ export function dbStore(location, data){
 		// If no dbName was passed (after the '/')...
 		if(!dbName){
 			// Return the entire array of data.
-			return databaseStore[server] || false;
+			return store[server] || false;
 
 		// Else, if a dbName was given and we already have data for the server.
-		} else if(databaseStore[server]){
+		} else if(store[server]){
 			// Loop through what's there...
-			for (var i = databaseStore[server].length - 1; i >= 0; i--) {
+			for (var i = store[server].length - 1; i >= 0; i--) {
 				// If there's data matching the dbName, return it.
-				if (databaseStore[server][i].name === dbName) {
-					return databaseStore[server][i];
+				if (store[server][i].name === dbName) {
+					return store[server][i];
 				};
 			};
 			// If no data was found for the dbName, return false;
@@ -47,18 +47,18 @@ export function dbStore(location, data){
 	// If data is an array...
 	if (data.length) {
 		// ... store data, keyed by server.
-		databaseStore[server] = data;
+		store[server] = data;
 		// Return the array.
 		return data;
 
 	// Otherwise it's a single db
 	} else {
 		// Make sure the key exists.
-		if (!databaseStore[server]) {
-			databaseStore[server] = {};
+		if (!store[server]) {
+			store[server] = {};
 		}
 		// Add it to the store.
-		databaseStore[server][data.name] = data;
+		store[server][data.name] = data;
 		// Return the data.
 		return data;
 	}

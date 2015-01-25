@@ -1,10 +1,13 @@
+{{#appState}}
 <div class="row">
 
   <div class="col-sm-9 main">
     <div class="page-header">
 
       <div class="breadcrumbs">
-        <a href="javascript:void(0)" can-click="home"><i class="mdi-action-dns"></i></a>
+        <a href="javascript:void(0)" can-click="goHome"><i class="mdi-action-dns"></i></a>
+        <span> / </span>
+        <a href="javascript:void(0)" can-click="gotoServer">{{hostname}}</a>
         <span> / </span>
       </div>
 
@@ -48,7 +51,7 @@
 
     </div>
 
-    <p>{{collections}} collections</p>
+    <p>{{stats.collections}} collections</p>
     {{/database}}
   </div>
 
@@ -62,7 +65,6 @@
         </tr>
       </thead>
       <tbody>
-      {{#appState}}
       {{#each collections}}
         <tr>
           <td>{{index @index}}</td>
@@ -79,7 +81,6 @@
           </td>
         </tr>
       {{/each collections}}
-      {{/appState}}
       </tbody>
     </table>
   </div>
@@ -110,3 +111,4 @@
   </div>
 
 </div>
+{{/appState}}

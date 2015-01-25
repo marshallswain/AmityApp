@@ -9,6 +9,7 @@ var collDef = new can.Deferred();
 var dbDef = new can.Deferred();
 
 import {dbStore} from './stores/databases';
+import {collStore} from './stores/collections';
 
 
 // Defines the state of the application
