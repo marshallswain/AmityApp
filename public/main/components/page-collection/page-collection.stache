@@ -1,3 +1,4 @@
+{{#appState}}
 <div class="row">
   <div class="col-sm-9 main collection">
 
@@ -6,6 +7,10 @@
       <div class="breadcrumbs">
         <a href="javascript:void(0)" can-click="goHome"><i class="mdi-action-dns"></i></a>
         <span> / </span>
+
+        <a href="javascript:void(0)" can-click="gotoServer">{{hostname}}</a>
+        <span> / </span>
+
         {{#database}}
         <a href="javascript:void(0)" can-click="gotoDB">{{name}}</a>
         {{/database}}
@@ -39,8 +44,14 @@
         <li><a href="javascript:void(0)"><i class="mdi-action-view-agenda"></i></a></li>
       </ul>
     </div>
+    {{#collection}}
+    {{#if stats}}
 
-    <p id="editable" class="records-summary"><strong>1-10</strong> of <strong>19</strong> documents</p>
+      <p id="editable" class="records-summary"><strong>1-10</strong> of <strong>{{#stats}}{{count}}{{/stats}}</strong> documents</p>
+    {{else}}
+      <p id="editable" class="records-summary">no documents</p>
+    {{/if}}
+    {{/collection}}
 
     <div class="records">
 
@@ -270,3 +281,4 @@
 
 </script>
 
+{{/appState}}

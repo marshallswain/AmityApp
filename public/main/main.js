@@ -1,6 +1,6 @@
 'use strict';
 
-import 'mustache-helpers';
+import 'stache-helpers';
 import 'routes';
 
 /* * * Fixtures * * */

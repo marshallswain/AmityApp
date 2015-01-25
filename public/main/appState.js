@@ -5,8 +5,9 @@ import {getDbModel} from '../../models/dbModels';
 import {getCollModel} from '../../models/collModels';
 
 // Resolve this with the collections when the database changes.
-var collDef = new can.Deferred();
 var dbDef = new can.Deferred();
+var collDef = new can.Deferred();
+var docDef = new can.Deferred();
 
 import {dbStore} from './stores/databases';
 import {collStore} from './stores/collections';
@@ -85,14 +86,11 @@ var AppState = can.Map.extend({
 			// When a db is set, get its collections.
 			set(value){
 				var self = this;
-
 				var resource = '/api/' + this.attr('hostname') + '/' + value.name + '/' + '_collections';
-				console.log(resource);
 				getCollModel(resource).findAll({}).then(function(colls){
-					console.log(colls);
 					self.attr('collections').replace(colls);
+					collDef.resolve(colls);
 				});
-
 				return value;
 			},
 			serialize:false
@@ -102,22 +100,18 @@ var AppState = can.Map.extend({
 			serialize:false,
 			value: new can.List(),
 			set(value){
-
-				// console.log('resolving collDef')
-				collDef.resolve(value);
-
 				return value;
 			},
 		},
 
-		col_name:{
+		coll_name:{
 			set(value){
 				var self = this;
 
-				collDef.done(function(cols){
-					for (var i = cols.length - 1; i >= 0; i--) {
-						if (value == cols[i].name) {
-							self.attr('collection', cols[i]);
+				collDef.done(function(colls){
+					for (var i = colls.length - 1; i >= 0; i--) {
+						if (value == colls[i].name) {
+							self.attr('collection', colls[i]);
 						};
 					};
 				});

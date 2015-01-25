@@ -5,6 +5,12 @@
   <div class="col-sm-9 col-md-10">
 
     <div class="page-header">
+
+      <div class="breadcrumbs">
+        <a href="javascript:void(0)" can-click="goHome"><i class="mdi-action-dns"></i></a>
+        <span> / </span>
+      </div>
+
       {{#if hasFavorites}}
       <h1>Favorites</h1>
       {{/else}}

@@ -10,6 +10,7 @@ can.Component.extend({
 
 		goHome: function(scope, el, ev){
 			can.route.removeAttr('db_name');
+			can.route.removeAttr('hostname');
 			can.route.attr('page', 'home');
 		},
 
@@ -19,10 +20,8 @@ can.Component.extend({
 		},
 
 		openCollection:function(scope, el, ev){
-			ev.preventDefault();
+			can.route.attr('coll_name', scope.name);
 			can.route.attr('page', 'collection');
-			can.route.attr('collection', scope);
-			can.route.attr('col_name', scope.name);
 		}
 	},
 	events: {},

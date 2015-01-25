@@ -72,7 +72,11 @@
             <a href="" can-click="openCollection">{{name}}</a>
           </td>
           <td>
-            {{number documents}}
+            {{#if stats}}
+              {{#stats}}
+              {{count}}
+              {{/stats}}
+            {{/if}}
             <span class="table-tools pull-right">
               <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
               <a href="" class="btn-download">Export</a>

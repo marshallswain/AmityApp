@@ -11,6 +11,11 @@ can.Component.extend({
 	scope: {
 		appState: appState,
 
+		goHome: function(scope, el, ev){
+			can.route.removeAttr('hostname');
+			can.route.attr('page', 'home');
+		},
+
 		selectDB: function(scope, el, ev){
 			can.route.attr('db_name', scope.name);
 			can.route.attr('page', 'database');
