@@ -14,17 +14,16 @@ var app = feathers()
   .configure(feathers.socketio())
   .configure(feathers.rest());
 
-mongoose.connect('mongodb://localhost:27017/amity');
-
 var config = {
   apiPrefix:'/api'
 };
-// Start Amity with an adapter as a configuration store.
-amity.start(app, config, amity.mongodb('mongodb://localhost:27017/amity'));
+// Start Amity with a MongoAdapter as a configuration store.
+amity.start(app, config, new amity.MongoAdapter('mongodb://localhost:27017/amity'));
 
 // Start the server.
 var port = 8081;
 app.listen(port, function() {
+  console.log('');
   // app.use('/api/tasks', require('./services/tasks'));
   console.log('Feathers server listening on port ' + port);
 });
