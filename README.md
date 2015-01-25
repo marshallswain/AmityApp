@@ -6,7 +6,7 @@ Amity Database Manager
 ## Amity - a web-based database admin interface 
 
 # NOT YET FUNCTIONAL
-After making a JavaScript app duplicating functionality of the mongo-express project, I realized the potential for this app is far greater than just a MongoDB manager.  I started the year off with a grandslam feature creep: Amity will soon manage multiple servers of different types (SQL, MongoDB).  If you need a MongoDB manager right away, please use mongo-express.
+After making a JavaScript app duplicating functionality of the mongo-express project, I realized the potential for this app is far greater than just a MongoDB manager.  I started the year off with a grand-slam feature creep: Amity will soon manage multiple servers of different types (SQL, MongoDB).  If you need a MongoDB manager right away, please use mongo-express.
 
 Screenshots
 -----------
