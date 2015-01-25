@@ -1,12 +1,14 @@
 'use strict';
 
 import '../../models/models';
-import {getDbModel} from '../../models/models';
-import {getModel} from '../../models/models';
+import {getDbModel} from '../../models/dbModels';
+import {getCollModel} from '../../models/collModels';
 
 // Resolve this with the collections when the database changes.
-var colDef = new can.Deferred();
+var collDef = new can.Deferred();
 var dbDef = new can.Deferred();
+
+import {dbStore} from './stores/databases';
 
 
 // Defines the state of the application
@@ -35,25 +37,25 @@ var AppState = can.Map.extend({
 
 		server:{
 			serialize:false,
-			set(value){
+			set(server){
 				var self = this;
+				var resource = '/api/' + server.name + '/_databases';
 
-				var resource = '/api/' + value.name + '/_databases';
-
+				// Get/Create a model for this resource.
 				getDbModel(resource).findAll({}, function(dbs){
+
+					// Cache the dbs in the dbStore.
+					dbStore(server.name, dbs);
+
 					self.attr('databases').replace(dbs);
 					dbDef.resolve(dbs);
 				});
 
-				// var list = new model.List({});
-				// this.attr('databases', list);
-
-				// Set the databases.
-				return value;
+				return server;
 			}
 		},
 
-
+		// The databases for the current server.
 		databases: {
 			serialize:false,
 			set(value){
@@ -63,17 +65,15 @@ var AppState = can.Map.extend({
 		},
 
 		db_name:{
-			set(value){
+			serialize: true,
+			set(dbName){
 				var self = this;
-				dbDef.done(function(dbs){
-					for (var i = dbs.length - 1; i >= 0; i--) {
-						if (value == dbs[i].name) {
-							self.attr('database', dbs[i]);
-						};
-					};
-
+				// Wait until we have the list.
+				dbDef.done(function(){
+					var server = self.hostname;
+					self.attr('database', dbStore(server + '/' + dbName));
 				});
-				return value;
+				return dbName;
 			},
 			remove(){
 				this.attr('database', {});
@@ -87,7 +87,7 @@ var AppState = can.Map.extend({
 
 				var resource = '/api/' + this.attr('hostname') + '/' + value.name + '/' + '_collections';
 				console.log(resource);
-				getModel(resource).findAll({}).then(function(colls){
+				getCollModel(resource).findAll({}).then(function(colls){
 					console.log(colls);
 					self.attr('collections').replace(colls);
 				});
@@ -102,8 +102,8 @@ var AppState = can.Map.extend({
 			value: new can.List(),
 			set(value){
 
-				// console.log('resolving colDef')
-				colDef.resolve(value);
+				// console.log('resolving collDef')
+				collDef.resolve(value);
 
 				return value;
 			},
@@ -113,7 +113,7 @@ var AppState = can.Map.extend({
 			set(value){
 				var self = this;
 
-				colDef.done(function(cols){
+				collDef.done(function(cols){
 					for (var i = cols.length - 1; i >= 0; i--) {
 						if (value == cols[i].name) {
 							self.attr('collection', cols[i]);
