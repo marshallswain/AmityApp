@@ -5,7 +5,7 @@
     <databaseInfo>
         <version>134481920</version>
         <UUID>F27BE444-DF2C-4482-B9B6-155E03FAE863</UUID>
-        <nextObjectID>137</nextObjectID>
+        <nextObjectID>139</nextObjectID>
         <metadata>
             <plist version="1.0">
                 <dict>
@@ -182,7 +182,7 @@
     </object>
     <object type="LMREQUESTGROUP" id="z113">
         <attribute name="uuid" type="string">47508244-9E68-4FFC-9CC7-754733DF93A3</attribute>
-        <attribute name="order" type="int64">12</attribute>
+        <attribute name="order" type="int64">11</attribute>
         <attribute name="name" type="string">Servers</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM" idrefs="z126 z112 z109"></relationship>
@@ -361,7 +361,7 @@
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">GET</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="order" type="int64">7</attribute>
+        <attribute name="order" type="int64">8</attribute>
         <attribute name="name" type="string">MMALocal Collections</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
@@ -411,7 +411,7 @@
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">GET</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="order" type="int64">8</attribute>
+        <attribute name="order" type="int64">9</attribute>
         <attribute name="name" type="string">BCHMfinal Collections</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
@@ -428,7 +428,7 @@
         <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z131"></relationship>
     </object>
     <object type="LMREQUEST" id="z133">
-        <attribute name="body" type="string">[{"data":{"keyValues":[["connect","mongodb:\\/\\/\u3c00user\u3e00:\u3c00pass\u3e00@c295.candidate.33.mongolayer.com:10295,c295.candidate.32.mongolayer.com:10295\\/feathers-tuts?replicaSet=set-53a9dd519941dfe469003c91",true],["type","mongodb",true]]},"identifier":"com.luckymarmot.BodyFormKeyValueDynamicValue"}]</attribute>
+        <attribute name="body" type="string">[{"data":{"keyValues":[["uri","mongodb:\\/\\/user:pass@c295.candidate.33.mongolayer.com:10295,c295.candidate.32.mongolayer.com:10295\\/feathers-tuts?replicaSet=set-53a9dd519941dfe469003c91",true],["type","mongodb",true]]},"identifier":"com.luckymarmot.BodyFormKeyValueDynamicValue"}]</attribute>
         <attribute name="uuid" type="string">3D1BF600-0306-4B11-BDA1-3821A81589D2</attribute>
         <attribute name="url" type="string">http://localhost:8081/amity/servers</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
@@ -487,5 +487,30 @@
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z135"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z136"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z138">
+        <attribute name="uuid" type="string">A930152C-CF8F-4F58-9E06-DD6B1222DD36</attribute>
+        <attribute name="url" type="string">http://localhost:8081/api/c295.candidate.33.mongolayer.com:10295/_databases</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">GET</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="order" type="int64">7</attribute>
+        <attribute name="name" type="string">Databases</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z139"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z139">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z138"></relationship>
     </object>
 </database>

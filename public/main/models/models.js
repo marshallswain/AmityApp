@@ -15,4 +15,3 @@ export var Task = can.Feathers.Model.extend('tasks', {
 export var Todo = can.Feathers.Model.extend('todos', {
 	resource: '/api/todos'
 }, {});
-

@@ -15,8 +15,8 @@
     </header>
 
     <footer class="tile-info">
-      <p>{{name}}</p>
-      <p>{{#stats}}{{collections}}{{/stats}} collections</p>
+      <p>{{db}}</p>
+      <p>{{collectionCount}} collections</p>
     </footer>
   </div>
 </div>

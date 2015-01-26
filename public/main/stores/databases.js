@@ -17,6 +17,7 @@ export function dbStore(location, data){
 		server = loc[0],
 		dbName = loc[1] || false;
 
+
 	// If no data was passed, we're getting.
 	if (!data){
 		// If no dbName was passed (after the '/')...
@@ -29,7 +30,7 @@ export function dbStore(location, data){
 			// Loop through what's there...
 			for (var i = store[server].length - 1; i >= 0; i--) {
 				// If there's data matching the dbName, return it.
-				if (store[server][i].name === dbName) {
+				if (store[server][i].db === dbName) {
 					return store[server][i];
 				};
 			};
@@ -42,7 +43,6 @@ export function dbStore(location, data){
 			return false;
 		}
 	}
-
 
 	// If data is an array...
 	if (data.length) {
@@ -58,7 +58,7 @@ export function dbStore(location, data){
 			store[server] = {};
 		}
 		// Add it to the store.
-		store[server][data.name] = data;
+		store[server][data.db] = data;
 		// Return the data.
 		return data;
 	}

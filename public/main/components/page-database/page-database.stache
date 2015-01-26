@@ -51,7 +51,7 @@
 
     </div>
 
-    <p>{{#stats}}{{stats.collections}}{{/stats}} collections</p>
+    <p>{{collectionCount}} collections</p>
     {{/database}}
   </div>
 

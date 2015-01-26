@@ -11,8 +11,8 @@
     <tbody>
       {{#each databases}}
         <tr>
-          <td><i class="mdi-image-brightness-1"></i> {{name}} {{#if favorite}}<i class="pull-right mdi-action-favorite"></i>{{/if}}</td>
-          <td>{{#stats}}{{collections}}{{/stats}} collections</td>
+          <td><i class="mdi-image-brightness-1"></i> {{db}} {{#if favorite}}<i class="pull-right mdi-action-favorite"></i>{{/if}}</td>
+          <td>{{collectionCount}} collections</td>
           <td>{{group}}</td>
           <td>{{dbSize}}</td>
         </tr>

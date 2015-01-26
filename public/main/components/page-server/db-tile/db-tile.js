@@ -7,7 +7,7 @@ can.Component.extend({
 	template: can.view('/main/components/page-server/db-tile/db-tile.stache'),
 	scope: {
 		selectDB: function(scope, el, ev){
-			can.route.attr('db_name', scope.name);
+			can.route.attr('db_name', scope.db);
 			can.route.attr('page', 'database');
 		},
 

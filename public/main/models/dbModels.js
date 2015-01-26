@@ -9,7 +9,7 @@ export function getDbModel(resource){
 		}, {
 			// Returns size of the db using the largest-sized unit.
 			dbSize(){
-				var bytes = this.attr('stats.dataSize');
+				var bytes = this.attr('dataSize');
 				if(bytes == 0) return '0 Byte';
 				var k = 1024;
 				var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];

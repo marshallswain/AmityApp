@@ -86,7 +86,7 @@ var AppState = can.Map.extend({
 			// When a db is set, get its collections.
 			set(value){
 				var self = this;
-				var resource = '/api/' + this.attr('hostname') + '/' + value.name + '/' + '_collections';
+				var resource = '/api/' + this.attr('hostname') + '/' + value.db + '/' + '_collections';
 				getCollModel(resource).findAll({}).then(function(colls){
 					self.attr('collections').replace(colls);
 					collDef.resolve(colls);
