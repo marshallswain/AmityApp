@@ -1,65 +1,65 @@
 {{loading}}
 
 <h4>Server Status <i class="mdi-action-autorenew pull-right {{#if spin}}spinner{{/if}}" can-click="refresh"></i></h4>
-{{#stats}}
-<dl>
-  <dt>Hostname</dt>
-  <dd>{{host}}</dd>
-
-  <dt>MongoDB Version</dt>
-  <dd>{{version}}</dd>
-
-  <dt>Uptime</dt>
-  <dd>{{secondsHumanize uptime}}</dd>
-
-  <dt>Server Time</dt>
-  <dd>{{localTime}}</dd>
-</dl>
-
-{{#connections}}
-<dl>
-  <dt>Connections</dt>
-  <dd>Current: {{current}}<br/>Available: {{available}}</dd>
-</dl>
-{{/connections}}
-
-{{#globalLock}}
-  {{#activeClients}}
+{{#stats.status}}
   <dl>
-    <dt>Clients</dt>
-    <dd>Active: {{number total}} <br/>  Read Lock: {{number readers}} <br/>  Write Lock: {{number writers}}</dd>
-  </dl>
-  {{/activeClients}}
+    <dt>Hostname</dt>
+    <dd>{{host}}</dd>
 
-  {{#currentQueue}}
+    <dt>MongoDB Version</dt>
+    <dd>{{version}}</dd>
+
+    <dt>Uptime</dt>
+    <dd>{{secondsHumanize uptime}}</dd>
+
+    <dt>Server Time</dt>
+    <dd>{{localTime}}</dd>
+  </dl>
+
+  {{#connections}}
   <dl>
-    <dt>Queues</dt>
-    <dd>Operations: {{number total}} <br/>  Read Lock: {{number readers}} <br/>  Write Lock: {{number writers}}</dd>
+    <dt>Connections</dt>
+    <dd>Current: {{current}}<br/>Available: {{available}}</dd>
   </dl>
-  {{/currentQueue}}
-{{/globalLock}}
+  {{/connections}}
 
-{{#opcounters}}
-<dl>
-  <dt>Operation Counts</dt>
-  <dd>Inserts: {{number insert}} <br/>  Queries: {{number query}} <br/>  Updates: {{number update}} <br/>  Deletes: {{number delete}}</dd>
-</dl>
-{{/opcounters}}
+  {{#opcounters}}
+  <dl>
+    <dt>Operation Counts</dt>
+    <dd>Inserts: {{number insert}} <br/>  Queries: {{number query}} <br/>  Updates: {{number update}} <br/>  Deletes: {{number delete}}</dd>
+  </dl>
+  {{/opcounters}}
 
-{{#backgroundFlushing}}
-<dl>
-  <dt>Flush Count</dt>
-  <dd>{{number flushes}}</dd>
+  {{#globalLock}}
+    {{#activeClients}}
+    <dl>
+      <dt>Clients</dt>
+      <dd>Active: {{number total}} <br/>  Read Lock: {{number readers}} <br/>  Write Lock: {{number writers}}</dd>
+    </dl>
+    {{/activeClients}}
 
-  <dt>Last Flush</dt>
-  <dd>{{last_finished}}</dd>
+    {{#currentQueue}}
+    <dl>
+      <dt>Queues</dt>
+      <dd>Operations: {{number total}} <br/>  Read Lock: {{number readers}} <br/>  Write Lock: {{number writers}}</dd>
+    </dl>
+    {{/currentQueue}}
+  {{/globalLock}}
 
-  <dt>Time Spent</dt>
-  <dd>{{last_ms}} ms</dd>
+  {{#backgroundFlushing}}
+  <dl>
+    <dt>Flush Count</dt>
+    <dd>{{number flushes}}</dd>
 
-  <dt>Average Time</dt>
-  <dd>{{number average_ms 4}} ms</dd>
-</dl>
-{{/backgroundFlushing}}
+    <dt>Last Flush</dt>
+    <dd>{{last_finished}}</dd>
+
+    <dt>Time Spent</dt>
+    <dd>{{last_ms}} ms</dd>
+
+    <dt>Average Time</dt>
+    <dd>{{number average_ms 4}} ms</dd>
+  </dl>
+  {{/backgroundFlushing}}
 
 {{/stats}}

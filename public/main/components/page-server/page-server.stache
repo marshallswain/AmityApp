@@ -9,6 +9,9 @@
       <div class="breadcrumbs">
         <a href="javascript:void(0)" can-click="goHome"><i class="mdi-action-dns"></i></a>
         <span> / </span>
+        <a href="javascript:void(0)" can-click="gotoServer">{{hostname}}</a>
+        <span> / </span>
+
       </div>
 
       {{#if hasFavorites}}
@@ -83,7 +86,7 @@
   </div>
 
   <div class="col-sm-3 col-sm-offset-9 col-md-2 col-md-offset-10 sidebar">
-    {{! <server-status></server-status> }}
+    <server-status></server-status>
   </div>
 </div>
 {{/appState}}

@@ -11,6 +11,10 @@ can.Component.extend({
 	scope: {
 		appState: appState,
 
+		gotoServer: function(){
+			return false;
+		},
+
 		goHome: function(scope, el, ev){
 			can.route.removeAttr('hostname');
 			can.route.attr('page', 'home');

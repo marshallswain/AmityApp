@@ -1,7 +1,7 @@
 'use strict';
 
 export var Server = can.Feathers.Model.extend('Server', {
-	resource: 'servers'
+	resource: 'amity/servers'
 }, {});
 
 export var Doc = can.Model.extend('Doc', {
