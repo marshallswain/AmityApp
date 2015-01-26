@@ -1,6 +1,7 @@
 'use strict';
 
 import './query-builder/query-builder';
+import './code-editor/code-editor';
 import appState from '../../appState';
 
 can.Component.extend({
@@ -25,6 +26,7 @@ can.Component.extend({
 			can.route.removeAttr('coll_name');
 			can.route.attr('page', 'database');
 		}
+
 	},
 	events: {},
 	helpers:{}

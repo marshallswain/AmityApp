@@ -3,6 +3,7 @@
 import '../../models/models';
 import {getDbModel} from '../../models/dbModels';
 import {getCollModel} from '../../models/collModels';
+import {getDocumentModel} from '../../models/documentModels';
 
 // Resolve this with the collections when the database changes.
 var dbDef = new can.Deferred();
@@ -87,10 +88,11 @@ var AppState = can.Map.extend({
 			set(value){
 				var self = this;
 				var resource = '/api/' + this.attr('hostname') + '/' + value.db + '/' + '_collections';
-				getCollModel(resource).findAll({}).then(function(colls){
+				getCollModel(resource).findAll({}, function(colls){
 					self.attr('collections').replace(colls);
 					collDef.resolve(colls);
 				});
+				console.log(value);
 				return value;
 			},
 			serialize:false
@@ -126,9 +128,14 @@ var AppState = can.Map.extend({
 		collection:{
 			serialize:false,
 			value:{},
-			set(value){
-				// this.attr('docs', new Doc.List({'database':this.attr('database'), 'collection':value}));
-				return value;
+			set(collection){
+				var self = this;
+				var resource = '/api/' + this.attr('hostname') + '/' + this.attr('db_name') + '/' + collection.name;
+				getDocumentModel(resource).findAll({}, function(docs){
+					self.attr('documents').replace(docs);
+					docDef.resolve(docs);
+				});
+				return collection;
 			},
 		},
 
@@ -136,11 +143,13 @@ var AppState = can.Map.extend({
 			serialize:false
 		},
 
-		docs: {
+		documents: {
+			serialize:false,
+			value:new can.List(),
 			set(value){
 				console.log(value);
-			},
-			serialize:false
+				return value;
+			}
 		},
 
 		doc_id:{}

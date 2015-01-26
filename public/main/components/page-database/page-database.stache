@@ -9,10 +9,11 @@
         <span> / </span>
         <a href="javascript:void(0)" can-click="gotoServer">{{hostname}}</a>
         <span> / </span>
+
       </div>
 
       {{#database}}
-      <h1>{{name}}</h1>
+      <h1>{{db}}</h1>
 
       <div class="view-tools">
         <ul class="nav nav-pills pull-right">
@@ -69,7 +70,7 @@
         <tr>
           <td>{{index @index}}</td>
           <td>
-            <a href="" can-click="openCollection">{{name}}</a>
+            <a href="javascript:void(null);" can-click="openCollection">{{name}}</a>
           </td>
           <td>
             {{#if stats}}

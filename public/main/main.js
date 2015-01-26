@@ -14,7 +14,6 @@ import 'components/page-server/page-server';
 import 'components/page-database/page-database';
 import 'components/page-collection/page-collection';
 import 'components/servers-sidebar/servers-sidebar';
-import 'components/code-editor/code-editor';
 import 'components/add-server/add-server';
 
 // import 'components/task-module/task-module';
