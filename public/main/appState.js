@@ -92,7 +92,6 @@ var AppState = can.Map.extend({
 					self.attr('collections').replace(colls);
 					collDef.resolve(colls);
 				});
-				console.log(value);
 				return value;
 			},
 			serialize:false

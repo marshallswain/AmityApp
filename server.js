@@ -2,8 +2,6 @@
 
 var feathers = require('feathers'),
   amity = require('amity'),
-  mongoose = require('mongoose'),
-  feathersMongo = require('feathers-mongodb'),
   bodyParser = require('body-parser');
 
 // Prep the Feathers server.
@@ -23,7 +21,6 @@ amity.start(app, config, new amity.adapters.MongoDB('mongodb://localhost:27017')
 // Start the server.
 var port = 8081;
 app.listen(port, function() {
-  console.log('');
   // app.use('/api/tasks', require('./services/tasks'));
   console.log('Feathers server listening on port ' + port);
 });
