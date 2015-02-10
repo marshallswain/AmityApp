@@ -1,0 +1,32 @@
+{
+  "name": "feathers-mongo-database",
+  "version": "0.0.1",
+  "description": "Create a MongoDB database service for FeathersJS.",
+  "main": "lib/feathers-mongo-database.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marshallswain/feathers-mongo-databases.git"
+  },
+  "keywords": [
+    "feathers",
+    "REST",
+    "Socket.io",
+    "realtime",
+    "mongodb",
+    "mongo",
+    "service"
+  ],
+  "author": {
+    "name": "Marshall Thompson",
+    "email": "marshall@creativeideal.net",
+    "url": "https://github.com/marshallswain"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marshallswain/feathers-mongo-databases/issues"
+  },
+  "homepage": "https://github.com/marshallswain/feathers-mongo-databases",
+  "dependencies": {
+  },
+  "readmeFilename": "README.md"
+}
