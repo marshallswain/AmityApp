@@ -16,7 +16,7 @@ var config = {
   apiPrefix:'/api'
 };
 // Start Amity with a MongoAdapter as a configuration store.
-amity.start(app, config, new amity.adapters.MongoDB('mongodb://localhost:27017'));
+amity.start(app, config, amity.adapters.MongoDB('mongodb://localhost:27017'));
 
 // Start the server.
 var port = 8081;
