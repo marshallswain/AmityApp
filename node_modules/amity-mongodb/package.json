@@ -1,0 +1,33 @@
+{
+  "name": "amity-mongodb",
+  "version": "0.0.1",
+  "description": "Create and manage MongoDB databases with FeathersJS.",
+  "main": "lib/amity-mongodb.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marshallswain/amity-mongodb.git"
+  },
+  "keywords": [
+    "feathers",
+    "REST",
+    "Socket.io",
+    "realtime",
+    "mongodb",
+    "mongo",
+    "service"
+  ],
+  "author": {
+    "name": "Marshall Thompson",
+    "email": "marshall@creativeideal.net",
+    "url": "https://github.com/marshallswain"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marshallswain/amity-mongodb/issues"
+  },
+  "homepage": "https://github.com/marshallswain/amity-mongodb",
+  "dependencies": {
+    "mongoskin":"*"
+  },
+  "readmeFilename": "README.md"
+}
