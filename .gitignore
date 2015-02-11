@@ -14,9 +14,6 @@ logs
 results
 
 node_modules/*
-!node_modules/amity-mongodb
-!node_modules/feathers-mongo-collections
-!node_modules/feathers-mongo-databases
 npm-debug.log
 
 config.js
