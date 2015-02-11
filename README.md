@@ -48,12 +48,12 @@ Features & Development Plan
 - [x] Authenticate to MongoDB as admin to view all databases. **v0.1**
 - [x] Connect and authenticate to individual MongoDB databases. **v0.1** 
 - [ ] Handle bad auth **v0.2**
-- [ ] **CRUD for Databases** - **v0.2** 
+- [ ] **CRUD for [Databases](https://github.com/marshallswain/feathers-mongo-databases)** - **v0.2** 
 - [x] View Databases, based on permissions.
 - [ ] Create Databases
 - [ ] Rename Databases
 - [ ] Drop Databases
-- [ ] **CRUD for Collections** - **v0.2** 
+- [ ] **CRUD for [Collections](https://github.com/marshallswain/feathers-mongo-collections)** - **v0.2** 
 - [x] View Collections
 - [ ] Create Collections
 - [ ] Rename Collections
