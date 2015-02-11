@@ -31,9 +31,9 @@ Features & Development Plan
 - [x] Flexible service setup **v0.1**
 - [x] Dead-simple setup.  No more config files! **v0.1**
 - [ ] Add databases from the browser without server restart. **v0.2** 
+- [x] Make more NPM friendly as sub-module. **v0.2**
 - [ ] Add tests for test-assisted development **v0.3** 
-- [ ] Make more NPM friendly as sub-module. **v0.4**
-- [ ] Allow it to use an internal Feathers server. **v0.4**
+- [ ] Allow it to use an internal Feathers server? **v0.4**
 - [ ] Create MySQL service for [FeathersJS](http://feathersjs.com) **v0.5**
 - [ ] Custom Adapter API (server side) **v0.7**
 - [ ] SQL Adapter based on API **v0.8**
