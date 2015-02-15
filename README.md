@@ -5,8 +5,11 @@ Amity Database Manager
 
 ## Amity - a web-based database admin interface 
 
-# NOT YET FULLY FUNCTIONAL
-After making a JavaScript app duplicating functionality of the mongo-express project, I realized the potential for this app is far greater than just a MongoDB manager.  I started the year off with a grand-slam feature creep: Amity will manage multiple servers of different types (SQL, MongoDB, then more).  If you need a MongoDB manager right away, please use mongo-express.
+# PROGRESS REPORT
+Amity is currently only useful as a MongoDB Viewer.  Full editing capabilities are in the works.
+
+
+After making a JavaScript app duplicating functionality of the [mongo-express](https://github.com/andzdroid/mongo-express) project, I realized the potential for this app is far greater than just a MongoDB manager.  I started the year off with a grand-slam feature creep: Amity will manage multiple servers of different types (SQL, MongoDB, then more).  If you need a MongoDB manager right away, please use mongo-express.
 
 Screenshots
 -----------
@@ -16,7 +19,7 @@ Screenshots
 <img src="http://i.imgur.com/1e7v2tb.png" title="Main Server Page - List Mode" />
 
 
-Amity uses Node.js and Express on the server, CanJS and Steal on the client.  
+Amity uses Node.js and FeathersJS on the server, CanJS and Steal on the client.
 
 It currently only supports MongoDB.
 
@@ -33,7 +36,7 @@ Features & Development Plan
 - [ ] Add databases from the browser without server restart. **v0.2** 
 - [x] Make more NPM friendly as sub-module. **v0.2**
 - [ ] Add tests for test-assisted development **v0.3** 
-- [ ] Allow it to use an internal Feathers server? **v0.4**
+- [ ] Allow standalone mode? (Use an internal Feathers server) **v0.4**
 - [ ] Create MySQL service for [FeathersJS](http://feathersjs.com) **v0.5**
 - [ ] Custom Adapter API (server side) **v0.7**
 - [ ] SQL Adapter based on API **v0.8**
@@ -49,35 +52,36 @@ Features & Development Plan
 - [x] Connect and authenticate to individual MongoDB databases. **v0.1** 
 - [ ] Handle bad auth **v0.2**
 - [ ] **CRUD for [Databases](https://github.com/marshallswain/feathers-mongo-databases)** - **v0.2** 
-- [x] View Databases, based on permissions.
-- [ ] Create Databases
-- [ ] Rename Databases
-- [ ] Drop Databases
+    - [x] View Databases, based on permissions.
+    - [ ] Create Databases
+    - [ ] Rename Databases
+    - [ ] Drop Databases
 - [ ] **CRUD for [Collections](https://github.com/marshallswain/feathers-mongo-collections)** - **v0.2** 
-- [x] View Collections
-- [ ] Create Collections
-- [ ] Rename Collections
-- [ ] Delete Collections
-- [x] **CRUD for Documents** - **v0.2**
-- [x] View Documents
-- [ ] Create Documents
-- [ ] Modify Documents
-- [ ] Delete Documents
-- [ ] Drag and Drop documents between databases/collections.
-- [ ] Drag and Drop entire collections between databases.
-- [ ] Enable/Disable Trash Implementation for delete. **v0.2** 
+    - [x] View Collections
+    - [ ] Create Collections
+    - [ ] Rename Collections
+    - [ ] Delete Collections
+- [ ] **CRUD for Documents** - **v0.2**
+    - [x] View Documents
+    - [ ] Create Documents
+    - [ ] Modify Documents
+    - [ ] Delete Documents
 - [ ] Use BSON data types in documents **v0.2** 
 - [ ] Add/Remove Users from DB - **v0.3**
 - [ ] Customizeable `document._id` property **v0.5**
-- [ ] Web-based command-line MongoDB interface (Client Module) **v1.5**
 - [ ] GridFS support?
 
-### UI Goals:
-* [x] JSON Editor view. **v0.1** 
-* [ ] Grid view. - Select which fields to show for quick comparison. **v0.4** 
-* [ ] Color-coded database tiles. **v0.4** 
-* [ ] Drag and drop image/logos onto db tile.  Link or Upload to S3 or Dropbox(?) **v0.4** 
-* [ ] When running the server without a configuration store, change the UI color to show that we're running in volatile mode. Shutting down the server without exporting the running-config will cause changes to be lost. **v0.6** 
+### MongoDB UI Features:
+- [x] JSON Editor view. **v0.1** 
+- [ ] Grid view. - Select which fields to show for quick comparison. **v0.4** 
+- [ ] Color-coded database tiles. **v0.4** 
+- [ ] Drag and Drop support
+    - [ ] Drag and Drop documents between databases/collections.
+    - [ ] Drag and Drop image/logos onto db tile.  Link or Upload to S3 or Dropbox(?) **v0.4** 
+    - [ ] Drag and Drop entire collections between databases.
+- [ ] Enable/Disable Trash Implementation for delete. **v0.2** 
+- [ ] When running the server without a configuration store, change the UI color to show that we're running in volatile mode. Shutting down the server without exporting the running-config will cause changes to be lost. **v0.6** 
+- [ ] Web-based command-line MongoDB interface (Client Module) **v1.5**
 
 ### The Configuration Store
 
