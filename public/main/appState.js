@@ -50,7 +50,7 @@ var AppState = can.Map.extend({
 					// Cache the dbs in the dbStore.
 					dbStore(server.name, dbs);
 
-					self.attr('databases').replace(dbs);
+					self.attr('databases', dbs);
 					dbDef.resolve(dbs);
 				});
 
@@ -132,7 +132,7 @@ var AppState = can.Map.extend({
 					var self = this;
 					var resource = '/api/' + this.attr('hostname') + '/' + this.attr('db_name') + '/' + collection.name;
 					getDocumentModel(resource).findAll({}, function(docs){
-						self.attr('documents').replace(docs);
+						self.attr('documents', docs);
 						docDef.resolve(docs);
 					});
 					return collection;
