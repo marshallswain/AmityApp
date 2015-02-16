@@ -89,7 +89,7 @@ var AppState = can.Map.extend({
 				var self = this;
 				var resource = '/api/' + this.attr('hostname') + '/' + value.db + '/' + '_collections';
 				getCollModel(resource).findAll({}, function(colls){
-					self.attr('collections').replace(colls);
+					self.attr('collections', colls);
 					collDef.resolve(colls);
 				});
 				return value;

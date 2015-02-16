@@ -60,7 +60,7 @@ Features & Development Plan
     - [x] View Collections
     - [ ] Create Collections
     - [ ] Rename Collections
-    - [ ] Delete Collections
+    - [x] Delete Collections
 - [ ] **CRUD for Documents** - **v0.2**
     - [x] View Documents
     - [ ] Create Documents
