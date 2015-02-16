@@ -252,6 +252,7 @@ add-server ul.nav{
 .page-header .view-tools{
   position: absolute;
   bottom:-8px;
+  /*top:23px;*/
 }
 .view-tools{
   right:0;
@@ -271,12 +272,6 @@ add-server ul.nav{
   z-index: 1000;
 }
 
-@media (max-width: 768px) {
-  .view-tools .add .form-container{
-    left:-120px;
-    top:40%;
-  }
-}
 
 
 #navbar{

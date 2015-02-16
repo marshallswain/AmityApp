@@ -19,8 +19,6 @@
         <ul class="nav nav-pills pull-right search">
           <li><a id="add-col-btn"  href="javascript:void(0)"><i class="mdi-content-add"></i></a></li>
         </ul>
-
-        <add-collection></add-collection>
       </div>
 
     </div>
@@ -29,7 +27,7 @@
     {{/database}}
   </div>
 
-  {{deleteBtnVisible}}
+  <add-collection></add-collection>
 
   <div class="table-responsive collection-table">
     <table class="table table-striped">
@@ -92,4 +90,4 @@
 
 </div>
 {{/appState}}
-<delete-collection col="{localColl}"></delete-collection>
+<drop-collection col="{localColl}"></drop-collection>

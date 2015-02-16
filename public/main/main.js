@@ -1,5 +1,7 @@
 'use strict';
 
+can.Model.id = '_id';
+
 import 'stache-helpers';
 import 'routes';
 

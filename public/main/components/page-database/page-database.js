@@ -1,7 +1,7 @@
 'use strict';
 
 import appState from '../../appState';
-import './delete-collection/delete-collection';
+import './drop-collection/drop-collection';
 import './add-collection/add-collection';
 
 can.Component.extend({

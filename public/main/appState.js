@@ -19,7 +19,7 @@ var AppState = can.Map.extend({
 	define : {
 		servers:{
 			serialize:false,
-			value: new Server.List(),
+			value: new can.List(),
 		},
 
 		hostname:{
@@ -32,7 +32,7 @@ var AppState = can.Map.extend({
 					if (el.name === value) {
 						// Set it up as this.server
 						self.attr('server', el);
-					};
+					}
 				});
 				return value;
 			}
@@ -111,10 +111,10 @@ var AppState = can.Map.extend({
 
 				collDef.done(function(colls){
 					for (var i = colls.length - 1; i >= 0; i--) {
-						if (value == colls[i].name) {
+						if (value === colls[i].name) {
 							self.attr('collection', colls[i]);
-						};
-					};
+						}
+					}
 				});
 				return value;
 			},
@@ -128,13 +128,15 @@ var AppState = can.Map.extend({
 			serialize:false,
 			value:{},
 			set(collection){
-				var self = this;
-				var resource = '/api/' + this.attr('hostname') + '/' + this.attr('db_name') + '/' + collection.name;
-				getDocumentModel(resource).findAll({}, function(docs){
-					self.attr('documents').replace(docs);
-					docDef.resolve(docs);
-				});
-				return collection;
+				if (collection.attr('name')) {
+					var self = this;
+					var resource = '/api/' + this.attr('hostname') + '/' + this.attr('db_name') + '/' + collection.name;
+					getDocumentModel(resource).findAll({}, function(docs){
+						self.attr('documents').replace(docs);
+						docDef.resolve(docs);
+					});
+					return collection;
+				}
 			},
 		},
 
