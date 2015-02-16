@@ -20,7 +20,6 @@
   "dependencies": {
     "async": "~0.8.0",
     "body-parser": "^1.10.1",
-    "feathers": "git+https://github.com/marshallswain/feathers.git",
     "feathers-hooks": "^0.4.0",
     "feathers-mongodb": "^0.3.0",
     "feathers-mongoose-advanced": "^0.1.4",
