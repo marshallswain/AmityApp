@@ -270,17 +270,7 @@ add-server ul.nav{
   position:relative;
   z-index: 1000;
 }
-#add-col-form{
-  width:700%;
-  font-size:14px;
-  position: absolute;
-  left:-120px;
-  top:40%;
-  display:none;
-  /*right:38%;*/
-  /*top:38%;*/
-  z-index:-50;
-}
+
 @media (max-width: 768px) {
   .view-tools .add .form-container{
     left:-120px;

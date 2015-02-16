@@ -16,38 +16,11 @@
       <h1>{{db}}</h1>
 
       <div class="view-tools">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="javascript:void(0)"><i class="mdi-content-remove-circle-outline"></i></a></li>
-        </ul>
-
-        <ul class="nav nav-pills pull-right search">
-          <li><a href="javascript:void(0)"><i class="mdi-action-search"></i></a></li>
-        </ul>
-
         <ul class="nav nav-pills pull-right search">
           <li><a id="add-col-btn"  href="javascript:void(0)"><i class="mdi-content-add"></i></a></li>
         </ul>
 
-        <div id="add-col-form" class="form-container well bs-component">
-          <form class="form-inline" role="form">
-            <div class="col-md-12">
-              <h3>New Collection</h3>
-            </div>
-
-            <div class="form-group">
-              <label for="inputEmail" class="col-md-12 control-label">Name</label>
-              <div class="col-md-12">
-                <div class="form-control-wrapper"><input type="text" class="form-control empty"></div>
-              </div>
-            </div>
-
-            <div class="col-md-offset-">
-              <button type="submit" class="btn btn-primary">Submit</button>
-              <button class="btn btn-default pull-left">Cancel</button>
-            </div>
-          </form>
-        </div>
-
+        <add-collection></add-collection>
       </div>
 
     </div>
@@ -55,6 +28,8 @@
     <p>{{collectionCount}} collections</p>
     {{/database}}
   </div>
+
+  {{deleteBtnVisible}}
 
   <div class="table-responsive collection-table">
     <table class="table table-striped">
@@ -81,7 +56,7 @@
             <span class="table-tools pull-right">
               <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
               <a href="" class="btn-download">Export</a>
-              <a href="" class="btn-download mdi-material-red delete-button">Delete</a>
+              <a href="" class="mdi-material-red delete-button" data-toggle="modal" data-target="#deleteCollectionModal" can-click="changeCollection">Delete</a>
             </span>
           </td>
         </tr>
@@ -117,3 +92,4 @@
 
 </div>
 {{/appState}}
+<delete-collection col="{localColl}"></delete-collection>

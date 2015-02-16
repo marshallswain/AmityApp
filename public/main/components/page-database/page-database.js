@@ -1,6 +1,8 @@
 'use strict';
 
 import appState from '../../appState';
+import './delete-collection/delete-collection';
+import './add-collection/add-collection';
 
 can.Component.extend({
 	tag: 'page-database',
@@ -22,13 +24,21 @@ can.Component.extend({
 		openCollection:function(scope, el, ev){
 			can.route.attr('coll_name', scope.name);
 			can.route.attr('page', 'collection');
+		},
+
+		localColl:{
+			name:''
+		},
+
+		changeCollection:function(scope){
+			this.attr('localColl', scope);
 		}
 	},
 	events: {},
 	helpers:{
 		number:function(x){
 			if (x()) {
-				return x().toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+				return x().toString().replace(/,/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 			}
 		},
 
@@ -41,7 +51,7 @@ can.Component.extend({
 			appState.attr('databases').forEach(function(el){
 				if (el.favorite) {
 					faves = true;
-				};
+				}
 			});
 			return faves;
 		}

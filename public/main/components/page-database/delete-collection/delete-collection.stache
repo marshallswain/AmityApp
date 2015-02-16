@@ -1,0 +1,28 @@
+{{log}}
+{{#col}}
+<!-- Add Server Modal -->
+<div class="modal fade" id="deleteCollectionModal" tabindex="-1" role="dialog" aria-labelledby="deleteCollectionModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Delete the <strong>{{name}}</strong> collection?</h4>
+      </div>
+      <div class="modal-body">
+      {{#stats}}
+        {{#if count}}
+        This will also delete the <strong>{{count}} {{plural count}}</strong> in the collection.
+        {{else}}
+        The collection is empty.
+        {{/if}}
+        This cannot be undone.
+      {{/stats}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" can-click="saveServer">Delete Collection</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{/col}}

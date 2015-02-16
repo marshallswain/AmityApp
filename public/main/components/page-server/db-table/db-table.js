@@ -1,5 +1,7 @@
 'use strict';
 
+import './db-table.css!';
+
 can.Component.extend({
 	tag: 'db-table',
 	template: can.view('/main/components/page-server/db-table/db-table.stache'),

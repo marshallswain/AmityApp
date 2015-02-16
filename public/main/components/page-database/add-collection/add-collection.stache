@@ -1,0 +1,19 @@
+<div id="add-col-form" class="form-container well bs-component">
+  <form class="form-inline" role="form">
+    <div class="col-md-12">
+      <h3>New Collection</h3>
+    </div>
+
+    <div class="form-group">
+      <label for="inputEmail" class="col-md-12 control-label">Name</label>
+      <div class="col-md-12">
+        <div class="form-control-wrapper"><input type="text" class="form-control empty"></div>
+      </div>
+    </div>
+
+    <div class="col-md-offset-">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button class="btn btn-default pull-left">Cancel</button>
+    </div>
+  </form>
+</div>
