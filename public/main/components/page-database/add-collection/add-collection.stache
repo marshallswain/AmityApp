@@ -1,5 +1,6 @@
+{{#newCollection}}
 <div id="add-col-form" class="form-container well bs-component">
-  <form class="form-inline" role="form">
+  <form class="form-inline" role="form" can-submit="create">
     <div class="col-md-12">
       <h3>New Collection</h3>
     </div>
@@ -7,7 +8,7 @@
     <div class="form-group">
       <label for="inputEmail" class="col-md-12 control-label">Name</label>
       <div class="col-md-12">
-        <div class="form-control-wrapper"><input type="text" class="form-control empty"></div>
+        <div class="form-control-wrapper"><input type="text" can-value="name" class="form-control empty"></div>
       </div>
     </div>
 
@@ -17,3 +18,4 @@
     </div>
   </form>
 </div>
+{{/newCollection}}
