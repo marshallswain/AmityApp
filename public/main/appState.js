@@ -148,7 +148,6 @@ var AppState = can.Map.extend({
 			serialize:false,
 			value:new can.List(),
 			set(value){
-				console.log(value);
 				return value;
 			}
 		},
