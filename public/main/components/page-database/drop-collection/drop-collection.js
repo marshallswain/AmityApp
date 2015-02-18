@@ -5,10 +5,7 @@ can.Component.extend({
 	template: can.view('/main/components/page-database/drop-collection/drop-collection.stache'),
 	scope:{
 		deleteCollection:function(scope){
-			console.log(scope);
-			scope.destroy(function(response){
-				console.log(response);
-			});
+			scope.destroy();
 		}
 	},
 	helpers:{
