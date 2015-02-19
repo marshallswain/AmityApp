@@ -10,12 +10,12 @@ export var Doc = can.Model.extend('Doc', {
 	id:'_id'
 }, {});
 
-export var Task = can.Feathers.Model.extend('tasks', {
-	resource: '/api/tasks',
-	id:'_id'
-}, {});
+// export var Task = can.Feathers.Model.extend('tasks', {
+// 	resource: '/api/tasks',
+// 	id:'_id'
+// }, {});
 
-export var Todo = can.Feathers.Model.extend('todos', {
-	resource: '/api/todos',
-	id:'_id'
-}, {});
+// export var Todo = can.Feathers.Model.extend('todos', {
+// 	resource: '/api/todos',
+// 	id:'_id'
+// }, {});
