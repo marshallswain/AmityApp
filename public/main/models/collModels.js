@@ -11,7 +11,7 @@ export function getCollModel(resource){
 			id:'_id'
 		}, {});
 
-		// Create the Model.List.
+		// Extend the matching Model.List.
 		models[resource].List = models[resource].List.extend({}, {
 			init: function(){
 				var self = this;
