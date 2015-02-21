@@ -10,7 +10,6 @@ table tr td.collapse{
 }
 
 table tr td:nth-child(2) > a{
-  display: block;
   font-weight:bold;
 }
 .table-tools a{
@@ -24,4 +23,16 @@ table tr td:nth-child(2) > a{
     -moz-transition: all .4s;
     -o-transition: all .4s;
     transition: all .4s;
+}
+
+td a.btn-edit-collection{
+  margin-left:5px;
+  opacity:0;  /* make things invisible upon start */
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s;
+}
+td:hover a.btn-edit-collection{
+  opacity:1;
 }

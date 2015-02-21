@@ -44,6 +44,7 @@
           <td>{{index @index}}</td>
           <td>
             <a href="javascript:void(null);" can-click="openCollection">{{name}}</a>
+            <a href="" class="btn-edit-collection"><i class="mdi-editor-mode-edit"></i></a>
           </td>
           <td>
             {{#if stats}}
@@ -54,7 +55,6 @@
               0
             {{/if}}
             <span class="table-tools pull-right">
-              <a href="" class="btn-download"><i class="mdi-editor-mode-edit"></i></a>
               <a href="" class="btn-download">Export</a>
               <a href="" class="mdi-material-red delete-button" data-toggle="modal" data-target="#deleteCollectionModal" can-click="changeCollection">Delete</a>
             </span>
