@@ -10,8 +10,7 @@ can.Component.extend({
 		newCollection:{
 			name:''
 		},
-		create:function(scope){
-				console.log(scope.name);
+		create(scope){
 			if (scope.name) {
 				var resource = '/api/' + can.route.attr('hostname') +
 					'/' + can.route.attr('database.db') + '/' + '_collections';
@@ -29,7 +28,6 @@ can.Component.extend({
 			if (ev.which === 13) {
 				ev.preventDefault();
 				el.blur();
-				console.log(scope.attr('name'));
 				this.create(scope);
 			}
 		}
