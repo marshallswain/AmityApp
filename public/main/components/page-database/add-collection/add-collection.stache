@@ -1,21 +1,27 @@
 {{#newCollection}}
-<div id="add-col-form" class="form-container well bs-component">
-  <form class="form-inline" role="form" can-submit="create">
-    <div class="col-md-12">
-      <h3>New Collection</h3>
+
+<div class="query-wrapper">
+  <form class="form" role="form" can-submit="create">
+
+    <div class="query">
+      <!-- Find --><span class="createCollection"><span>db.createCollection('</span><span contenteditable class="editable name" can-value="name" can-keypress="noEnter"></span><span>')
     </div>
 
-    <div class="form-group">
-      <label for="inputEmail" class="col-md-12 control-label">Name</label>
-      <div class="col-md-12">
-        <div class="form-control-wrapper"><input type="text" can-value="name" class="form-control empty"></div>
+    <div class="row query-bottom">
+      <div class="col-md-10">
+        <ul class="query-options">
+          <li>capped</li>
+          <li>autoIndexId</li>
+          <li>size</li>
+          <li>max</li>
+        </ul>
+      </div>
+
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-primary btn-block">Run</button>
       </div>
     </div>
 
-    <div class="col-md-offset-">
-      <button type="submit" class="btn btn-primary">Submit</button>
-      <button class="btn btn-default pull-left">Cancel</button>
-    </div>
   </form>
 </div>
 {{/newCollection}}

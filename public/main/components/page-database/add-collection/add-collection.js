@@ -11,6 +11,7 @@ can.Component.extend({
 			name:''
 		},
 		create:function(scope){
+				console.log(scope.name);
 			if (scope.name) {
 				var resource = '/api/' + can.route.attr('hostname') +
 					'/' + can.route.attr('database.db') + '/' + '_collections';
@@ -22,6 +23,14 @@ can.Component.extend({
 					console.log('saved');
 					console.log(model);
 				});
+			}
+		},
+		noEnter(scope, el, ev){
+			if (ev.which === 13) {
+				ev.preventDefault();
+				el.blur();
+				console.log(scope.attr('name'));
+				this.create(scope);
 			}
 		}
 	},

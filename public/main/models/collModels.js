@@ -16,7 +16,7 @@ export function getCollModel(resource){
 			init: function(){
 				var self = this;
 
-				// Sort new instances into the list.
+				// On 'created', sort new instances into the list.
 				models[resource].bind('created', function(ev, instance){
 
 					// Only push it to the list if it instance doesn't already exist.
@@ -37,6 +37,12 @@ export function getCollModel(resource){
 						}
 					}
 				});
+
+				// Immediately remove collections from the model store when destroyed.
+				models[resource].bind('destroyed', function(ev, instance){
+					delete this.store[instance.id];
+				});
+
 			}
 		});
 	}
