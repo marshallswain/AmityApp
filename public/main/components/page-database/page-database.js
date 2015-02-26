@@ -21,6 +21,14 @@ can.Component.extend({
 			can.route.attr('page', 'server');
 		},
 
+		toggleAddCollection:function(scope, el, ev){
+			if (can.route.attr('addCollection')){
+				can.route.removeAttr('addCollection');
+			} else {
+				can.route.attr('addCollection', true);
+			}
+		},
+
 		openCollection:function(scope, el, ev){
 			can.route.attr('coll_name', scope.name);
 			can.route.attr('page', 'collection');

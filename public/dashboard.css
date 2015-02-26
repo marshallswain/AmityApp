@@ -37,8 +37,10 @@ body {
   -o-transition: all .6s;
   transition: all .6s;
 }
-#add-col-btn:hover{
-  background:white;
+#add-col-btn.open{
+  background:black;
+  color:white;
+  margin-bottom:-1px;;
 }
 #add-col-btn i{
   font-size:36px;
@@ -50,7 +52,7 @@ body {
     -o-transition: all .6s;
     transition: all .6s;
 }
-#add-col-btn:hover i {
+#add-col-btn.open i {
   box-shadow: none;
   -ms-transform: rotate(225deg);
   -webkit-transform: rotate(225deg);

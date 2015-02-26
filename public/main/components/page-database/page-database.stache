@@ -17,7 +17,7 @@
 
       <div class="view-tools">
         <ul class="nav nav-pills pull-right search">
-          <li><a id="add-col-btn"  href="javascript:void(0)"><i class="mdi-content-add"></i></a></li>
+          <li><a id="add-col-btn" class="{{#if addCollection}}open{{/if}}" href="javascript:void(0)" can-click="toggleAddCollection"><i class="mdi-content-add"></i></a></li>
         </ul>
       </div>
 
@@ -27,7 +27,9 @@
     {{/database}}
   </div>
 
-  <add-collection></add-collection>
+  {{#if addCollection}}
+    <add-collection></add-collection>
+  {{/if}}
 
   <div class="table-responsive collection-table">
     <table class="table table-striped">
