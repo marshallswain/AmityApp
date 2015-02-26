@@ -56,9 +56,9 @@ Features & Development Plan
     - [ ] Create Databases
     - [ ] Rename Databases
     - [ ] Drop Databases
-- [ ] **CRUD for [Collections](https://github.com/marshallswain/feathers-mongo-collections)** - **v0.2** 
+- [x] **CRUD for [Collections](https://github.com/marshallswain/feathers-mongo-collections)** - **v0.2** 
     - [x] View Collections
-    - [ ] Create Collections
+    - [x] Create Collections
     - [x] Rename Collections
     - [x] Delete Collections
 - [ ] **CRUD for Documents** - **v0.2**
