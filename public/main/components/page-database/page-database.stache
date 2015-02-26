@@ -43,8 +43,14 @@
         <tr>
           <td>{{index @index}}</td>
           <td>
-            <a href="javascript:void(null);" can-click="openCollection">{{name}}</a>
-            <a href="" class="btn-edit-collection"><i class="mdi-editor-mode-edit"></i></a>
+            {{#if editing}}
+              <input type="text" can-value="name" can-enter="saveCollection" can-keydown="escape"></input>
+              <a href="javascript:void(0)" can-click="saveCollection" class="btn-edit-collection"><i class="mdi-action-done"></i></a>
+              <a href="javascript:void(0)" can-click="cancel" class="btn-edit-collection"><i class="mdi-content-clear"></i></a>
+            {{else}}
+              <a href="javascript:void(0)" can-click="openCollection">{{name}}</a>
+              <a href="javascript:void(0)" can-click="editCollection" class="btn-edit-collection"><i class="mdi-editor-mode-edit"></i></a>
+            {{/if}}
           </td>
           <td>
             {{#if stats}}

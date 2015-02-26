@@ -26,6 +26,38 @@ can.Component.extend({
 			can.route.attr('page', 'collection');
 		},
 
+		editCollection:function(scope, el, ev){
+			// Save the name for if we cancel.
+			scope.attr('_name', scope.name);
+			// Get a reference to the cell before we make changes.
+			var cell = el.parents('td');
+			scope.attr('editing', true);
+			// Select all text inside input.
+			cell.children('input').focus().select();
+		},
+
+		escape:function(scope, el, ev){
+			if (ev.which === 27) {
+				scope.removeAttr('editing');
+			}
+		},
+
+		cancel:function(scope, el, ev){
+			// Restore the original name.
+			scope.attr('name', scope._name);
+			scope.removeAttr('_name');
+			// Stop editing.
+			scope.removeAttr('editing');
+		},
+
+		saveCollection:function(scope, el, ev){
+			// Remove backup copy of name.
+			scope.removeAttr('_name');
+			ev.preventDefault();
+			scope.removeAttr('editing');
+			scope.save();
+		},
+
 		localColl:{
 			name:''
 		},

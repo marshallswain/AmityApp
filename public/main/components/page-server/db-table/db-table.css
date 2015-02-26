@@ -12,6 +12,14 @@ table tr td.collapse{
 table tr td:nth-child(2) > a{
   font-weight:bold;
 }
+table tr td:nth-child(2) > input{
+  font-weight:bold;
+  padding:0;
+  margin:0;
+  line-height:0;
+  background:none;
+  border:none;
+}
 .table-tools a{
   margin-left:8px;
 }
