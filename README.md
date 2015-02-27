@@ -34,6 +34,7 @@ Features & Development Plan
 - [x] Flexible service setup **v0.1**
 - [x] Dead-simple setup.  No more config files! **v0.1**
 - [ ] Add databases from the browser without server restart. **v0.2** 
+- [x] Create new Feathers service upon adding a new server.
 - [x] Make more NPM friendly as sub-module. **v0.2**
 - [ ] Add tests for test-assisted development **v0.3** 
 - [ ] Allow standalone mode? (Use an internal Feathers server) **v0.4**
@@ -54,11 +55,13 @@ Features & Development Plan
 - [ ] **CRUD for [Databases](https://github.com/marshallswain/feathers-mongo-databases)** - **v0.2** 
     - [x] View Databases, based on permissions.
     - [ ] Create Databases
+    - [ ] Create new Feathers service upon database creation.
     - [ ] Rename Databases
     - [ ] Drop Databases
-- [x] **CRUD for [Collections](https://github.com/marshallswain/feathers-mongo-collections)** - **v0.2** 
+- [ ] **CRUD for [Collections](https://github.com/marshallswain/feathers-mongo-collections)** - **v0.2** 
     - [x] View Collections
     - [x] Create Collections
+    - [ ] Create new Feathers service upon collection creation.
     - [x] Rename Collections
     - [x] Delete Collections
 - [ ] **CRUD for Documents** - **v0.2**
