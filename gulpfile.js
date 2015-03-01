@@ -4,7 +4,7 @@ var gulp = require('gulp'),
   compilerGulp = require('can-compile/gulp.js');
 var stealTools = require('steal-tools');
 
-// Build the App
+// Steal build the App
 gulp.task('steal-build', function() {
   stealTools.build({
     main: 'main',
