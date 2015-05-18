@@ -1,6 +1,0 @@
-<div class="record">
-  <div id="editor{{index @index}}" class="editor" {{codemirror document}}>
-    <i class="delete mdi-content-clear pull-right"></i>
-    <p class="_id">{{id}}</p>
-  </div>
-</div>

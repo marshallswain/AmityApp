@@ -1,43 +1,18 @@
 {
-  "name": "amity",
+  "name": "amity-docs",
   "version": "0.0.4",
-  "description": "Web-based admin interface for MongoDB",
+  "description": "AmityApp Docs",
   "repository": {
     "type": "git",
     "url": "https://github.com/marshallswain/amity.git"
   },
-  "keywords": [
-    "mongodb",
-    "mongo",
-    "dbms",
-    "manager"
-  ],
   "author": {
     "name": "Marshall Thompson",
     "email": "marshall@creativeideal.net",
     "url": "https://github.com/marshallswain"
   },
   "dependencies": {
-    "async": "~0.8.0",
-    "body-parser": "^1.10.1",
-    "feathers-hooks": "^0.4.0",
-    "feathers-mongodb": "^0.3.0",
-    "feathers-mongoose-advanced": "^0.1.4",
-    "mongodb": "^1.4.28",
-    "mongoose": "^3.8.21",
-    "mongoskin": "^1.4.4",
-    "uberproto": "^1.1.2",
-    "underscore": "~1.6.0"
+    "documentjs": "^0.3.0-pre.1"
   },
-  "devDependencies": {
-    "can-compile": "^0.7.1",
-    "gulp": "^3.8.10",
-    "steal-tools": "^0.5.0"
-  },
-  "engine": "node >= 0.10",
-  "license": "MIT",
-  "scripts": {
-    "start": "node server"
-  },
-  "main": "./server"
+  "license": "MIT"
 }
