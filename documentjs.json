@@ -1,1 +1,14 @@
-{}
+{
+	"versions": {
+		"0.1": "git://github.com/marshallswain/amityapp#master"
+	},
+	"defaultVersion" : "0.1",
+	"sites": {
+		"pages": {
+			"glob": "README.md",
+			"dest": ".",
+			"forceBuild": true,
+			"pageConfig": {"page":"index"}
+		}
+	}
+}
