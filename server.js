@@ -1,21 +1,22 @@
-var feathers = require('feathers'),
-  amity = require('amity'),
-  bodyParser = require('body-parser'),
-  ssr = require('can-ssr');
+var feathers = require('feathers');
+var hooks = require('feathers-hooks');
+var amity = require('amity');
+var bodyParser = require('body-parser');
+var ssr = require('can-ssr/middleware');
+var feathersPassportJwt = require('feathers-passport-jwt');
 
 // Prep the Feathers server.
 var app = feathers()
+  .disable('x-powered-by')
+  .configure(hooks())
+  .configure(feathers.rest())
+  .configure(feathers.socketio())
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({extended: true}))
-  .configure(feathers.socketio())
-  .configure(feathers.rest())
+  .configure(feathersPassportJwt({
+    secret: 'feathers-rocks'
+  }))
   .use(feathers.static(__dirname + '/public'));
-
-var config = {
-  apiPrefix:'/api'
-};
-// Start Amity with a MongoAdapter as a configuration store.
-amity.start(app, config, amity.adapters.MongoDB('mongodb://localhost:27017'));
 
 // Always load SSR last.
 app.use('/', ssr({
@@ -25,8 +26,14 @@ app.use('/', ssr({
 }))
 .configure(feathers.errors());
 
+var config = {
+  apiPrefix:'/api'
+};
+// Start Amity with a MongoAdapter as a configuration store.
+amity.start(app, config, amity.adapters.MongoDB('mongodb://localhost:27017'));
+
 // Start the server.
-var port = 8081;
+var port = 8080;
 app.listen(port, function() {
   // app.use('/api/tasks', require('./services/tasks'));
   console.log('Feathers server listening on port ' + port);
