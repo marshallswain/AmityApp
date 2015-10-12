@@ -39,21 +39,13 @@ module.exports = {
     //blacklist: hide databases listed in the blacklist (empty list for no blacklist)
     blacklist: []
   },
-  site: {
-    //baseUrl: the URL that mongo express will be located at
-    //Remember to add the forward slash at the end!
-    baseUrl: '/',
-    port: 8081,
-    cookieSecret: 'cookiesecret',
-    sessionSecret: 'sessionsecret',
-    cookieKeyName: 'mongo-express'
-  },
+  
   options: {
     //documentsPerPage: how many documents you want to see at once in collection view
     documentsPerPage: 10,
     //editorTheme: Name of the theme you want to use for displaying documents
     //See http://codemirror.net/demo/theme.html for all examples
-    editorTheme: "rubyblue",
+    editorTheme: 'rubyblue',
 
     //The options below aren't being used yet
 

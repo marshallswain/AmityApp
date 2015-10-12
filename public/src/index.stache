@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>{{title}}</title>
+    {{asset "css"}}
+    {{asset "html5shiv"}}
+  </head>
+  <body>
+    <can-import from="amity-ui/styles.less!" />
+    <can-import from="amity-ui/app" export-as="viewModel" />
+
+    <h1>{{message}}</h1>
+
+    {{asset "inline-cache"}}
+
+    {{#switch env.NODE_ENV}}
+      {{#case "production"}}
+        <script src="{{joinBase 'node_modules/steal/steal.production.js'}}"  main="amity-ui/index.stache!done-autorender"></script>
+      {{/case}}
+      {{#default}}
+        <script src="/node_modules/steal/steal.js"></script>
+      {{/default}}
+    {{/switch}}
+  </body>
+</html>

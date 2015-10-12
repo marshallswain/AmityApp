@@ -12,13 +12,13 @@ exports.status = function(req, res, next){
   db.serverStatus(function(err, info) {
     return res.json(info);
   });
-}
+};
 
 
 //Update database list
 exports.databases = function(req, res) {
 
-  console.log(arguments)
+  console.log(arguments);
 
   // Get the admin db.
   var db = mongoServer.attr('admin');
@@ -33,21 +33,21 @@ exports.databases = function(req, res) {
 
     for (var i = 0; i < databases.length; i++) {
 
-      var dbName = databases[i]['name'];
+      var dbName = databases[i].name;
 
       console.log(dbName);
 
       //'local' is special database, ignore it
-      if (dbName == 'local') {
+      if (dbName === 'local') {
         databases.splice(i, 1);
       }
 
-      if (config.mongodb.whitelist.length != 0) {
+      if (config.mongodb.whitelist.length !== 0) {
         if (!_.include(config.mongodb.whitelist, dbName)) {
           databases.splice(i, 1);
         }
       }
-      if (config.mongodb.blacklist.length != 0) {
+      if (config.mongodb.blacklist.length !== 0) {
         if (_.include(config.mongodb.blacklist, dbName)) {
           databases.splice(i, 1);
         }
