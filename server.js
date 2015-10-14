@@ -22,7 +22,7 @@ var app = feathers()
 app.use('/', ssr({
   config: __dirname + '/public/package.json!npm',
   liveReload: true,
-  liveReloadHost: 'Marshalls-iMac.local'
+  liveReloadHost: 'Bitovi.local'
 }))
 .configure(feathers.errors());
 
