@@ -1,0 +1,30 @@
+<can-component tag="amity-header">
+  <template>
+     <can-import from="can/view/href/"/>
+     <header>
+       <nav>
+         <h1>Amity</h1>
+         <ul>
+           <li class="{{#eq page 'home'}}active{{/eq}}">
+             <a can-href="{page='home'}">Home</a>
+           </li>
+           <li class="{{#eq page 'server'}}active{{/eq}}">
+             <a can-href="{page='server'}">Server</a>
+           </li>
+           <li class="{{#eq page 'database'}}active{{/eq}}">
+             <a can-href="{page='database'}">Database</a>
+           </li>
+           <li class="{{#eq page 'collection'}}active{{/eq}}">
+             <a can-href="{page='collection'}">Collection</a>
+           </li>
+           <li class="{{#eq page 'document'}}active{{/eq}}">
+             <a can-href="{page='document'}">Document</a>
+           </li>
+           <li class="{{#eq page 'settings'}}active{{/eq}}">
+             <a can-href="{page='settings'}">Settings</a>
+           </li>
+         </ul>
+       </nav>
+     </header>
+  </template>
+</can-component>
