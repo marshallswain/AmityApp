@@ -1,0 +1,70 @@
+@import "../../../styles/variables.less";
+@import "../../../styles/mixins.less";
+
+page-error {
+	display: block;
+
+  .error-code{
+    margin-bottom: 30px;
+    font-size: 150px;
+    text-align: center;
+    font-family: 'Kranky', cursive;
+    & > div {
+      position: relative;
+      display: inline-block;
+      background-color: #fff;
+      padding: 0px 30px;
+      border-radius: 100px 60px 40px 0px;
+      -moz-border-radius: 100px 60px 40px 0px;
+      -webkit-border-radius: 100px 60px 40px 0px;
+      line-height: normal;
+      & > span{
+        color: @ThemeColor;
+      }
+      &:after{
+          content: "";
+          width: 0;
+          height: 0;
+          border-top: 60px solid #fff;
+          border-right: 60px solid transparent;
+          position: absolute;
+          left: 0px;
+          bottom: -40px;
+
+      }
+    }
+  }
+  .error-message{
+    margin-bottom: 40px;
+    h4{
+      font-size: 32px;
+      font-weight: @Light;
+      color: #e57373;
+    }
+    text-align: right;
+  }
+  .error-body{
+    margin-bottom: 60px;
+  }
+
+  .error-footer-container{
+    margin-top: 30px;
+    padding: 15px;
+    color: #666;
+    a{
+      color: #868686;
+      &:hover,
+      &:focus{
+        text-decoration: none;
+      }
+    }
+    .footer-right{
+      text-align: right;
+      .footer-meta {
+        i{
+          color: #00bcd4;
+        }
+      }
+    }
+  }
+}

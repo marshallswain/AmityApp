@@ -4,55 +4,73 @@
     {{asset "css"}}
     {{asset "html5shiv"}}
   </head>
-  <body>
+  <body class="leftbar-view">
     <can-import from="amity-ui/styles.less!" />
     <can-import from="amity-ui/app" export-as="viewModel" />
 
-    <can-import from="amity-ui/components/header.component!"/>
-    <can-import from="amity-ui/components/loading.component!"/>
+    <can-import from="amity-ui/components/header/" />
+    <can-import from="amity-ui/components/loading.component!" />
+    <can-import from="amity-ui/components/sidebars/left/left-sidebar" />
 
     <amity-header></amity-header>
 
-    {{#switch page}}
-      {{#case 'home'}}
-        <can-import from="amity-ui/pages/home/" can-tag="amity-loading">
-          <page-home></page-home>
-        </can-import>
+    <left-sidebar></left-sidebar>
+    <section class="main-container">
 
-      {{/case}}
-      {{#case 'server'}}
-        <can-import from="amity-ui/pages/server/" can-tag="amity-loading">
-          <page-server></page-server>
-        </can-import>
+      {{#switch page}}
+        {{#case 'dashboard'}}
+          <can-import from="amity-ui/components/pages/dashboard/" can-tag="amity-loading">
+            <page-dashboard></page-dashboard>
+          </can-import>
 
-      {{/case}}
-      {{#case 'database'}}
-        <can-import from="amity-ui/pages/database/" can-tag="amity-loading">
-          <page-database></page-database>
-        </can-import>
+        {{/case}}
+        {{#case 'server'}}
+          <can-import from="amity-ui/components/pages/server/" can-tag="amity-loading">
+            <page-server></page-server>
+          </can-import>
 
-      {{/case}}
-      {{#case 'collection'}}
-        <can-import from="amity-ui/pages/collection/" can-tag="amity-loading">
-          <page-collection></page-collection>
-        </can-import>
+        {{/case}}
+        {{#case 'database'}}
+          <can-import from="amity-ui/components/pages/database/" can-tag="amity-loading">
+            <page-database></page-database>
+          </can-import>
 
-      {{/case}}
-      {{#case 'document'}}
-        <can-import from="amity-ui/pages/document/" can-tag="amity-loading">
-          <page-document></page-document>
-        </can-import>
+        {{/case}}
+        {{#case 'collection'}}
+          <can-import from="amity-ui/components/pages/collection/" can-tag="amity-loading">
+            <page-collection></page-collection>
+          </can-import>
 
-      {{/case}}
-      {{#case 'settings'}}
-        <can-import from="amity-ui/pages/settings/" can-tag="amity-loading">
-          <page-settings></page-settings>
-        </can-import>
+        {{/case}}
+        {{#case 'document'}}
+          <can-import from="amity-ui/components/pages/document/" can-tag="amity-loading">
+            <page-document></page-document>
+          </can-import>
 
-      {{/case}}
+        {{/case}}
+        {{#case 'settings'}}
+          <can-import from="amity-ui/components/pages/settings/" can-tag="amity-loading">
+            <page-settings></page-settings>
+          </can-import>
 
-    {{/switch}}
+        {{/case}}
 
+        {{#case 'login'}}
+          <can-import from="amity-ui/components/pages/login/" can-tag="amity-loading">
+            <page-login></page-login>
+          </can-import>
+
+        {{/case}}
+
+        {{#case 'error'}}
+          <can-import from="amity-ui/components/pages/error/" can-tag="amity-loading">
+            <page-error></page-error>
+          </can-import>
+
+        {{/case}}
+
+      {{/switch}}
+    </section>
 
     {{asset "inline-cache"}}
 

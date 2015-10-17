@@ -24,3 +24,15 @@ import 'amity-ui/page/settings/settings_test';
 import 'amity-ui/pages/settings/settings_test';
 
 import 'amity-ui/pages/server/server_test';
+
+import 'amity-ui/components/header/header_test';
+
+import 'amity-ui/components/left-sidebar/left-sidebar_test';
+
+import 'amity-ui/components/right-sidebar/right-sidebar_test';
+
+import 'amity-ui/components/pages/login/login_test';
+
+import 'amity-ui/components/pages/error/error_test';
+
+import 'amity-ui/components/footer/footer_test';

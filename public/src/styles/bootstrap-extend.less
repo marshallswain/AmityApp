@@ -1,0 +1,1556 @@
+@import "./variables.less";
+@import "./bootstrap-custom-vars.less";
+@import "./mixins.less";
+body{
+  font-family: @secondaryFont;
+}
+
+// Links
+
+a {
+  color: @link-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: @link-hover-color;
+    text-decoration: @link-hover-decoration;
+  }
+
+  &:focus {
+    .tab-focus();
+  }
+}
+@border-radius-base:        3px;
+@border-radius-large:       3px;
+@border-radius-small:       2px;
+@btn-default-border:        #ddd;
+
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  font-weight: @btn-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  white-space: nowrap;
+  .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @border-radius-base);
+  .user-select(none);
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      .tab-focus();
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: @btn-default-color;
+    text-decoration: none;
+    outline: none !Important;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+    .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: @cursor-disabled;
+    pointer-events: none; // Future-proof disabling of clicks
+    .opacity(.65);
+    .box-shadow(none);
+  }
+}
+
+
+
+// Alternate buttons
+// --------------------------------------------------
+
+.btn-default {
+  .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
+}
+.btn-primary {
+  .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+}
+// Success appears as green
+.btn-success {
+  .button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
+}
+// Info appears as blue-green
+.btn-info {
+  .button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
+}
+// Warning appears as orange
+.btn-warning {
+  .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
+}
+// Danger and error appear as red
+.btn-danger {
+  .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
+}
+
+// Make a button look and behave like a link
+.btn-link {
+  color: @link-color;
+  font-weight: normal;
+  border-radius: 0;
+
+  &,
+  &:active,
+  &.active,
+  &[disabled],
+  fieldset[disabled] & {
+    background-color: transparent;
+    .box-shadow(none);
+  }
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  &:hover,
+  &:focus {
+    color: @link-hover-color;
+    text-decoration: @link-hover-decoration;
+    background-color: transparent;
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      color: @btn-link-disabled-color;
+      text-decoration: none;
+    }
+  }
+}
+
+
+// Button Sizes
+// --------------------------------------------------
+
+.btn-lg {
+  // line-height: ensure even-numbered height of button next to large input
+  .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
+}
+.btn-sm {
+  // line-height: ensure proper height of button next to small input
+  .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+}
+.btn-xs {
+  .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+}
+
+
+// Form Input
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  padding: @padding-base-vertical @padding-base-horizontal;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  color: @input-color;
+  background-color: @input-bg;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid @input-border;
+  border-radius: @input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
+  .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  .form-control-focus();
+
+  // Placeholder
+  .placeholder();
+
+  // Disabled and read-only inputs
+  //
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: @input-bg-disabled;
+    opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: @cursor-disabled;
+  }
+
+  // Reset height for `textarea`s
+  textarea& {
+    height: auto;
+  }
+
+}
+
+
+
+
+
+
+.form-control {
+  &:focus{
+    box-shadow:none;
+  }
+}
+
+
+
+// Wrapper for the tooltip content
+.tooltip-inner {
+  padding: 8px 12px !important;
+  .rounded(3px);
+}
+// Buttons ====================================================================
+
+#btn(@class,@bg) {
+  .btn-@{class} {
+    background-size: 200%;
+    background-position: 50%;
+    outline: none;
+    &:hover,
+    &:active:hover,
+    &:focus {
+      outline: none;
+      background-color: darken(@bg, 6%);
+    }
+
+    &:active {
+      background-color: darken(@bg, 6%);
+      #gradient > .radial(darken(@bg, 6%) 10%, @bg 11%);
+      background-size: 1000%;
+      .box-shadow(2px 2px 2px rgba(0,0,0,.3));
+    }
+  }
+}
+
+#btn(default,@btn-default-bg);
+#btn(primary,@btn-primary-bg);
+#btn(success,@btn-success-bg);
+#btn(info,@btn-info-bg);
+#btn(warning,@btn-warning-bg);
+#btn(danger,@btn-danger-bg);
+
+.btn {
+  border-right: none;
+  border-bottom: none;
+  .box-shadow(1px 1px 2px rgba(0,0,0,.2));
+  .transition(all 0.2s);
+
+  &-link {
+    .box-shadow(none);
+
+    &:hover,
+    &:focus {
+      color: @brand-primary;
+      text-decoration: none;
+    }
+  }
+
+  &-default.disabled {
+    border: 1px solid @btn-default-border;
+  }
+}
+
+.btn-group {
+  .btn + .btn,
+  .btn + .btn-group,
+  .btn-group + .btn,
+  .btn-group + .btn-group {
+    margin-left: 0;
+  }
+
+  &-vertical {
+    > .btn + .btn,
+    > .btn + .btn-group,
+    > .btn-group + .btn,
+    > .btn-group + .btn-group {
+      margin-top: 0;
+    }
+  }
+}
+.btn-group > .btn + .dropdown-toggle {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 3px;
+}
+.btn-group > .btn-lg + .dropdown-toggle {
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-bottom: 4px;
+}
+
+
+// The clickable button for toggling the menu
+// Remove the gradient and set the same inset shadow as the :active state
+.btn-group.open .dropdown-toggle {
+  .box-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
+  .m-transition (all, 350ms, cubic-bezier(0.19, 1, 0.22, 1));
+  // Show no shadow for `.btn-link` since it has no other button styles.
+  &.btn-link {
+    .box-shadow(none);
+  }
+}
+
+
+// Pills
+// -------------------------
+.nav-pills {
+  > li {
+    float: left;
+
+    // Links rendered as pills
+    > a {
+      border-radius: @nav-pills-border-radius;
+    }
+    + li {
+      margin-left: 2px;
+    }
+
+    // Active state
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @nav-pills-active-link-hover-color;
+        background-color: @nav-pills-active-link-hover-bg;
+      }
+    }
+  }
+}
+
+
+// Base class
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: @font-size-small;
+  font-weight: @badge-font-weight;
+  color: @badge-color;
+  line-height: @badge-line-height;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-align: center;
+  background-color: @badge-bg;
+  border-radius: @badge-border-radius;
+
+  // Empty badges collapse automatically (not available in IE8)
+  &:empty {
+    display: none;
+  }
+
+  // Quick fix for badges in buttons
+  .btn & {
+    position: relative;
+    top: -1px;
+  }
+
+  .btn-xs &,
+  .btn-group-xs > .btn & {
+    top: 0;
+    padding: 1px 5px;
+  }
+
+  // Hover state, but only for links
+  a& {
+    &:hover,
+    &:focus {
+      color: @badge-link-hover-color;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  // Account for badges in navs
+  .list-group-item.active > &,
+  .nav-pills > .active > a > & {
+    color: @badge-active-color;
+    background-color: @badge-active-bg;
+  }
+
+  .list-group-item > & {
+    float: right;
+  }
+
+  .list-group-item > & + & {
+    margin-right: 5px;
+  }
+
+  .nav-pills > li > a > & {
+    margin-left: 3px;
+  }
+}
+
+
+//
+// Labels
+// --------------------------------------------------
+
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: @label-color;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+
+  // Add hover effects, but only for links
+  a& {
+    &:hover,
+    &:focus {
+      color: @label-link-hover-color;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  // Empty labels collapse automatically (not available in IE8)
+  &:empty {
+    display: none;
+  }
+
+  // Quick fix for labels in buttons
+  .btn & {
+    position: relative;
+    top: -1px;
+  }
+}
+
+// Colors
+// Contextual variations (linked labels get darker on :hover)
+
+.label-default {
+  .label-variant(@label-default-bg);
+}
+
+.label-primary {
+  .label-variant(@label-primary-bg);
+}
+
+.label-success {
+  .label-variant(@label-success-bg);
+}
+
+.label-info {
+  .label-variant(@label-info-bg);
+}
+
+.label-warning {
+  .label-variant(@label-warning-bg);
+}
+
+.label-danger {
+  .label-variant(@label-danger-bg);
+}
+
+//
+// List groups
+// --------------------------------------------------
+
+
+// Base class
+//
+// Easily usable on <ul>, <ol>, or <div>.
+
+.list-group {
+  // No need to set list-style: none; since .list-group-item is block level
+  margin-bottom: 20px;
+  padding-left: 0; // reset padding because ul and ol
+}
+
+
+// Individual list items
+//
+// Use on `li`s or `div`s within the `.list-group` parent.
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  // Place the border on the list items and negative margin up for better styling
+  margin-bottom: -1px;
+  background-color: @list-group-bg;
+  border: 1px solid @list-group-border;
+
+  // Round the first and last items
+  &:first-child {
+    .border-top-radius(@list-group-border-radius);
+  }
+  &:last-child {
+    margin-bottom: 0;
+    .border-bottom-radius(@list-group-border-radius);
+  }
+}
+
+
+// Linked list items
+//
+// Use anchor elements instead of `li`s or `div`s to create linked list items.
+// Includes an extra `.active` modifier class for showing selected items.
+
+a.list-group-item {
+  color: @list-group-link-color;
+
+  .list-group-item-heading {
+    color: @list-group-link-heading-color;
+  }
+
+  // Hover state
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: @list-group-link-hover-color;
+    background-color: @list-group-hover-bg;
+  }
+}
+
+.list-group-item {
+  // Disabled state
+  &.disabled,
+  &.disabled:hover,
+  &.disabled:focus {
+    background-color: @list-group-disabled-bg;
+    color: @list-group-disabled-color;
+    cursor: @cursor-disabled;
+
+    // Force color to inherit for custom content
+    .list-group-item-heading {
+      color: inherit;
+    }
+    .list-group-item-text {
+      color: @list-group-disabled-text-color;
+    }
+  }
+
+  // Active class on item itself, not parent
+  &.active,
+  &.active:hover,
+  &.active:focus {
+    z-index: 2; // Place active items above their siblings for proper border styling
+    color: @list-group-active-color;
+    background-color: @list-group-active-bg;
+    border-color: @list-group-active-border;
+
+    // Force color to inherit for custom content
+    .list-group-item-heading,
+    .list-group-item-heading > small,
+    .list-group-item-heading > .small {
+      color: inherit;
+    }
+    .list-group-item-text {
+      color: @list-group-active-text-color;
+    }
+  }
+}
+
+
+// Contextual variants
+//
+// Add modifier classes to change text and background color on individual items.
+// Organizationally, this must come after the `:hover` states.
+
+.list-group-item-variant(success; @state-success-bg; @state-success-text);
+.list-group-item-variant(info; @state-info-bg; @state-info-text);
+.list-group-item-variant(warning; @state-warning-bg; @state-warning-text);
+.list-group-item-variant(danger; @state-danger-bg; @state-danger-text);
+
+
+
+
+// Contextual variations
+.panel-default {
+  .panel-variant(@panel-default-border; @panel-default-text; @panel-default-heading-bg; @panel-default-border);
+}
+.panel-primary {
+  .panel-variant(@panel-primary-border; @panel-primary-text; @panel-primary-heading-bg; @panel-primary-border);
+}
+.panel-success {
+  .panel-variant(@panel-success-border; @panel-success-text; @panel-success-heading-bg; @panel-success-border);
+}
+.panel-info {
+  .panel-variant(@panel-info-border; @panel-info-text; @panel-info-heading-bg; @panel-info-border);
+}
+.panel-warning {
+  .panel-variant(@panel-warning-border; @panel-warning-text; @panel-warning-heading-bg; @panel-warning-border);
+}
+.panel-danger {
+  .panel-variant(@panel-danger-border; @panel-danger-text; @panel-danger-heading-bg; @panel-danger-border);
+}
+
+
+
+//
+// Pagination (multiple pages)
+// --------------------------------------------------
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: @line-height-computed 0;
+  border-radius: @border-radius-base;
+
+  > li {
+    display: inline; // Remove list-style and block-level defaults
+    > a,
+    > span {
+      position: relative;
+      float: left; // Collapse white-space
+      padding: @padding-base-vertical @padding-base-horizontal;
+      line-height: @line-height-base;
+      text-decoration: none;
+      color: @pagination-color;
+      background-color: @pagination-bg;
+      border: 1px solid @pagination-border;
+      margin-left: -1px;
+    }
+    &:first-child {
+      > a,
+      > span {
+        margin-left: 0;
+        .border-left-radius(@border-radius-base);
+      }
+    }
+    &:last-child {
+      > a,
+      > span {
+        .border-right-radius(@border-radius-base);
+      }
+    }
+  }
+
+  > li > a,
+  > li > span {
+    &:hover,
+    &:focus {
+      color: @pagination-hover-color;
+      background-color: @pagination-hover-bg;
+      border-color: @pagination-hover-border;
+    }
+  }
+
+  > .active > a,
+  > .active > span {
+    &,
+    &:hover,
+    &:focus {
+      z-index: 2;
+      color: @pagination-active-color;
+      background-color: @pagination-active-bg;
+      border-color: @pagination-active-border;
+      cursor: default;
+    }
+  }
+
+  > .disabled {
+    > span,
+    > span:hover,
+    > span:focus,
+    > a,
+    > a:hover,
+    > a:focus {
+      color: @pagination-disabled-color;
+      background-color: @pagination-disabled-bg;
+      border-color: @pagination-disabled-border;
+      cursor: @cursor-disabled;
+    }
+  }
+}
+
+// Sizing
+// --------------------------------------------------
+
+// Large
+.pagination-lg {
+  .pagination-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @border-radius-large);
+}
+
+// Small
+.pagination-sm {
+  .pagination-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @border-radius-small);
+}
+
+
+
+// Bar itself
+// -------------------------
+
+// Outer container
+.progress {
+  overflow: hidden;
+  height: @line-height-computed;
+  margin-bottom: @line-height-computed;
+  background-color: @progress-bg;
+  border-radius: @progress-border-radius;
+  .box-shadow(inset 0 1px 2px rgba(0,0,0,.1));
+}
+
+// Bar of progress
+.progress-bar {
+  float: left;
+  width: 0%;
+  height: 100%;
+  font-size: @font-size-small;
+  line-height: @line-height-computed;
+  color: @progress-bar-color;
+  text-align: center;
+  background-color: @progress-bar-bg;
+  .box-shadow(inset 0 -1px 0 rgba(0,0,0,.15));
+  .transition(width .6s ease);
+}
+
+// Striped bars
+//
+// `.progress-striped .progress-bar` is deprecated as of v3.2.0 in favor of the
+// `.progress-bar-striped` class, which you just add to an existing
+// `.progress-bar`.
+.progress-striped .progress-bar,
+.progress-bar-striped {
+  #gradient > .striped();
+  background-size: 40px 40px;
+}
+
+// Call animation for the active one
+//
+// `.progress.active .progress-bar` is deprecated as of v3.2.0 in favor of the
+// `.progress-bar.active` approach.
+.progress.active .progress-bar,
+.progress-bar.active {
+  .animation(progress-bar-stripes 2s linear infinite);
+}
+
+
+// Variations
+// -------------------------
+
+.progress-bar-success {
+  .progress-bar-variant(@progress-bar-success-bg);
+}
+
+.progress-bar-info {
+  .progress-bar-variant(@progress-bar-info-bg);
+}
+
+.progress-bar-warning {
+  .progress-bar-variant(@progress-bar-warning-bg);
+}
+
+.progress-bar-danger {
+  .progress-bar-variant(@progress-bar-danger-bg);
+}
+
+
+
+// Baseline styles
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: @line-height-computed;
+  // Cells
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: @table-cell-padding;
+        line-height: @line-height-base;
+        vertical-align: top;
+        border-top: 1px solid @table-border-color;
+      }
+    }
+  }
+  // Bottom align for column headings
+  > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid @table-border-color;
+  }
+  // Remove top border from thead by default
+  > caption + thead,
+  > colgroup + thead,
+  > thead:first-child {
+    > tr:first-child {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+  // Account for multiple tbody instances
+  > tbody + tbody {
+    border-top: 2px solid @table-border-color;
+  }
+
+  // Nesting
+  .table {
+    background-color: @body-bg;
+  }
+}
+
+
+
+// Typography =================================================================
+
+body {
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: .1px;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+input,
+button {
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: .1px;
+}
+
+a {
+  .transition(all 0.2s);
+}
+
+// Tables =====================================================================
+
+.table-hover {
+  > tbody > tr,
+  > tbody > tr > th,
+  > tbody > tr > td {
+    .transition(all 0.2s);
+  }
+}
+
+// Forms ======================================================================
+.material-form{
+  label {
+    font-weight: normal;
+  }
+
+  textarea,
+  textarea.form-control,
+  input.form-control,
+  input[type=text],
+  input[type=password],
+  input[type=email],
+  input[type=number],
+  [type=text].form-control,
+  [type=password].form-control,
+  [type=email].form-control,
+  [type=tel].form-control,
+  [contenteditable].form-control {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    .box-shadow(inset 0 -1px 0 #ddd);
+    font-size: 16px;
+
+    &:focus {
+      .box-shadow(inset 0 -2px 0 @brand-primary);
+    }
+
+    &[disabled],
+    &[readonly] {
+      .box-shadow(none);
+      border-bottom: 1px dotted #ddd;
+    }
+
+    &.input {
+      &-sm {
+        font-size: @font-size-small;
+      }
+
+      &-lg {
+        font-size: @font-size-large;
+      }
+    }
+  }
+
+  select,
+  select.form-control {
+    border: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-left: 0;
+    padding-right: 0\9; // remove padding for < ie9 since default arrow can't be removed
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
+    background-size: 13px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    .box-shadow(inset 0 -1px 0 #ddd);
+    font-size: 16px;
+    line-height: 1.5;
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    &.input {
+      &-sm {
+        font-size: @font-size-small;
+      }
+
+      &-lg {
+        font-size: @font-size-large;
+      }
+    }
+
+    &:focus {
+      .box-shadow(inset 0 -2px 0 @brand-primary);
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEUhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISF8S9ewAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
+    }
+
+    &[multiple] {
+      background: none;
+    }
+  }
+
+  .radio,
+  .radio-inline,
+  .checkbox,
+  .checkbox-inline {
+    label {
+      padding-left: 25px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-left: -25px;
+    }
+  }
+
+  input[type="radio"],
+  .radio input[type="radio"],
+  .radio-inline input[type="radio"] {
+    position: relative;
+    margin-top: 5px;
+    margin-right: 4px;
+    vertical-align: -4px;
+    border: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 18px;
+      margin-top: -3px;
+      border-radius: 50%;
+      .transition(240ms);
+    }
+
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: @brand-primary;
+      .scale(0);
+    }
+
+    &:after {
+      border: 2px solid @gray;
+    }
+
+    &:checked:before {
+      .scale(0.5);
+    }
+
+    &:disabled:checked:before {
+      background-color: @gray-light;
+    }
+
+    &:checked:after {
+      border-color: @brand-primary;
+    }
+
+    &:disabled:after,
+    &:disabled:checked:after {
+      border-color: @gray-light;
+    }
+  }
+
+  input[type="checkbox"],
+  .checkbox input[type="checkbox"],
+  .checkbox-inline input[type="checkbox"] {
+    position: relative;
+    vertical-align: -4px;
+    border: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 18px;
+      margin-top: -2px;
+      margin-right: 5px;
+      border: 2px solid @gray;
+      border-radius: 2px;
+      .transition(240ms);
+    }
+
+    &:checked:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 6px;
+      display: table;
+      width: 6px;
+      height: 12px;
+      border: 2px solid #fff;
+      border-top-width: 0;
+      border-left-width: 0;
+      .rotate(45deg);
+    }
+
+    &:checked:after {
+      background-color: @brand-primary;
+      border-color: @brand-primary;
+    }
+
+    &:disabled:after {
+      border-color: @gray-light;
+    }
+
+    &:disabled:checked:after {
+      background-color: @gray-light;
+      border-color: transparent;
+    }
+  }
+
+  .has-warning {
+    input:not([type=checkbox]),
+    .form-control,
+    input.form-control[readonly],
+    input[type=text][readonly],
+    [type=text].form-control[readonly],
+    input:not([type=checkbox]):focus,
+    .form-control:focus {
+      border-bottom: none;
+      .box-shadow(inset 0 -2px 0 @brand-warning);
+    }
+  }
+
+  .has-error {
+    input:not([type=checkbox]),
+    .form-control,
+    input.form-control[readonly],
+    input[type=text][readonly],
+    [type=text].form-control[readonly],
+    input:not([type=checkbox]):focus,
+    .form-control:focus {
+      border-bottom: none;
+      .box-shadow(inset 0 -2px 0 @brand-danger);
+    }
+  }
+
+  .has-success {
+    input:not([type=checkbox]),
+    .form-control,
+    input.form-control[readonly],
+    input[type=text][readonly],
+    [type=text].form-control[readonly],
+    input:not([type=checkbox]):focus,
+    .form-control:focus {
+      border-bottom: none;
+      .box-shadow(inset 0 -2px 0 @brand-success);
+    }
+  }
+
+  // Remove the Bootstrap feedback styles for input addons
+  .input-group-addon {
+    .has-warning &, .has-error &, .has-success & {
+      color: @input-color;
+      border-color: @input-group-addon-border-color;
+      background-color: @input-group-addon-bg;
+    }
+  }
+}
+.close{
+  &:hover,
+  &:focus {
+    outline: 0px;
+  }
+}
+
+// Navs =======================================================================
+
+.material-tabs{
+  &.nav-tabs {
+    > li > a,
+    > li > a:focus {
+      margin-right: 0;
+      background-color: transparent;
+      border: none;
+      color: @navbar-default-link-color;
+      .box-shadow(inset 0 -1px 0 #ddd);
+      .transition(all 0.2s);
+
+      &:hover {
+        background-color: transparent;
+        .box-shadow(inset 0 -2px 0 @brand-primary);
+        color: @brand-primary;
+      }
+    }
+
+    & > li.active > a,
+    & > li.active > a:focus {
+      border: none;
+      .box-shadow(inset 0 -2px 0 @brand-primary);
+      color: @brand-primary;
+
+      &:hover {
+        border: none;
+        color: @brand-primary;
+      }
+    }
+
+    & > li.disabled > a {
+      .box-shadow(inset 0 -1px 0 #ddd);
+    }
+
+    &.nav-justified {
+
+      & > li > a,
+      & > li > a:hover,
+      & > li > a:focus,
+      & > .active > a,
+      & > .active > a:hover,
+      & > .active > a:focus {
+        border: none;
+      }
+    }
+
+    .dropdown-menu {
+      margin-top: 0;
+    }
+  }
+}
+
+.dropdown-menu {
+  margin-top: 0;
+  border: none;
+  .box-shadow(0 1px 4px rgba(0,0,0,.3));
+}
+
+// Indicators =================================================================
+
+.badge {
+  padding: 3px 6px 5px;
+}
+label{
+  font-weight: @SemiBold;
+}
+
+.progress {
+  position: relative;
+  z-index: 1;
+  height: 6px;
+  border-radius: 0;
+
+  .box-shadow(none);
+
+  &-bar {
+    .box-shadow(none);
+
+    &:last-child {
+      border-radius: 0 3px 3px 0;
+    }
+
+    &:last-child {
+      &:before {
+        display: block;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        background-color: lighten(@progress-bar-bg, 35%);
+      }
+    }
+
+    &-success:last-child.progress-bar:before {
+      background-color: lighten(@brand-success, 35%);
+    }
+
+    &-info:last-child.progress-bar:before {
+      background-color: lighten(@brand-info, 45%);
+    }
+    &-warning:last-child.progress-bar:before {
+      background-color: lighten(@brand-warning, 35%);
+    }
+
+    &-danger:last-child.progress-bar:before {
+      background-color: lighten(@brand-danger, 25%);
+    }
+  }
+}
+
+// Progress bars ==============================================================
+
+// Containers =================================================================
+
+.close {
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 24px;
+  opacity: 0.6;
+  .transition(all 0.2s);
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.list-group {
+
+  &-item {
+    padding: 15px;
+  }
+
+  &-item-text {
+    color: @gray-light;
+  }
+}
+
+.well {
+  border-radius: 0;
+  .box-shadow(none);
+}
+
+.panel {
+  border: none;
+  border-radius: 2px;
+
+  &-heading {
+    border-bottom: none;
+  }
+
+  &-footer {
+    border-top: none;
+  }
+}
+
+.popover {
+  border: none;
+  .box-shadow(0 1px 4px rgba(0,0,0,.3));
+}
+
+.carousel {
+  &-caption {
+    h1, h2, h3, h4, h5, h6 {
+      color: inherit;
+    }
+  }
+}
+
+
+.input-instruction {
+  color: #999;
+  padding-top: 6px;
+  i {
+    font-size: 16px;
+    position: relative;
+    top: 1px;
+    margin-right: 3px;
+  }
+}
+
+label {
+  display: inline-block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  line-height: normal;
+  margin: 7px 0 0;
+}
+.input-sizing-list{
+  padding: 0px;
+  margin: 0px;
+  li{
+    list-style: none;
+    margin-bottom: 20px;
+  }
+}
+
+.iconic-input {
+  width: 100%;
+  table-layout: fixed;
+  .input-group-addon {
+    position: relative;
+    padding: 0px;
+    border: 0px;
+    width: 0px;
+    top: 2px;
+  }
+  .input-group-addon + input.form-control {
+    padding-left: 35px;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  .input-group-addon {
+    span.input-icon {
+      width: auto;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      padding: 6px 12px;
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      border: 0px;
+      z-index: 5;
+      background-color: transparent;
+      line-height: 1.4;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+      pointer-events: none;
+    }
+    &:last-child {
+      span.input-icon {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+  input.form-control {
+    padding-right: 35px;
+  }
+  &.input-group-lg {
+    .input-group-addon {
+      span.input-icon {
+        line-height: 1.7;
+      }
+    }
+  }
+  .form-control {
+    &:first-child {
+      -webkit-border-top-right-radius: 4px;
+      -webkit-border-bottom-right-radius: 4px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+  }
+  .input-group-addon {
+    &::first-child {
+      -webkit-border-top-right-radius: 4px;
+      -webkit-border-bottom-right-radius: 4px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+  }
+}
+
+.form-group-input .input-group.iconic-input .form-control,
+.form-group-input .form-control {
+  -webkit-border-radius: 0px !important;
+  border-radius: 0px !important;
+  margin-top: -1px;
+}
+
+.form-group-input .input-group:first-child .form-control,
+.form-group-input .form-control:first-child {
+  -webkit-border-radius: 4px 4px 0 0 !important;
+  border-radius: 4px 4px 0 0 !important;
+}
+
+.form-group-input .input-group:last-child .form-control,
+.form-group-input .form-control:last-child {
+  -webkit-border-radius: 0 0 4px 4px !important;
+  border-radius: 0 0 4px 4px !important;
+}
+
+.input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .btn-group {
+  margin-right: -2px;
+}
+
+.form-group-input .form-control:focus {
+  position: relative;
+  z-index: 4;
+}
+
+.group-span-filestyle i {
+  margin-right: 5px;
+}
+
+.icheck-input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.icheck-input label {
+  position: relative;
+  top: 1px;
+  left: 3px;
+  font-weight: 400;
+}
+
+.dropdown-menu-right {
+  left: auto;
+  right: 0px;
+}
+
+.control-label {
+  font-weight: 400;
+  .error {
+    color: red;
+  }
+}
+.label{
+  font-size: 12px;
+  font-weight: @SemiBold;
+}
+
+//Alerts
+//
+// Alerts
+// --------------------------------------------------
+
+
+// Base styles
+// -------------------------
+
+.alert {
+  padding: @alert-padding;
+  margin-bottom: @line-height-computed;
+  border: 0px solid transparent;
+  border-radius: @alert-border-radius;
+  // Headings for larger alerts
+  h4 {
+    margin-top: 0;
+    // Specified for the h4 to prevent conflicts of changing @headings-color
+    color: inherit;
+  }
+
+  // Provide class for links that match alerts
+  .alert-link {
+    font-weight: @alert-link-font-weight;
+    color: #666 !important;
+  }
+
+  // Improve alignment and spacing of inner content
+  > p,
+  > ul {
+    margin-bottom: 0;
+  }
+
+  > p + p {
+    margin-top: 5px;
+  }
+}
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+.alert-dismissable, // The misspelled .alert-dismissable was deprecated in 3.2.0.
+.alert-dismissible {
+  padding-right: (@alert-padding + 20);
+
+  // Adjust close link position
+  .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit;
+  }
+}
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+.alert-success {
+  .alert-variant(@alert-success-bg; @alert-success-border; @alert-success-text);
+}
+
+.alert-info {
+  .alert-variant(@alert-info-bg; @alert-info-border; @alert-info-text);
+}
+
+.alert-warning {
+  .alert-variant(@alert-warning-bg; @alert-warning-border; @alert-warning-text);
+}
+
+.alert-danger {
+  .alert-variant(@alert-danger-bg; @alert-danger-border; @alert-danger-text);
+}
+
+
+
+
+.material-form textarea[disabled], .material-form textarea.form-control[disabled], .material-form input.form-control[disabled], .material-form input[type=text][disabled], .material-form input[type=password][disabled], .material-form input[type=email][disabled], .material-form input[type=number][disabled], .material-form [type=text].form-control[disabled], .material-form [type=password].form-control[disabled], .material-form [type=email].form-control[disabled], .material-form [type=tel].form-control[disabled], .material-form [contenteditable].form-control[disabled], .material-form textarea[readonly], .material-form textarea.form-control[readonly], .material-form input.form-control[readonly], .material-form input[type=text][readonly], .material-form input[type=password][readonly], .material-form input[type=email][readonly], .material-form input[type=number][readonly], .material-form [type=text].form-control[readonly], .material-form [type=password].form-control[readonly], .material-form [type=email].form-control[readonly], .material-form [type=tel].form-control[readonly], .material-form [contenteditable].form-control[readonly]{
+  background-color: transparent;
+}
+
+
+/*=== Typograhy ===*/
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: @Light;
+}
+
+b, strong{
+  font-weight: @SemiBold;
+}
+

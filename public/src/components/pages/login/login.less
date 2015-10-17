@@ -1,0 +1,110 @@
+@import "../../../styles/variables.less";
+@import "../../../styles/mixins.less";
+
+page-login {
+	display: block;
+
+  .login-page{
+    padding-top: 0px;
+    background-image:  url("@{imagePath}whitey.png");
+    background-repeat:repeat;
+    background-attachment:fixed;
+
+  }
+  .login-container{
+    margin-top: 60px;
+  }
+  .login-form-header{
+    .logo{
+      text-align: center;
+    }
+    padding: 15px 30px;
+  }
+  .login-input{
+    .login-frm-input{
+      height: 50px;
+    }
+    .icon-left{
+      height: 48px;
+      line-height: 47px !important;
+    }
+
+  }
+  .login-form-footer{
+    .btn{
+      padding: 10px 20px !important;
+      font-size: 16px !important;
+      font-weight:@Normal !important;
+    }
+  }
+  .btn-login{
+    padding: 10px 20px !important;
+    background-color: #fff !important;
+    border: #bbb 1px solid !important;
+    .rounded(3px)!important;
+    .z-depth(1)!important;
+    font-size: 16px !important;
+    font-weight:@Normal !important;
+    &:hover{
+      background-color: @ThemeColor !important;
+      border:  @ThemeColor 1px solid !important;
+      .z-depth(2)!important;
+      color: #fff !important;
+    }
+    &:focus{
+      .z-depth(1)!important;
+    }
+  }
+  .login-page-footer{
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .boxed-login{
+    .login-form-container{
+      .z-depth(1);
+      background-color: #fff;
+      padding: 25px;
+      .rounded(5px);
+  //    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    }
+    .login-form-header{
+      .logo{
+        text-align: center;
+      }
+      -webkit-border-radius: 4px 4px 0px 0px;
+      border-radius: 4px 4px 0px 0px;
+      padding: 15px 0px 0px 0px;
+      margin-left: -25px;
+      margin-right: -25px;
+      margin-top: -25px;
+  //  background-color: #455a64;
+      margin-bottom: 25px;
+    }
+    .login-form-footer{
+      padding: 25px;
+  //  background-color: #455a64;
+      margin-top: 25px;
+      margin-left: -25px;
+      margin-right: -25px;
+      margin-bottom: -25px;
+      -webkit-border-radius: 0 0 4px 4px;
+      border-radius: 0 0 4px 4px;
+      .btn{
+        padding: 10px 20px !important;
+        font-size: 16px !important;
+        font-weight:@Normal !important;
+      }
+    }
+  }
+
+  .social-login{
+    padding: 40px 0px;
+    & > .login-container{
+      margin-top: 0px !important;
+    }
+    .login-form-footer{
+      margin-bottom: 25px !important;
+    }
+  }
+}

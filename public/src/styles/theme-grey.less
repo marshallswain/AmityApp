@@ -1,0 +1,355 @@
+@import "variables.less";
+@import "mixins.less";
+
+@new_primaryFont: 'Open Sans', sans-serif;
+@new_secondaryFont: 'Roboto', sans-serif;
+@new_PrimaryFontSize: 14px;
+@new_PrimaryFontColor:#444;
+@new_ThemeColor:#757575;
+@new_LinkColor:@ThemeColor;
+
+
+//TopBar
+@new_TopBarBg: #fff;
+@new_NotificationBubbleBg:#ff5252;
+@new_TopBarColor:#757575;
+@new_TopBarAltColor:#fff;
+@new_TopBrandingBg: @new_ThemeColor;
+
+//LeftBar
+@new_LeftBarBg: #616161;
+
+//LeftBar Accordion
+@new_ListAccorBg:rgba(000,000,000,.2);
+@new_ListAccorColor:#cfd8dc;
+@new_ListAccorHoverColor:rgba(000,000,000,.3);
+//List Title
+@new_ListTitleBg:rgba(000,000,000,.3);
+@new_ListTitleColor:#bdbdbd;
+@new_ListTitleBorder: rgba(000,000,000,.08) 1px solid;
+//Admin Info Color
+@new_AdminProfileBg:rgba(000,000,000,.5);
+@new_AdminInfoColor:#bdbdbd;
+@new_AdminProfileIconColor: #bdbdbd;
+@new_AdminProfileIconBg: rgba(000,000,000,.1);
+//Tree Style Menu
+@new_TreeColor: #bdbdbd;
+
+
+//RightBar
+@new_RightBarBg: #fff;
+
+
+/*-------------------------
+Topbar
+--------------------------*/
+.topbar{
+  background-color: @new_TopBarBg;
+  .top-search-bar{
+    background-color: @new_TopBarBg;
+  }
+  // Branding With Logo
+  .topbar-left{
+    background-color: @new_TopBrandingBg;
+  }
+  //Topbar Right Side Toolbar
+  .topbar-right{
+    background-color: @new_TopBarBg;
+    // Mobile View Leftbar Toggle
+    .left-bar-switch{
+      color: @new_TopBarColor;
+    }
+    .top-right-icons{
+      & > li{
+        & > a{
+          color: @new_TopBarColor;
+          .noty-bubble{
+            background-color:@new_NotificationBubbleBg;
+            color: @new_TopBarAltColor;
+          }
+          .more-noty{
+            background-color:@new_NotificationBubbleBg;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*-------------------------
+Left Sidebar
+--------------------------*/
+.leftbar{
+  background-color: @new_LeftBarBg;
+  background-image:  url("@{iCheckImagePath}transparent-bg-dark.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  &.material-leftbar{
+    background-color: #fff;
+    .user-profile-container{
+      background-color:@new_ThemeColor;
+      background-image:  url("@{iCheckImagePath}transparent-bg-dark.png");
+      background-size: cover;
+      .user-profile{
+        .admin-user-info{
+          color:@new_AdminInfoColor;
+          ul{
+            li{
+              a{
+                color:#fff;
+                &:hover,
+                &:focus{
+                  color:@new_LinkColor;
+                }
+              }
+            }
+          }
+        }
+      }
+      .admin-bar{
+        ul{
+          li{
+            a{
+              color:#fff;
+              &:hover,
+              &:focus{
+                color:@new_LinkColor;
+                background-color: @new_AdminProfileIconBg;
+              }
+            }
+          }
+        }
+      }
+    }
+    .list-accordion{
+      background-color: #fff;
+      .list-title{
+        background-color: #fff;
+        border-bottom: rgba(000,000,000,.08) 1px solid;
+        color: @new_ListTitleColor;
+      }
+      li{
+        ul{
+          li{
+            a{
+              color: #888;
+              &:hover,
+              &:focus{
+                color: @new_LinkColor;
+              }
+            }
+          }
+        }
+      }
+      & > li{
+        & > a {
+          background-color: #fff;
+          color: #888;
+          &.acc-parent{
+            &.active{
+              background-color: rgba(000,000,000,.05);
+              color: @new_ThemeColor;
+            }
+          }
+          &:hover,
+          &:focus{
+            background-color: rgba(000,000,000,.05);
+            color: @new_LinkColor;
+          }
+          &:before {
+            background: #ccc;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+
+.list-accordion{
+  .list-title{
+    background-color: @new_ListTitleBg;
+    border-top: @new_ListTitleBorder;
+    border-bottom: @new_ListTitleBorder;
+    color: @new_ListTitleColor;
+  }
+  li{
+    ul{
+      li{
+        a{
+          color: @new_ListAccorColor;
+          &:hover,
+          &:focus{
+            color: @new_LinkColor;
+          }
+        }
+      }
+    }
+  }
+  & > li{
+    & > a {
+      &.acc-parent{
+        &.active{
+          background-color: @new_ListAccorHoverColor;
+          color: @new_ThemeColor;
+        }
+      }
+      background-color: @new_ListAccorBg;
+      color: @new_ListAccorColor;
+      &:hover,
+      &:focus{
+        background-color: @new_ListAccorHoverColor;
+        color: @new_LinkColor;
+      }
+    }
+  }
+}
+
+.tree-style{
+  li{
+    ul{
+      &:after{
+        border-left:@new_TreeColor 1px solid;
+      }
+      li{
+        a{
+          &:before{
+            color: @new_TreeColor;
+          }
+          &:hover,
+          &:focus{
+            &:before{
+              color: @new_LinkColor;
+            }
+          }
+          &:after{
+            border-bottom: @new_TreeColor 1px solid;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.user-profile-container{
+  background-color: @new_AdminProfileBg;
+  .user-profile{
+    .admin-user-info{
+      color:@new_AdminInfoColor;
+      ul{
+        li{
+          a{
+            color:@new_AdminInfoColor;
+            &:hover,
+            &:focus{
+              color:@new_LinkColor;
+            }
+          }
+        }
+      }
+    }
+  }
+  .admin-bar{
+    ul{
+      li{
+        //Admin Profile Bar Icons
+        a{
+          color:@new_AdminProfileIconColor;
+          &:hover,
+          &:focus{
+            color:@new_LinkColor;
+            background-color: @new_AdminProfileIconBg;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Iconic View
+.iconic-view{
+  .iconic-leftbar{
+    background-color: @new_LeftBarBg;
+  }
+  .list-accordion{
+    li{
+      ul{
+        background-color: #363740;
+        li{
+          a{
+            color: @new_ListAccorColor;
+            &:hover,
+            &:focus{
+              color: @new_LinkColor;
+            }
+          }
+        }
+      }
+    }
+    & > li{
+      & > a {
+        background-color: @new_ListAccorBg;
+        color: @new_ListAccorColor;
+        &:hover,
+        &:focus{
+          background-color:@new_ThemeColor;
+          background-image:  url("@{iCheckImagePath}transparent-bg-dark.png");
+          background-size: cover;
+          color: @new_LinkColor;
+        }
+      }
+    }
+  }
+}
+.iconic-aside-container{
+  .user-profile-container{
+    background-color:@new_ThemeColor;
+    background-image:  url("@{iCheckImagePath}transparent-bg-dark.png");
+    background-size: cover;
+    .user-profile{
+      background-color:@new_ThemeColor;
+      background-image:  url("@{iCheckImagePath}transparent-bg-dark.png");
+      background-size: cover;
+      .admin-user-info{
+        color:@new_AdminInfoColor;
+        ul{
+          li{
+            a{
+              color:@new_AdminInfoColor;
+              &:hover,
+              &:focus{
+                color:@new_LinkColor;
+              }
+            }
+          }
+        }
+      }
+    }
+    .admin-bar{
+      background-color:@new_ThemeColor;
+      background-image:  url("@{iCheckImagePath}transparent-bg-dark.png");
+      background-size: cover;
+      ul{
+        li{
+          //Admin Profile Bar Icons
+          a{
+            color:@new_AdminProfileIconColor;
+            &:hover,
+            &:focus{
+              color:@new_LinkColor;
+              background-color: @new_AdminProfileIconBg;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//Tile Menu
+.tile-leftbar{
+  background-color: #fff;
+}

@@ -1,0 +1,32 @@
+@import "../../styles/variables.less";
+@import "../../styles/mixins.less";
+
+amity-footer {
+	display: block;
+
+  .footer-container{
+    background-color: #fff;
+    margin-right: -15px;
+    margin-left: -15px;
+    padding: 15px;
+    .z-depth(1);
+    color: #666;
+    a{
+      color: #868686;
+      &:hover,
+      &:focus{
+        text-decoration: none;
+      }
+    }
+    .footer-right{
+      text-align: right;
+      .footer-meta {
+        i{
+          color: #00bcd4;
+        }
+      }
+    }
+  }
+
+
+}

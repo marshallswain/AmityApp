@@ -16,7 +16,7 @@ const AppViewModel = AppMap.extend({
   }
 });
 
-route(':page', { page: 'home' });
+route(':page', { page: 'dashboard' });
 
 /* * * Auth * * */
 can.route('passwordemail/:email',{page: 'passwordemail'});
@@ -26,7 +26,7 @@ can.route('verify/:secret',{page: 'verify'});
 
 
 /* * * Overview * * */
-// can.route('', {'page':'home'});
+// can.route('', {'page':'dashboard'});
 can.route('settings', {'page':'settings'});
 can.route('help', {'page':'help'});
 
