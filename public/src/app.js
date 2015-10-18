@@ -13,13 +13,21 @@ const AppViewModel = AppMap.extend({
     leftbarHidden: {
       value: false,
       serialize: false
+    },
+    user: {
+      value(){
+        return {
+          email: 'marshall@creativeideal.net',
+        }
+      },
+      serialize: false
     }
-  },
-  user: {
-    email: 'marshall@creativeideal.net'
   },
   toggleLeftbar(){
     this.attr('leftbarHidden', !this.attr('leftbarHidden'));
+  },
+  currentPage(page){
+    return can.route.attr('page') === page;
   }
 });
 

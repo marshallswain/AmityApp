@@ -14,18 +14,23 @@
 			</div>
 			<div class="admin-bar">
 				<ul>
-					<li><a href="/logout"><i class="zmdi zmdi-power"></i>
-					</a>
+					<li><a href="/logout" {{#if currentPage('logout')}}class="active"{{/if}}>
+							<i class="zmdi zmdi-power"></i> 
+						</a>
 					</li>
-					<li><a href="/account"><i class="zmdi zmdi-account"></i>
-					</a>
+					<li><a href="/account" {{#if currentPage('account')}}class="active"{{/if}}>
+							<i class="zmdi zmdi-account"></i> 
+						</a>
 					</li>
-					<li><a href="/security"><i class="zmdi zmdi-key"></i>
-					</a>
+					<li><a href="/security" {{#if currentPage('security')}}class="active"{{/if}}>
+							<i class="zmdi zmdi-key"></i>
+						</a>
 					</li>
-					<li><a href="/settings"><i class="zmdi zmdi-settings"></i>
-					</a>
+					<li><a href="/settings" {{#if currentPage('settings')}}class="active"{{/if}}>
+							<i class="zmdi zmdi-settings"></i>
+						</a>
 					</li>
+
 				</ul>
 			</div>
 		</div>

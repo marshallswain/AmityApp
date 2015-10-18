@@ -62,13 +62,30 @@
 	          </can-import>
 
 	        {{/case}}
+	        {{#case 'account'}}
+	          <can-import from="amity-ui/components/pages/account/" can-tag="amity-loading">
+	            <page-account></page-account>
+	          </can-import>
+
+	        {{/case}}
+	        {{#case 'security'}}
+	          <can-import from="amity-ui/components/pages/security/" can-tag="amity-loading">
+	            <page-security></page-security>
+	          </can-import>
+
+	        {{/case}}
 	        {{#case 'login'}}
 	          <can-import from="amity-ui/components/pages/login/" can-tag="amity-loading">
 	            <page-login></page-login>
 	          </can-import>
 
 	        {{/case}}
+	        {{#case 'logout'}}
+	          <can-import from="amity-ui/components/pages/logout/" can-tag="amity-loading">
+	            <page-logout></page-logout>
+	          </can-import>
 
+	        {{/case}}
 	        {{#case 'error'}}
 	          <can-import from="amity-ui/components/pages/error/" can-tag="amity-loading">
 	            <page-error></page-error>
