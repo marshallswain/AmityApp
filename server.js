@@ -18,6 +18,12 @@ var app = feathers()
   }))
   .use(feathers.static(__dirname + '/public'));
 
+var config = {
+  apiPrefix:'/api'
+};
+// Start Amity with a MongoAdapter as a configuration store.
+amity.start(app, config, amity.adapters.MongoDB('mongodb://localhost:27017'));
+
 // Always load SSR last.
 app.use('/', ssr({
   config: __dirname + '/public/package.json!npm',
@@ -25,12 +31,6 @@ app.use('/', ssr({
   liveReloadHost: 'Bitovi.local'
 }))
 .configure(feathers.errors());
-
-var config = {
-  apiPrefix:'/api'
-};
-// Start Amity with a MongoAdapter as a configuration store.
-amity.start(app, config, amity.adapters.MongoDB('mongodb://localhost:27017'));
 
 // Start the server.
 var port = 8080;
