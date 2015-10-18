@@ -14,6 +14,10 @@ const AppViewModel = AppMap.extend({
       value: false,
       serialize: false
     },
+    leftSidebar: {
+      value: 'data',
+      serialize: false
+    },
     user: {
       value(){
         return {
@@ -23,11 +27,18 @@ const AppViewModel = AppMap.extend({
       serialize: false
     }
   },
+  setLeftSidebar(sidebar){
+    console.log(sidebar);
+    this.attr('leftSidebar', sidebar);
+  },
   toggleLeftbar(){
     this.attr('leftbarHidden', !this.attr('leftbarHidden'));
   },
   currentPage(page){
     return can.route.attr('page') === page;
+  },
+  currentLeftSidebar(sidebar){
+    return can.route.attr('leftSidebar') === sidebar;
   }
 });
 

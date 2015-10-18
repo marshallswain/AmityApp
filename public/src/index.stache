@@ -68,6 +68,12 @@
 	          </can-import>
 
 	        {{/case}}
+	        {{#case 'users'}}
+	          <can-import from="amity-ui/components/pages/users/" can-tag="amity-loading">
+	            <page-users></page-users>
+	          </can-import>
+
+	        {{/case}}
 	        {{#case 'security'}}
 	          <can-import from="amity-ui/components/pages/security/" can-tag="amity-loading">
 	            <page-security></page-security>

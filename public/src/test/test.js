@@ -44,3 +44,9 @@ import 'amity-ui/components/pages/security/security_test';
 import 'amity-ui/componentns/pages/account/account_test';
 
 import 'amity-ui/components/pages/logout/logout_test';
+
+import 'amity-ui/components/pages/users/users_test';
+
+import 'amity-ui/components/sidebars/data/data_test';
+
+import 'amity-ui/components/sidebars/users/users_test';
