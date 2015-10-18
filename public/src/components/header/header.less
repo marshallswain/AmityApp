@@ -10,6 +10,7 @@ amity-header {
     background-color: @TopBarBg;
     position: fixed;
     width: 100%;
+    user-select: none;
     top: 0px;
     z-index: 1040;
     .topbar-logged-user{
@@ -298,6 +299,14 @@ amity-header {
 
       .logo{
         height: @TopBarHeight;
+
+        span.title {
+            line-height: 60px;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            padding-left: 3px;
+        }
       }
       // Header Mega Menu
       .mega-menu{

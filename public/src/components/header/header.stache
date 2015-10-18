@@ -17,11 +17,12 @@
 	<!--Topbar Left Branding With Logo Start-->
 	<div class="topbar-left pull-left">
 		<div class="clearfix">
-			<ul class="left-branding pull-left clickablemenu ttmenu dark-style menu-color-gradient">
-				<li><span class="left-toggle-switch"><i class="zmdi zmdi-menu"></i></span></li>
+			<ul class="left-branding pull-left clickablemenu ttmenu dark-style menu-color-gradient no-select">
+				<li><span class="left-toggle-switch" can-click="{toggleLeftbar}"><i class="zmdi zmdi-menu"></i></span></li>
 				<li>
 					<div class="logo">
-						<a href="index.html" title="Admin Template"><img src="images/logo.png" alt="logo"></a>
+						<span class="title">{{title}}</span>
+						{{! <a href="/" title="Admin Template"><img src="images/logo.png" alt="logo"></a> }}
 					</div>
 				</li>
 			</ul>
