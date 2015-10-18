@@ -5,6 +5,7 @@
     {{asset "html5shiv"}}
   </head>
   <body class="leftbar-view">
+
     <can-import from="amity-ui/styles.less!" />
     <can-import from="amity-ui/app" export-as="viewModel" />
 
@@ -14,63 +15,70 @@
 
     <amity-header></amity-header>
 
-    <left-sidebar></left-sidebar>
-    <section class="main-container">
+    <div class="{{#if leftbarHidden}}left-aside-toggle{{/if}}">
+	    <left-sidebar></left-sidebar>
+	    <section class="main-container">
 
-      {{#switch page}}
-        {{#case 'dashboard'}}
-          <can-import from="amity-ui/components/pages/dashboard/" can-tag="amity-loading">
-            <page-dashboard></page-dashboard>
-          </can-import>
+	      {{#switch page}}
+	        {{#case 'dashboard'}}
+	          <can-import from="amity-ui/components/pages/dashboard/" can-tag="amity-loading">
+	            <page-dashboard></page-dashboard>
+	          </can-import>
 
-        {{/case}}
-        {{#case 'server'}}
-          <can-import from="amity-ui/components/pages/server/" can-tag="amity-loading">
-            <page-server></page-server>
-          </can-import>
+	        {{/case}}
+	        {{#case 'server'}}
+	          <can-import from="amity-ui/components/pages/server/" can-tag="amity-loading">
+	            <page-server></page-server>
+	          </can-import>
 
-        {{/case}}
-        {{#case 'database'}}
-          <can-import from="amity-ui/components/pages/database/" can-tag="amity-loading">
-            <page-database></page-database>
-          </can-import>
+	        {{/case}}
+	        {{#case 'database'}}
+	          <can-import from="amity-ui/components/pages/database/" can-tag="amity-loading">
+	            <page-database></page-database>
+	          </can-import>
 
-        {{/case}}
-        {{#case 'collection'}}
-          <can-import from="amity-ui/components/pages/collection/" can-tag="amity-loading">
-            <page-collection></page-collection>
-          </can-import>
+	        {{/case}}
+	        {{#case 'collection'}}
+	          <can-import from="amity-ui/components/pages/collection/" can-tag="amity-loading">
+	            <page-collection></page-collection>
+	          </can-import>
 
-        {{/case}}
-        {{#case 'document'}}
-          <can-import from="amity-ui/components/pages/document/" can-tag="amity-loading">
-            <page-document></page-document>
-          </can-import>
+	        {{/case}}
+	        {{#case 'document'}}
+	          <can-import from="amity-ui/components/pages/document/" can-tag="amity-loading">
+	            <page-document></page-document>
+	          </can-import>
 
-        {{/case}}
-        {{#case 'settings'}}
-          <can-import from="amity-ui/components/pages/settings/" can-tag="amity-loading">
-            <page-settings></page-settings>
-          </can-import>
+	        {{/case}}
+	        {{#case 'settings'}}
+	          <can-import from="amity-ui/components/pages/settings/" can-tag="amity-loading">
+	            <page-settings></page-settings>
+	          </can-import>
 
-        {{/case}}
+	        {{/case}}
+	        {{#case 'about'}}
+	          <can-import from="amity-ui/components/pages/about/" can-tag="amity-loading">
+	            <page-about></page-about>
+	          </can-import>
 
-        {{#case 'login'}}
-          <can-import from="amity-ui/components/pages/login/" can-tag="amity-loading">
-            <page-login></page-login>
-          </can-import>
+	        {{/case}}
+	        {{#case 'login'}}
+	          <can-import from="amity-ui/components/pages/login/" can-tag="amity-loading">
+	            <page-login></page-login>
+	          </can-import>
 
-        {{/case}}
+	        {{/case}}
 
-        {{#case 'error'}}
-          <can-import from="amity-ui/components/pages/error/" can-tag="amity-loading">
-            <page-error></page-error>
-          </can-import>
+	        {{#case 'error'}}
+	          <can-import from="amity-ui/components/pages/error/" can-tag="amity-loading">
+	            <page-error></page-error>
+	          </can-import>
 
-        {{/case}}
+	        {{/case}}
 
-      {{/switch}}
-    </section>
+	      {{/switch}}
+	    </section>
+    </div>
 
     {{asset "inline-cache"}}
 

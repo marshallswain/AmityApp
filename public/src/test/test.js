@@ -36,3 +36,11 @@ import 'amity-ui/components/pages/login/login_test';
 import 'amity-ui/components/pages/error/error_test';
 
 import 'amity-ui/components/footer/footer_test';
+
+import 'amity-ui/components/pages/about/about_test';
+
+import 'amity-ui/components/pages/security/security_test';
+
+import 'amity-ui/componentns/pages/account/account_test';
+
+import 'amity-ui/components/pages/logout/logout_test';

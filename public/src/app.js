@@ -1,18 +1,25 @@
-import AppMap from "can-ssr/app-map";
-import route from "can/route/";
+import AppMap from 'can-ssr/app-map';
+import route from 'can/route/';
 import 'can/map/define/';
 import 'can/route/pushstate/';
+import 'bootstrap';
 
 const AppViewModel = AppMap.extend({
   define: {
-    message: {
-      value: 'Hello World!',
+    title: {
+      value: 'AmityDB',
       serialize: false
     },
-    title: {
-      value: 'amity-ui',
+    leftbarHidden: {
+      value: false,
       serialize: false
     }
+  },
+  user: {
+    email: 'marshall@creativeideal.net'
+  },
+  toggleLeftbar(){
+    this.attr('leftbarHidden', !this.attr('leftbarHidden'));
   }
 });
 

@@ -13,7 +13,14 @@
 @import "./styles/common.less";
 @import "./styles/responsive.less";
 
-
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
 .leftbar-view{
   .main-container{
@@ -24,14 +31,14 @@
     .translate(0,0);
     .m-transition (all, 350ms, cubic-bezier(0.19, 1, 0.22, 1));
   }
-  &.left-aside-toggle{
+  .left-aside-toggle{
     .leftbar{
       .translate(-@LeftBarWidth,0) !important;
       .m-transition (all, 350ms, cubic-bezier(0.19, 1, 0.22, 1));
     }
     .main-container{
       margin-left: 0px !important;
-      .m-transition (all, 350ms, cubic-bezier(0.19, 1, 0.22, 1));
+      .m-transition (all, 350ms, cubic-bezier(0.29, 1, 0.22, 1));
     }
   }
 }
@@ -249,84 +256,6 @@
   content: "\f107";
   font-family: 'FontAwesome';
 }
-
-.user-profile-container{
-  background-color: @AdminProfileBg;
-  .user-profile{
-    display: table;
-    width: 100%;
-    & > div{
-      display: table-cell;
-      vertical-align: middle;
-    }
-    .admin-user-thumb{
-      width: 48px;
-      height: 48px;
-      padding: 15px 0px 15px 15px;
-      img{
-        width: 48px;
-        height: 48px;
-        .rounded(100%);
-      }
-    }
-    .admin-user-info{
-      padding: 15px;
-      color:@AdminInfoColor;
-      ul{
-        padding: 0px;
-        margin: 0px;
-        list-style: none;
-        li{
-          line-height: normal;
-          a{
-            color:@AdminInfoColor;
-            &:hover,
-            &:focus{
-              text-decoration: none;
-              color:@LinkColor;
-            }
-          }
-        }
-      }
-    }
-  }
-  .admin-bar{
-    text-align: center;
-    padding: 0px 0px 10px 0px;
-    ul{
-      padding: 0px;
-      margin: 0px;
-      li{
-        list-style: none;
-        display: inline-block;
-        //Admin Profile Bar Icons
-        a{
-          position: relative;
-          width: 52px;
-          height: 52px;
-          display: inline-block;
-          color:@AdminProfileIconColor;
-          text-align: center;
-          &:hover,
-          &:focus{
-            text-decoration: none;
-            color:@LinkColor;
-            background-color: @AdminProfileIconBg;
-            .rounded(4px)
-          }
-          i{
-            height: 52px;
-            width: 52px;
-            display: inline-block;
-            line-height: 52px;
-            font-size: 16px;
-          }
-        }
-      }
-    }
-  }
-}
-
 
 // Iconic View
 .iconic-view{

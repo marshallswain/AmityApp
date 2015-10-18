@@ -5,15 +5,91 @@
 left-sidebar {
 	display: block;
 
-  /* 1.2 Left Sidebar / .leftbar */
+  .user-profile-container{
+    background-color: @AdminProfileBg;
+    .user-profile{
+      display: table;
+      width: 100%;
+      & > div{
+        display: table-cell;
+        vertical-align: middle;
+      }
+      .admin-user-thumb{
+        width: 48px;
+        height: 48px;
+        padding: 15px 0px 15px 15px;
+        img{
+          width: 48px;
+          height: 48px;
+          .rounded(100%);
+        }
+      }
+      .admin-user-info{
+        padding: 15px 15px 0;
+        color:@AdminInfoColor;
+        ul{
+          padding: 0px;
+          margin: 0px;
+          list-style: none;
+          li{
+            line-height: normal;
+            a{
+              color:@AdminInfoColor;
+              &:hover,
+              &:focus{
+                text-decoration: none;
+                color:@LinkColor;
+              }
+            }
+          }
+        }
+      }
+    }
+    .admin-bar{
+      text-align: center;
+      padding: 0;
+      ul{
+        padding: 0px;
+        margin: 0px;
+        li{
+          list-style: none;
+          display: inline-block;
+          //Admin Profile Bar Icons
+          a{
+            position: relative;
+            width: 59px;
+            height: 52px;
+            display: inline-block;
+            color:@AdminProfileIconColor;
+            text-align: center;
+            &:hover,
+            &:focus{
+              text-decoration: none;
+              color:@LinkColor;
+              background-color: @AdminProfileIconBg;
+              .rounded(4px)
+            }
+            i{
+              height: 59px;
+              width: 52px;
+              display: inline-block;
+              line-height: 52px;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
   
   .leftbar{
     width: @LeftBarWidth;
     background-color: @LeftBarBg;
+    overflow: scroll;
     position: fixed;
     z-index: 8;
     top: @TopBarHeight;
-    height: 100%;
+    bottom: 0;
     &.material-leftbar{
       background-color: #fff;
       .z-depth(1);
