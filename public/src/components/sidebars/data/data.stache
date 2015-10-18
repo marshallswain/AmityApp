@@ -1,4 +1,5 @@
 <ul class="list-accordion tree-style">
+  <li><a href="/" {{#routeCurrent(page='dashboard')}}class="active"{{/routeCurrent}}><i class="zmdi zmdi-view-carousel"></i> Dashboard</a></li>
   <li class="list-title">Servers</li>
   <li>
     <a href="#"><i class="zmdi zmdi-view-dashboard"></i><span class="list-label">Layouts Variations</span></a>

@@ -89,6 +89,7 @@ left-sidebar {
     }
   }
   
+  /* Some of the sidebar styles are also in styles.less */
   .leftbar{
     width: @LeftBarWidth;
     background-color: @LeftBarBg;
@@ -164,6 +165,9 @@ left-sidebar {
                 &:focus{
                   color: @LinkColor;
                 }
+                &.active{
+                  color: @LinkColor;
+                }
               }
             }
           }
@@ -172,6 +176,9 @@ left-sidebar {
           & > a {
             background-color: #fff;
             color: @ListAccorColor;
+            &.active{
+              color: @LinkColor;
+            }
             &.acc-parent{
               &.active{
                 background-color: rgba(000,000,000,.05);

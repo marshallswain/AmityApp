@@ -1,5 +1,3 @@
-'use strict';
-
 export var Server = can.Feathers.Model.extend('Server', {
 	resource: 'amity/servers',
 	id:'_id'

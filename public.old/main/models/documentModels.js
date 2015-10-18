@@ -1,5 +1,3 @@
-'use strict';
-
 var models = {};
 
 export function getDocumentModel(resource){
