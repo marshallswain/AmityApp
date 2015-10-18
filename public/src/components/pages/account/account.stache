@@ -1,1 +1,11 @@
-<p>{{message}}</p>
+<div class="container-fluid">
+  <div class="page-header filled full-block light">
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <h2>Account</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row"> </div>
+  <div class="row"> </div>
+</div>

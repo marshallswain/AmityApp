@@ -21,7 +21,7 @@
 				<li><span class="left-toggle-switch" can-click="{toggleLeftbar}"><i class="zmdi zmdi-menu"></i></span></li>
 				<li>
 					<div class="logo">
-						<span class="title">{{title}}</span>
+						<a href="/" class="title">{{title}}</a>
 						{{! <a href="/" title="Admin Template"><img src="images/logo.png" alt="logo"></a> }}
 					</div>
 				</li>

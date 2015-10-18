@@ -300,12 +300,16 @@ amity-header {
       .logo{
         height: @TopBarHeight;
 
-        span.title {
-            line-height: 60px;
-            color: white;
-            font-weight: 600;
-            font-size: 15px;
-            padding-left: 3px;
+        .title {
+          line-height: 60px;
+          color: white;
+          font-weight: 600;
+          font-size: 15px;
+          padding-left: 3px;
+
+          &:hover, &:focus{
+            text-decoration: none;
+          }
         }
       }
       // Header Mega Menu
