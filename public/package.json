@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Amity Front End",
   "homepage": "",
+  "repository": "marshallswain/AmityApp",
   "author": {
     "name": "Marshall Thompson",
     "email": "marshall@creativeideal.net",
@@ -36,6 +37,7 @@
     ]
   },
   "dependencies": {
+    "bootstrap": "^3.3.5",
     "can": "^2.3.0-beta.4",
     "can-connect": "^0.3.1",
     "can-ssr": "^0.9.2",
