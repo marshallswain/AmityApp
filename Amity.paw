@@ -5,12 +5,12 @@
     <databaseInfo>
         <version>134481920</version>
         <UUID>F27BE444-DF2C-4482-B9B6-155E03FAE863</UUID>
-        <nextObjectID>141</nextObjectID>
+        <nextObjectID>143</nextObjectID>
         <metadata>
             <plist version="1.0">
                 <dict>
                     <key>NSPersistenceFrameworkVersion</key>
-                    <integer>526</integer>
+                    <integer>640</integer>
                     <key>NSStoreModelVersionHashes</key>
                     <dict>
                         <key>LMCookieJar</key>
@@ -68,13 +68,13 @@
     <object type="LMENVIRONMENTDOMAIN" id="z103">
         <attribute name="uuid" type="string">04EB3B8B-612F-48BF-A693-928035E7FF1E</attribute>
         <attribute name="order" type="int64">0</attribute>
-        <attribute name="name" type="string">Default Domain</attribute>
+        <attribute name="name" type="string">http://localhost:8080</attribute>
         <relationship name="environments" type="0/0" destination="LMENVIRONMENT" idrefs="z106"></relationship>
-        <relationship name="variables" type="0/0" destination="LMENVIRONMENTVARIABLE"></relationship>
+        <relationship name="variables" type="0/0" destination="LMENVIRONMENTVARIABLE" idrefs="z142"></relationship>
     </object>
     <object type="LMREQUEST" id="z104">
         <attribute name="uuid" type="string">E1A3C57C-F2BD-46A2-A733-2839004FC092</attribute>
-        <attribute name="url" type="string">http://localhost:8081/api/localhost:27017/_databases</attribute>
+        <attribute name="url" type="string">http://localhost:8080/api/localhost:27017/_databases</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -107,7 +107,7 @@
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Default Environment</attribute>
         <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z103"></relationship>
-        <relationship name="variablesvalues" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE"></relationship>
+        <relationship name="variablesvalues" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z143"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z107">
         <attribute name="value" type="string"></attribute>
@@ -131,7 +131,7 @@
     </object>
     <object type="LMREQUEST" id="z109">
         <attribute name="uuid" type="string">EC5689E2-98BD-4631-9EBD-B1C079222814</attribute>
-        <attribute name="url" type="string">http://localhost:8081/api/amity/servers</attribute>
+        <attribute name="url" type="string">http://localhost:8080/api/amity/servers</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -166,7 +166,7 @@
     </object>
     <object type="LMREQUEST" id="z112">
         <attribute name="uuid" type="string">6376A95A-40C6-48E4-90D8-13979BE24C9D</attribute>
-        <attribute name="url" type="string">http://localhost:8081/api/amity/servers</attribute>
+        <attribute name="url" type="string">http://localhost:8080/api/amity/servers</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -192,7 +192,7 @@
     </object>
     <object type="LMREQUEST" id="z114">
         <attribute name="uuid" type="string">F88EC5C7-7214-4B14-9A8E-9D180C9DD480</attribute>
-        <attribute name="url" type="string">http://localhost:8081/api/status</attribute>
+        <attribute name="url" type="string">http://localhost:8080/api/status</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -339,7 +339,7 @@
     </object>
     <object type="LMREQUEST" id="z126">
         <attribute name="uuid" type="string">96CBBF7C-4A0A-451F-875B-D3258CE2CF24</attribute>
-        <attribute name="url" type="string">http://localhost:8081/api/localhost:27017/MMAlocal/accounts</attribute>
+        <attribute name="url" type="string">http://localhost:8080/api/localhost:27017/MMAlocal/accounts</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -354,7 +354,7 @@
     </object>
     <object type="LMREQUEST" id="z127">
         <attribute name="uuid" type="string">BD611234-10EF-49B3-AF1B-05094ACCD427</attribute>
-        <attribute name="url" type="string">http://localhost:8081/api/localhost:27017/MMAlocal/_collections</attribute>
+        <attribute name="url" type="string">http://localhost:8080/api/localhost:27017/MMAlocal/_collections</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -379,7 +379,7 @@
     </object>
     <object type="LMREQUEST" id="z129">
         <attribute name="uuid" type="string">8EBBDFD9-866E-4687-B51E-FF953BAAFDD3</attribute>
-        <attribute name="url" type="string">http://localhost:8081/amity/servers</attribute>
+        <attribute name="url" type="string">http://localhost:8080/amity/servers</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -404,7 +404,7 @@
     </object>
     <object type="LMREQUEST" id="z131">
         <attribute name="uuid" type="string">BDBC1AA4-E87F-40F2-90B4-086C7E7F9400</attribute>
-        <attribute name="url" type="string">http://localhost:8081/api/localhost:27017/BCHMfinal/_collections</attribute>
+        <attribute name="url" type="string">http://localhost:8080/api/localhost:27017/BCHMfinal/_collections</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -430,7 +430,7 @@
     <object type="LMREQUEST" id="z133">
         <attribute name="body" type="string">[{"data":{"keyValues":[["uri","mongodb:\\/\\/user:pass@c295.candidate.33.mongolayer.com:10295,c295.candidate.32.mongolayer.com:10295\\/feathers-tuts?replicaSet=set-53a9dd519941dfe469003c91",true],["type","mongodb",true]]},"identifier":"com.luckymarmot.BodyFormKeyValueDynamicValue"}]</attribute>
         <attribute name="uuid" type="string">3D1BF600-0306-4B11-BDA1-3821A81589D2</attribute>
-        <attribute name="url" type="string">http://localhost:8081/amity/servers</attribute>
+        <attribute name="url" type="string">http://localhost:8080/amity/servers</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -475,7 +475,7 @@
     </object>
     <object type="LMREQUEST" id="z137">
         <attribute name="uuid" type="string">1E095F12-890C-4610-BE2D-F5867B9F96B9</attribute>
-        <attribute name="url" type="string">http://localhost:8081/amity/servers/status?hostname=localhost%3A27017</attribute>
+        <attribute name="url" type="string">http://localhost:8080/amity/servers/status?hostname=localhost%3A27017</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -490,7 +490,7 @@
     </object>
     <object type="LMREQUEST" id="z138">
         <attribute name="uuid" type="string">A930152C-CF8F-4F58-9E06-DD6B1222DD36</attribute>
-        <attribute name="url" type="string">http://localhost:8081/api/c295.candidate.33.mongolayer.com:10295/_databases</attribute>
+        <attribute name="url" type="string">http://localhost:8080/api/c295.candidate.33.mongolayer.com:10295/_databases</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -515,7 +515,7 @@
     </object>
     <object type="LMREQUEST" id="z140">
         <attribute name="uuid" type="string">4714C5E2-2CE6-41DF-BAB2-8354EB79DED3</attribute>
-        <attribute name="url" type="string">http://localhost:8081/api/localhost:27017/BCHMfinal/cartpackages</attribute>
+        <attribute name="url" type="string">http://localhost:8080/api/localhost:27017/BCHMfinal/cartpackages</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -537,5 +537,17 @@
         <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
         <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
         <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z140"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLE" id="z142">
+        <attribute name="uuid" type="string">AB4FCE89-20B7-4D1B-9CAA-FBEB2958E2AA</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z103"></relationship>
+        <relationship name="values" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z143"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLEVALUE" id="z143">
+        <attribute name="value" type="string"></attribute>
+        <relationship name="environment" type="1/1" destination="LMENVIRONMENT" idrefs="z106"></relationship>
+        <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z142"></relationship>
     </object>
 </database>
