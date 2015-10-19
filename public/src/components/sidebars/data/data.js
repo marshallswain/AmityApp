@@ -6,9 +6,16 @@ import template from './data.stache!';
 
 export const ViewModel = Map.extend({
   define: {
-    message: {
-      value: 'This is the data-sidebar component'
+    dataSideScrollPanel: {
+      value: 'servers'
+    },
+    serverName: {
+      value: null
     }
+  },
+  setSideScrollPanel(panelName, serverName){
+    this.attr('serverName', serverName);
+    this.attr('dataSideScrollPanel', panelName);
   }
 });
 

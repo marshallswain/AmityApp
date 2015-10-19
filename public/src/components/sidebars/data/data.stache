@@ -1,11 +1,64 @@
 <ul class="list-accordion tree-style">
   <li><a href="/" {{#routeCurrent(page='dashboard')}}class="active"{{/routeCurrent}}><i class="zmdi zmdi-view-carousel"></i> Dashboard</a></li>
-  <li class="list-title">Servers</li>
-  {{^if servers.isPending}}
-    {{#each servers}}
-      <li><a href="/server/{{name}}" {{#if currentServer(name)}}class="active"{{/if}}>
-          <i class="zmdi zmdi-storage"></i>{{name}}</a>
-      </li>
-    {{/each}}
-  {{/if}}
 </ul>
+
+<div class="sidescroll {{dataSideScrollPanel}}">
+
+  <!-- Servers -->
+  <div class="sidescroll-pane servers">
+    <ul class="list-accordion tree-style">
+      <li class="list-title">Servers</li>
+      {{^if servers.isPending}}
+        {{#each servers}}
+          <li>
+            <a href="/server/{{name}}" class="primary {{#if currentServer(name)}}active{{/if}}">
+              <i class="zmdi zmdi-storage"></i>
+              {{name}}
+            </a>
+            <a href="javascript://" class="secondary" can-click="setSideScrollPanel('databases', name)"><i class="zmdi zmdi-chevron-right"></i></a>
+          </li>
+        {{/each}}
+      {{/if}}
+    </ul>  
+  </div>
+
+  <!-- Databases -->
+  <div class="sidescroll-pane databases">
+    <ul class="list-accordion tree-style">
+      <li class="list-title with-nav">
+        <a href="javascript://" title="" class="back-button" can-click="setSideScrollPanel('servers')">
+          <i class="back-button zmdi zmdi-chevron-left"></i>
+        </a>
+        <span>Databases</span>
+      </li>
+      {{^if databases.isPending}}
+        {{#each databases}}
+          <li><a href="/server/{{serverName}}/{{name}}" {{#if currentDatabase(name)}}class="active"{{/if}}>
+              <i class="zmdi zmdi-storage"></i>{{name}}</a>
+          </li>
+        {{/each}}
+      {{/if}}
+    </ul>  
+  </div>
+
+  <!-- Collections -->
+  <div class="sidescroll-pane collections">
+    <ul class="list-accordion tree-style">
+      <li class="list-title with-nav">
+        <a href="javascript://" title="" class="back-button">
+          <i class="back-button zmdi zmdi-chevron-left"></i>
+        </a>
+        <span>Collections</span>
+      </li>
+
+      {{^if collections.isPending}}
+        {{#each collections}}
+          <li><a href="/server/{{serverName}}" {{#if currentCollection(name)}}class="active"{{/if}}>
+              <i class="zmdi zmdi-storage"></i>{{name}}</a>
+          </li>
+        {{/each}}
+      {{/if}}
+    </ul>  
+  </div>
+
+</div>
