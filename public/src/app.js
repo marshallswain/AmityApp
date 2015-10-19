@@ -24,10 +24,6 @@ const AppViewModel = AppMap.extend({
       value: 'data',
       serialize: false
     },
-    dataPane:{
-      value: 'servers',
-      serialize: false
-    },
     user: {
       value(){
         return {
