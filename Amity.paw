@@ -5,7 +5,7 @@
     <databaseInfo>
         <version>134481920</version>
         <UUID>F27BE444-DF2C-4482-B9B6-155E03FAE863</UUID>
-        <nextObjectID>143</nextObjectID>
+        <nextObjectID>144</nextObjectID>
         <metadata>
             <plist version="1.0">
                 <dict>
@@ -85,7 +85,7 @@
         <attribute name="name" type="string">Databases</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z107"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z144 z107"></relationship>
     </object>
     <object type="LMREQUEST" id="z105">
         <attribute name="uuid" type="string">B172D9D6-B161-4802-9FE5-8AF6F351E2E8</attribute>
@@ -110,9 +110,9 @@
         <relationship name="variablesvalues" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z143"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z107">
-        <attribute name="value" type="string"></attribute>
+        <attribute name="value" type="string">application/json</attribute>
         <attribute name="order" type="int64">0</attribute>
-        <attribute name="name" type="string"></attribute>
+        <attribute name="name" type="string">Content-Type</attribute>
         <attribute name="enabled" type="bool">1</attribute>
         <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
         <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
@@ -549,5 +549,15 @@
         <attribute name="value" type="string"></attribute>
         <relationship name="environment" type="1/1" destination="LMENVIRONMENT" idrefs="z106"></relationship>
         <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z142"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z144">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z104"></relationship>
     </object>
 </database>
