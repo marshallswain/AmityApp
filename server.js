@@ -24,13 +24,17 @@ var config = {
 // Start Amity with a MongoAdapter as a configuration store.
 amity.start(app, config, amity.adapters.MongoDB('mongodb://localhost:27017'));
 
-// Always load SSR last.
-app.use('/', ssr({
-  config: __dirname + '/public/package.json!npm',
-  liveReload: true,
-  liveReloadHost: 'Bitovi.local'
-}))
-.configure(feathers.errors());
+setTimeout(function(){
+  // Always load SSR last.
+  app.use('/', ssr({
+    config: __dirname + '/public/package.json!npm',
+    liveReload: true,
+    liveReloadHost: 'Bitovi.local'
+  }))
+  .configure(feathers.errors());
+  console.log('Can-SSR Ready.');
+}, 1000);
+
 
 // Start the server.
 var port = 8080;
