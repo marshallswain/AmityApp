@@ -1,4 +1,8 @@
 <ul class="list-accordion tree-style">
+  <li><a href="/users" {{#routeCurrent(page='users')}}class="active"{{/routeCurrent}}><i class="zmdi zmdi-accounts-list"></i> Manage Users</a></li>
+</ul>
+
+<ul class="list-accordion tree-style">
   <li class="list-title">Users</li>
   <li>
     <a href="#"><i class="zmdi zmdi-view-dashboard"></i><span class="list-label">Layouts Variations</span></a>
