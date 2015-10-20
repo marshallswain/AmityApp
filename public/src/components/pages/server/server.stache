@@ -6,6 +6,49 @@
       </div>
     </div>
   </div>
-  <div class="row"> </div>
+  <div class="row">
+    <div class="widget-wrap">
+      <div class="widget-header block-header clearfix">
+        <h3>Contextual classes</h3>
+        <p>
+          Use <code>.active .success .warning .danger .info</code> in <code>tr</code> or <code>td</code>
+        </p>
+      </div>
+      <div class="widget-container">
+        <div class="widget-content">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th class="td-center">Action</th>
+              </tr>
+              </thead>
+              <tbody>
+
+              {{#each databases}}
+                <tr>
+                  <td>{{name}}</td>
+                  <td><label class="label label-warning">Pending</label></td>
+                  <td class="td-center">
+                    <div class="btn-toolbar" role="toolbar">
+                      <div class="btn-group" role="group">
+                        <a href="#" class="btn btn-default btn-sm m-user-edit"><i class="zmdi zmdi-edit"></i></a>
+                        <a href="#" class="btn btn-default btn-sm m-user-delete"><i class="zmdi zmdi-close"></i></a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              {{/each}}
+
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row"> </div>
 </div>

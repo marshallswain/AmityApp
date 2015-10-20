@@ -2,6 +2,8 @@ import can from 'can';
 import superMap from 'can-connect/can/super-map/';
 import tag from 'can-connect/can/tag/';
 import 'can/map/define/define';
+import io from 'steal-socket.io';
+const socket = io();
 
 export const Server = can.Map.extend({
   define: {}
@@ -20,5 +22,11 @@ export const serverConnection = superMap({
 });
 
 tag('server-model', serverConnection);
+
+socket.on('servers created', server => serverConnection.createInstance(server));
+socket.on('servers updated', server => serverConnection.updateInstance(server));
+socket.on('servers removed', server => serverConnection.destroyInstance(server));
+
+console.log(serverConnection.getList);
 
 export default Server;
