@@ -1,5 +1,5 @@
 <ul class="list-accordion tree-style">
-  <li><a href="/" {{#routeCurrent(page='dashboard')}}class="active"{{/routeCurrent}}><i class="zmdi zmdi-view-carousel"></i> Dashboard</a></li>
+  <li><a href="/" {{#routeCurrent(page='dashboard')}}class="active"{{/routeCurrent}}><i class="zmdi zmdi-view-dashboard"></i> Dashboard</a></li>
 </ul>
 
 <div class="sidescroll {{dataSideScrollPanel}}">
