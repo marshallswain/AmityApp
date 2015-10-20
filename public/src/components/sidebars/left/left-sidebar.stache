@@ -18,7 +18,7 @@
 			<div class="admin-bar">
 				<ul>
 					<li><a href="javascript://" {{#if currentLeftSidebar('data')}}class="active"{{/if}} can-click="{setLeftSidebar('data')}">
-							<i class="zmdi zmdi-storage"></i> 
+							<i class="zmdi zmdi-dns"></i> 
 						</a>
 					</li>
 					<li><a href="javascript://" {{#if currentLeftSidebar('users')}}class="active"{{/if}} can-click="{setLeftSidebar('users')}">
