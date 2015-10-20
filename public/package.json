@@ -46,7 +46,8 @@
     "done-css": "^1.1.11",
     "generator-donejs": "^0.3.2",
     "jquery": "^2.1.4",
-    "steal": "^0.12.0-pre.9"
+    "steal": "^0.12.0-pre.9",
+    "steal-socket.io": "^1.0.0"
   },
   "devDependencies": {
     "documentjs": "^0.3.3",
